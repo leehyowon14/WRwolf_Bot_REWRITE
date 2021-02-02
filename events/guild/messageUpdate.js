@@ -1,5 +1,5 @@
-const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
 const { WebhookClient } = require('discord.js');
+const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
 
 module.exports = async (bot, oldMessage, newMessage) => {
     if(newMessage.author.bot) return;

@@ -1,8 +1,9 @@
-const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
 const { MessageAttachment } = require('discord.js');
 const { WebhookClient } = require('discord.js');
 const fetch = require('node-fetch');
 const { MessageEmbed } = require("discord.js");
+
+const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
 
 module.exports = async (bot, message) => {
     if(message.author.bot) return;
