@@ -1,3 +1,4 @@
+const request = require("request")
 const { MessageEmbed } = require("discord.js");
 module.exports = {
     config: {
