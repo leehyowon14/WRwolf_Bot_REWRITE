@@ -40,10 +40,10 @@ module.exports = async (bot, message) => {
                 
                 webhook.send(embed)
             }
-            return message.channel.send(attachment);
+            return webhook.send(attachment);
         } catch (e) {
             console.log(e);
-            return message.channel.send(`An error occurred: **${e.message}**`);
+            return webhook.send(`An error occurred: **${e.message}**`);
         }
     }
     let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
