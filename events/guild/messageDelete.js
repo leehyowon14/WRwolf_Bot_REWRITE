@@ -1,3 +1,4 @@
+const webhook = new Discord.WebhookClient(process.env.webhookid, process.env.webhooktoken);
 const { MessageAttachment } = require('discord.js');
 const fetch = require('node-fetch');
 const { MessageEmbed } = require("discord.js");

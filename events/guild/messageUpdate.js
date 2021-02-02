@@ -1,3 +1,4 @@
+const webhook = new Discord.WebhookClient(process.env.webhookid, process.env.webhooktoken);
 const { MessageEmbed } = require("discord.js");
 
 module.exports = async (bot, oldMessage, newMessage) => {
