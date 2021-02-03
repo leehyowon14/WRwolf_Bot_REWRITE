@@ -1,5 +1,6 @@
 const { WebhookClient } = require('discord.js');
 const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (bot, oldMessage, newMessage) => {
     if(newMessage.author.bot) return;
