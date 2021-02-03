@@ -2,10 +2,10 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     config: {
-        name: "help",
+        name: "admin_help",
         aliases: [`${prefix}ad_help`],
         description: "help",
-        usage: "help",
+        usage: "ad_help",
         accessableby: "Administrators",
     },
     run: async (bot, message, args) => {
