@@ -1,4 +1,4 @@
-const adminUserId = 417998410495557632;
+const adminUserId = 745859722720051234;
 
 module.exports = async (bot, message) => {
     if(message.author.bot) return;
