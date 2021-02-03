@@ -45,4 +45,4 @@ Object.values(config).forEach((x, i) => bot[Object.keys(config)[i]] = x);
 
 process.env.NODE_ENV = process.argv[2];
 
-bot.login('Nzg1Njc4ODI1NTgwNjU4Njg4.X87WbQ.OySo9cYEc6USkg-Je-ozgeWZdKE');
+bot.login(process.env.token);
