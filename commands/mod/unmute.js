@@ -1,7 +1,7 @@
 module.exports = {
     config: {
         name: "unmute",
-        aliases: ["um", "speak", "ㅕㅡ", "뮤트해제", "너의죄를사하노라"],
+        aliases: [`${prefix}unmute`],
         description: "뮤트해제",
         usage: "um <@user> <이유>",
         accessableby: "Administrators",

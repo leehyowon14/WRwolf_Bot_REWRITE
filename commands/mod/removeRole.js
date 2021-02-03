@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     config: {
         name: "removerole",
-        aliases: ["rr", "roleremove", "ㄱㄱ", "ㄱ드ㅐㅍㄷ개ㅣㄷ", "역할삭제"],
+        aliases: [`${prefix}roleremove`],
         description: "특정유저에게 역할삭제",
         usage: "removerole <@username> <role> <reason>",
         accessableby: "Administrators",

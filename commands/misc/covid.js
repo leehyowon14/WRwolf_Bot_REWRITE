@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     config: {
         name: "covid",
-        aliases: ["covid", "코로나"],
+        aliases: [`${prefix}covid`, `${prefix}코로나`],
         description: "대한민국 코로나 상태",
         usage: "cv",
         accessableby: "Members"

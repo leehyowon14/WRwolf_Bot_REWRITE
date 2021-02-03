@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     config: {
         name: "unban",
-        aliases: ["ub", "unbanish", "ㅕㅠ", "밴해제"],
+        aliases: [`${prefix}unban`],
         description: "밴 헤제",
         usage: "unban <username> <reason>",
         accessableby: "Administrators",

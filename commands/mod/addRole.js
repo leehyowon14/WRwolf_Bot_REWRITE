@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     config: {
         name: "addrole",
-        aliases: ["ar", "ㅁㄱ", "addrole", "역할추가"],
+        aliases: [`${prefix}addrole`],
         description: "유저에게 역할 추가",
         usage: "addrole <@username>",
         accessableby: "Administrators",

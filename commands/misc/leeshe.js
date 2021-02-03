@@ -1,7 +1,7 @@
 module.exports = {
     config: {
         name: "leeshe",
-        aliases: ["이쉬", "이쒸"],
+        aliases: [`이쉬`, `이쒸`],
         description: "이쒸",
         usage: "이쉬",
         accessableby: "Members",

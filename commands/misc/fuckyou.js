@@ -1,7 +1,7 @@
 module.exports = {
     config: {
         name: "fuckyou",
-        aliases: ["fy", "료"],
+        aliases: [`${prefix}fy`, `${prefix}료`],
         description: "fuck you bitch",
         usage: "fy",
         accessableby: "Members",

@@ -1,7 +1,7 @@
 module.exports = {
     config: {
         name: "ping",
-        aliases: ["ping"],
+        aliases: [`${prefix}ping`],
         description: "핑 상태",
         usage: "ping",
         accessableby: "Members"

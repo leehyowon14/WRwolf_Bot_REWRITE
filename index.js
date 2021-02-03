@@ -23,6 +23,9 @@ require('./util/misc.js')
 const yaml = require('js-yaml');
 const fs = require('fs');
 
+let prefix = process.env.prefix;
+global.prefix = prefix;
+
 try {
     const doc = yaml.safeLoad(fs.readFileSync('./config.yml', 'utf8'));
     // console.log({doc});
@@ -41,7 +44,5 @@ Object.values(config).forEach((x, i) => bot[Object.keys(config)[i]] = x);
 ["command", "event"].forEach(x => require(`./handlers/${x}`)(bot));
 
 process.env.NODE_ENV = process.argv[2];
-if (process.argv[2] == 'live') bot.token = config.live_token;
-else if (process.argv[2] == 'qa') bot.token = config.qa_token;
 
-bot.login(process.env.token);
+bot.login('Nzg1Njc4ODI1NTgwNjU4Njg4.X87WbQ.OySo9cYEc6USkg-Je-ozgeWZdKE');

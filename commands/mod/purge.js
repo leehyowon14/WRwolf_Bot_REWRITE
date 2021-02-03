@@ -2,7 +2,7 @@
 module.exports = {
     config: {
         name: "clear",
-        aliases: ["c", "ㅊ", "청소"],
+        aliases: [`${prefix}clear`, `${prefix}청소`],
         description: "청소",
         usage: "c <num>",
         accessableby: "Administrators",

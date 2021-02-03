@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     config: {
         name: "han",
-        aliases: ["한강"],
+        aliases: [`${prefix}한강`],
         description: "한강 수온",
         usage: "한강",
         accessableby: "Members",

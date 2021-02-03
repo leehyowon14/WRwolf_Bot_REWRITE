@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     config: {
         name: "ban",
-        aliases: ["b", "banish", "remove", "ㅠ", "ㅠ무", "밴"],
+        aliases: [`${prefix}ban`],
         description: "특정유저 밴",
         usage: "ban <@username>",
         accessableby: "Administrators",

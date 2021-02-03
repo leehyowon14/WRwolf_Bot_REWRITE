@@ -3,7 +3,7 @@ const { BitField } = require("discord.js")
 module.exports = {
     config: {
         name: "mute",
-        aliases: ["m", "nospeak", "ㅡ", "ㅡㅕㅅㄷ", "뮤트", "닥쳐", "닥처", "아닥"],
+        aliases: [`${prefix}mute`],
         description: "뮤트",
         usage: "m <@username> <reason>",
         accessableby: "Administrators",
