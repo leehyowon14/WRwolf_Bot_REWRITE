@@ -25,12 +25,14 @@ commands:
     fuckyou: fuckyou commands
     invite: invite commands
     help: help commands
+    hitomi: hitomi commands
     admin_help: admin_help commands
     ping: ping commands
     random: random commands
     reactionrole: reactionrole commands
   mod:
     addRole: addRole commands
+    admin_help: admin_help commands
     ban: ban commands
     kick: kick commands
     mute: mute commands
