@@ -5,7 +5,7 @@ module.exports = bot => {
         `${bot.users.cache.size} users!`
     ];
     let i = 0;
-    setInterval(() => bot.user.setActivity(`${bot.prefix}help | ${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
+    setInterval(() => bot.user.setActivity(`${prefix}help | ${activities[i++ % activities.length]}`, { type: "WATCHING" }), 15000)
 
     log(`${redChalk(bot.user.username)} ${greenChalk('is online')}`);
 };
