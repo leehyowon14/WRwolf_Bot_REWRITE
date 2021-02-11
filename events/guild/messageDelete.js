@@ -1,9 +1,6 @@
 const { MessageAttachment } = require('discord.js');
-const { WebhookClient } = require('discord.js');
 const fetch = require('node-fetch');
 const { MessageEmbed } = require("discord.js");
-
-const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
 
 module.exports = async (bot, message) => {
     if(message.author.bot) return;
@@ -25,7 +22,7 @@ module.exports = async (bot, message) => {
                 .setFooter(message.author.tag, img)
                 .setTimestamp()
                 
-                webhook.send(embed)
+                system.send(embed)
             } else {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
@@ -38,12 +35,12 @@ module.exports = async (bot, message) => {
                     .setFooter(message.author.tag, img)
                     .setTimestamp()
                 
-                webhook.send(embed)
+                system.send(embed)
             }
-            return webhook.send(attachment);
+            return system.send(attachment);
         } catch (e) {
             console.log(e);
-            return webhook.send(`An error occurred: **${e.message}**`);
+            return system.send(`An error occurred: **${e.message}**`);
         }
     }
     let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
@@ -57,5 +54,5 @@ module.exports = async (bot, message) => {
         .setFooter(message.author.tag, img)
         .setTimestamp()
     
-    webhook.send(embed)
+    system.send(embed)
 }
