@@ -32,7 +32,7 @@ module.exports = {
             //.addField('투표(YES or NO)', '패치중...')
             //.addField('!dm', '갠메 공지')
             .addField('\u200B', '\u200B')
-            .addField(`${prefix}admin_help`, '어드민 명령어')
+            .addField(`${prefix}ad_help`, '어드민 명령어')
             //.addField('음악', '음악봇 명령어')
             //.addField('-play[p] <음악 링크 or 제목>', '음악 재생', true)
             //.addField('-stop', '음악 재생 정지', true )
