@@ -26,6 +26,9 @@ const fs = require('fs');
 let prefix = process.env.prefix;
 global.prefix = prefix;
 
+let system = member.guild.systemChannel
+global.system = system;
+
 try {
     const doc = yaml.safeLoad(fs.readFileSync('./config.yml', 'utf8'));
     // console.log({doc});
