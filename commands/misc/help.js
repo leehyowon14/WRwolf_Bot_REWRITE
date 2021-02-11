@@ -28,7 +28,7 @@ module.exports = {
             //.addField('fuck', '엿날리기', true)
             .addField('음', '펀쿨섹좌', true)
             .addField(`${prefix}fy/${prefix}료`, '엿날리기', true)
-            .addField(`${prefix}hitomi/${prefix}히토미/${prefix}hiyobi/${prefix}히요비/${prefix}h [번호]`, 'hitomi(hiyovi) helper')
+            .addField(`${prefix}hitomi/${prefix}히토미/${prefix}hiyobi/${prefix}히요비/${prefix}h [번호]`, 'hitomi(hiyobi) helper')
             //.addField('투표(YES or NO)', '패치중...')
             //.addField('!dm', '갠메 공지')
             .addField('\u200B', '\u200B')
