@@ -1,5 +1,3 @@
-const { WebhookClient } = require('discord.js');
-const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
 const { MessageEmbed } = require("discord.js");
 
 module.exports = async (bot, oldMessage, newMessage) => {
@@ -17,5 +15,5 @@ module.exports = async (bot, oldMessage, newMessage) => {
     .setFooter(oldMessage.author.tag, img)
     .setTimestamp()
   
-    webhook.send(embed)
+    system.send(embed)
 }
