@@ -25,19 +25,36 @@ module.exports = {
 
             
                 const tags = $(".relatedtags a").text()
-            
-                let embed = new MessageEmbed()
-                    .setColor('#73c4fa')
-                    .setTitle('HITOMI(HIYOBI) HELPER')
-                    .addField('제목', `${title}`)
-                    .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
-                    .addField('히요비 링크(없는작품 종종있음)', `https://hiyobi.me/reader/${number}`)
-                    .addField('태그', `${tags}`)
-                    .addField('\u200B', '\u200B')
-                    .setTimestamp()
-                    .setFooter('Developed by 느윽대#5070')
 
-                message.channel.send(embed)
+                const languages = $("a[href~=^/index.+\\.html\$]").text()
+                if (languages == "한국어") {
+                    let embed = new MessageEmbed()
+                        .setColor('#73c4fa')
+                        .setTitle('HITOMI(HIYOBI) HELPER')
+                        .addField('제목', `${title}`)
+                        .addField('언어', `${languages}`)
+                        .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
+                        .addField('히요비 링크', `https://hiyobi.me/reader/${number}`)
+                        .addField('태그', `${tags}`)
+                        .addField('\u200B', '\u200B')
+                        .setTimestamp()
+                        .setFooter('Developed by 느윽대#5070')
+
+                    message.channel.send(embed)
+                }else{
+                    let embed = new MessageEmbed()
+                        .setColor('#73c4fa')
+                        .setTitle('HITOMI(HIYOBI) HELPER')
+                        .addField('제목', `${title}`)
+                        .addField('언어', `${languages}`)
+                        .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
+                        .addField('태그', `${tags}`)
+                        .addField('\u200B', '\u200B')
+                        .setTimestamp()
+                        .setFooter('Developed by 느윽대#5070')
+
+                    message.channel.send(embed)
+                }
             }); 
             } catch (e) {
                 console.log(e);
