@@ -14,13 +14,13 @@ module.exports = {
         const number = args[0]
         if (!number) {
             let embed = new MessageEmbed()
-            .setColor('#f94343')
-            .setAuthor('에러!')
-            .setTitle('번호를 입력해주세요')
-            .setTimestamp()
-            .setFooter('Developed by 느윽대#5070')
-        
-        message.channel.send(embed)
+                .setColor('#f94343')
+                .setAuthor('에러!')
+                .setTitle('번호를 입력해주세요')
+                .setTimestamp()
+                .setFooter('Developed by 느윽대#5070')
+            message.channel.send(embed)
+            return;
         }
 
         
@@ -40,6 +40,7 @@ module.exports = {
                     .setTimestamp()
                     .setFooter('Developed by 느윽대#5070')
                 message.channel.send(embed)
+                return;
             }
             
             const tags = $(".relatedtags a").text()
