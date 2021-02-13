@@ -25,5 +25,5 @@ module.exports = async (bot, oldMessage, newMessage) => {
         .addField('New Message:', newMessage.content)
         .setFooter(oldMessage.author.tag, img)
         .setTimestamp()
-    SystemChannel.send(embed)
+        message.guild.systemChannel.send(embed)
 }

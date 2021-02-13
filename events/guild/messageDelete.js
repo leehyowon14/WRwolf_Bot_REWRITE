@@ -33,7 +33,7 @@ module.exports = async (bot, message) => {
                 .addField('Channel:', message.channel.name)
                 .setFooter(message.author.tag, img)
                 .setTimestamp()
-                SystemChannel.send(embed)
+                message.guild.systemChannel.send(embed)
 
             } else {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
@@ -47,9 +47,9 @@ module.exports = async (bot, message) => {
                     .setFooter(message.author.tag, img)
                     .setTimestamp()
                 
-                    SystemChannel.send(embed)
+                    message.guild.systemChannel.send(embed)
             }
-            return SystemChannel.send(attachment);
+            return message.guild.systemChannel.send(attachment);
         } catch (e) {
             console.log(e);
             return SystemChannel.send(`An error occurred: **${e.message}**`);
@@ -66,5 +66,5 @@ module.exports = async (bot, message) => {
         .setFooter(message.author.tag, img)
         .setTimestamp()
     
-        SystemChannel.send(embed)
+        message.guild.systemChannel.send(embed)
 }

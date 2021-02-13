@@ -10,8 +10,6 @@ module.exports = async (bot, message) => {
 
         return;
     }
-    const SystemChannel = message.guild.systemChannel
-    global.SystemChannel = SystemChannel;
     let args = message.content.slice(bot.prefix.length).trim().split(/ +/g);
     let cmd = args.shift().toLowerCase();
 
