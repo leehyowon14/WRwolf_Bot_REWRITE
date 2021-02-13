@@ -1,8 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
-module.exports = async (bot, oldMessage, newMessage, message) => {
+module.exports = async (bot, oldMessage, newMessage) => {
     if(newMessage.author.bot) return;
-    const SystemChannel = message.guild.systemChannel
     if (!SystemChannel) {
         let embed = new MessageEmbed()
         .setColor('#f94343')
