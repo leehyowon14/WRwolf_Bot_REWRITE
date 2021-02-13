@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
-module.exports = async (bot, oldMessage, newMessage, message) => {
+module.exports = async (bot, oldMessage, newMessage) => {
     if(newMessage.author.bot) return;
-    if (!message.guild.systemChannel) {
+    if (!newMessage.guild.systemChannel) {
         let embed = new MessageEmbed()
         .setColor('#f94343')
         .setAuthor('에러!')
@@ -10,7 +10,7 @@ module.exports = async (bot, oldMessage, newMessage, message) => {
         .setDescription('서버설정-일반-시스템 메세지 채널')
         .setTimestamp()
         .setFooter('Developed by sG.wolf#5070')
-    message.channel.send(embed)
+    newMessage.channel.send(embed)
     return;
     }
     if(oldMessage.content == newMessage.content) return;
@@ -25,5 +25,5 @@ module.exports = async (bot, oldMessage, newMessage, message) => {
         .addField('New Message:', newMessage.content)
         .setFooter(oldMessage.author.tag, img)
         .setTimestamp()
-        message.guild.systemChannel.send(embed)
+        newMessage.guild.systemChannel.send(embed)
 }
