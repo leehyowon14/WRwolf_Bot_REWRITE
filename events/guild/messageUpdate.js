@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
-module.exports = async (bot, oldMessage, newMessage) => {
+module.exports = async (bot, oldMessage, newMessage, message) => {
     if(newMessage.author.bot) return;
     const SystemChannel = message.guild.systemChannel
     if (!SystemChannel) {
