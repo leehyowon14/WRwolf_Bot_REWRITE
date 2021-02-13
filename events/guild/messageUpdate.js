@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = async (bot, oldMessage, newMessage) => {
     if(newMessage.author.bot) return;
-    if (!SystemChannel) {
+    if (!message.guild.systemChannel) {
         let embed = new MessageEmbed()
         .setColor('#f94343')
         .setAuthor('에러!')
