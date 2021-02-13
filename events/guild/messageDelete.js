@@ -1,12 +1,21 @@
 const { MessageAttachment } = require('discord.js');
-const { WebhookClient } = require('discord.js');
 const fetch = require('node-fetch');
 const { MessageEmbed } = require("discord.js");
 
-const webhook = new WebhookClient(process.env.webhookid, process.env.webhooktoken);
-
 module.exports = async (bot, message) => {
     if(message.author.bot) return;
+    const SystemChannel = message.guild.systemChannel
+    if (!SystemChannel) {
+        let embed = new MessageEmbed()
+        .setColor('#f94343')
+        .setAuthor('에러!')
+        .setTitle('시스템채널을 설정해주세요!')
+        .setDescription('서버설정-일반-시스템 메세지 채널')
+        .setTimestamp()
+        .setFooter('Developed by sG.wolf#5070')
+    message.channel.send(embed)
+    return;
+    }
     if(message.attachments.array().length > 0) {
         try {
             const result = await fetch(message.attachments.array()[0].proxyURL);
@@ -25,7 +34,7 @@ module.exports = async (bot, message) => {
                 .setFooter(message.author.tag, img)
                 .setTimestamp()
                 
-                webhook.send(embed)
+                SystemChannel.send(embed)
             } else {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
@@ -38,12 +47,12 @@ module.exports = async (bot, message) => {
                     .setFooter(message.author.tag, img)
                     .setTimestamp()
                 
-                webhook.send(embed)
+                    SystemChannel.send(embed)
             }
-            return webhook.send(attachment);
+            return SystemChannel.send(attachment);
         } catch (e) {
             console.log(e);
-            return webhook.send(`An error occurred: **${e.message}**`);
+            return SystemChannel.send(`An error occurred: **${e.message}**`);
         }
     }
     let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
@@ -57,5 +66,5 @@ module.exports = async (bot, message) => {
         .setFooter(message.author.tag, img)
         .setTimestamp()
     
-    webhook.send(embed)
+        SystemChannel.send(embed)
 }

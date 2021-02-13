@@ -27,7 +27,7 @@ module.exports = {
             .addField(`${prefix}unmute [멘션]`, '언뮤트')
             .addField('\u200B', '\u200B')
             .setTimestamp()
-            .setFooter('Developed by 느윽대#5070', img)
+            .setFooter('Developed by sG.wolf#5070', img)
 
         message.channel.send(embed)
     }

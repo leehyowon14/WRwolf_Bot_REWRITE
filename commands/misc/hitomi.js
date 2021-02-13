@@ -18,7 +18,7 @@ module.exports = {
                 .setAuthor('에러!')
                 .setTitle('번호를 입력해주세요')
                 .setTimestamp()
-                .setFooter('Developed by 느윽대#5070')
+                .setFooter('Developed by sG.wolf#5070')
             message.channel.send(embed)
             return;
         }
@@ -38,7 +38,7 @@ module.exports = {
                     .setAuthor('에러!')
                     .setTitle('없는작품입니다')
                     .setTimestamp()
-                    .setFooter('Developed by 느윽대#5070')
+                    .setFooter('Developed by sG.wolf#5070')
                 message.channel.send(embed)
                 return;
             }
@@ -58,7 +58,7 @@ module.exports = {
                     .addField('태그', `${tags}`)
                     .addField('\u200B', '\u200B')
                     .setTimestamp()
-                    .setFooter('Developed by 느윽대#5070')
+                    .setFooter('Developed by sG.wolf#5070')
 
                 message.channel.send(embed)
             }else{
@@ -71,7 +71,7 @@ module.exports = {
                     .addField('태그', `${tags}`)
                     .addField('\u200B', '\u200B')
                     .setTimestamp()
-                    .setFooter('Developed by 느윽대#5070')
+                    .setFooter('Developed by sG.wolf#5070')
 
                 message.channel.send(embed)
                 }
