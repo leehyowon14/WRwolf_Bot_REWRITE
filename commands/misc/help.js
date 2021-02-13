@@ -42,7 +42,7 @@ module.exports = {
             //.addField('-queue[q]', '재생중인 음악 정보')
             .addField('\u200B', '\u200B')
             .setTimestamp()
-            .setFooter('Developed by 느윽대#5070', img)
+            .setFooter('Developed by sG.wolf#5070', img)
 
         message.channel.send(embed)
     }

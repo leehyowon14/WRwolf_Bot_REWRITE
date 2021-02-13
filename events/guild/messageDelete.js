@@ -33,8 +33,8 @@ module.exports = async (bot, message) => {
                 .addField('Channel:', message.channel.name)
                 .setFooter(message.author.tag, img)
                 .setTimestamp()
-                
                 SystemChannel.send(embed)
+
             } else {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
