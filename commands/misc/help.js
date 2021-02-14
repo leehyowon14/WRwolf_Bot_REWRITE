@@ -19,7 +19,6 @@ module.exports = {
             .addField('ㅂㄷㅂㄷ/qeqe', 'ㅂㄷㅂㄷ')
             .addField(`${prefix}코로나/!covid`, `전국/경북 코로나 확진자 현황`)
             .addField(`${prefix}한강`, `한강 물 온도`)
-
             .addField('ㄱㅅㄱㅅㄱㅅㄱㅅ, rtrtrtrt, ㄳㄳㄳㄳ', '감사합니다아ㅏㅏ')
             //.addField('you know that, you know it', '잠재적 동의?')
             .addField(`${prefix}초대코드/${prefix}초대링크`, `초대링크 만들기`)
@@ -29,6 +28,7 @@ module.exports = {
             .addField('음', '펀쿨섹좌', true)
             .addField(`${prefix}fy/${prefix}료`, '엿날리기', true)
             .addField(`${prefix}hitomi/${prefix}히토미/${prefix}hiyobi/${prefix}히요비/${prefix}h [번호]`, 'hitomi(hiyobi) helper')
+            .addField(`${prefix}github/${prefix}깃헙/${prefix}깃허브 [유저네임]`, `깃허브 유저 검색`)
             //.addField('투표(YES or NO)', '패치중...')
             //.addField('!dm', '갠메 공지')
             .addField('\u200B', '\u200B')

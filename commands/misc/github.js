@@ -12,11 +12,29 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        if (!args[0]) return;
+        if (!args[0]) {
+            let embed = new MessageEmbed()
+            .setColor('#f94343')
+            .setAuthor('에러!')
+            .setTitle('검색할 유저이름을 입력하여 주세요')
+            .setTimestamp()
+            .setFooter('Developed by sG.wolf#5070')
+        message.channel.send(embed)
+        return;
+        }
 
         const { login, avatar_url, location, created_at, followers, following, email, blog, html_url, bio, public_repos, public_gists } = await fetch(`https://api.github.com/users/${encodeURI(args.join(" "))}`).then(e => e.json());
 
-        if (!login) return message.channel.send(`\`${args.join(" ")}\` (이)라는 유저를 찾을 수 없습니다...`);
+        if (!login) {
+            let embed = new MessageEmbed()
+            .setColor('#f94343')
+            .setAuthor('에러!')
+            .setTitle(`\`${args.join(" ")}\` (이)라는 유저를 찾을 수 없습니다.`)
+            .setTimestamp()
+            .setFooter('Developed by sG.wolf#5070')
+        message.channel.send(embed)
+        return;
+        }
 
         message.channel.send(new MessageEmbed().setTitle(`${login}님의 정보`).setColor(0x000000).setAuthor('Github', 'https://github.githubassets.com/favicons/favicon.png', 'https://github.com/').setFooter(login, avatar_url).setDescription(`[들어가기](${html_url})`).setThumbnail(avatar_url)
         .addFields([
