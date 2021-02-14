@@ -4,9 +4,14 @@ const moment = require("moment-timezone");
 moment.locale("ko-KR");
 
 module.exports = {
-    name: "github",
-    aliases: [`${prefix}깃허브`, `${prefix}깃헙`, `${prefix}github`],
-    run: async (client, message, args) => {
+    config: {
+        name: "github",
+        aliases: [`${prefix}깃허브`, `${prefix}깃헙`, `${prefix}github`],
+        description: "깃허브 검색",
+        usage: "github [이름]",
+        accessableby: "Members",
+    },
+    run: async (bot, message, args) => {
         if (!args[0]) return;
 
         const { login, avatar_url, location, created_at, followers, following, email, blog, html_url, bio, public_repos, public_gists } = await fetch(`https://api.github.com/users/${encodeURI(args.join(" "))}`).then(e => e.json());
