@@ -47,9 +47,9 @@ module.exports = {
 
         // add role to the mentioned user and also send the user a dm explaing where and why they were muted
         mutee.roles.add(muterole.id).then(() => {
-            message.channel.send(`${mutee.user} 닥쳐라. 이 새끼야.`)
+            message.channel.send(`${mutee.user} 뮤트됨.`)
         }).catch(e => {
-            message.reply(`${mutee.user}을(를) 닥치게 못 했어요. 미안해요. (오류)`)
+            message.reply(`${mutee.user}을(를) 뮤트하지 못 했어요. 미안해요. (오류)`)
         })
     }
 }
