@@ -14,5 +14,5 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
   name: "현재",
-  aliases: [`${prefux}np`,`${prefix}nowplaying`,`${prefix}현재음악`]
+  aliases: [`${prefix}np`,`${prefix}nowplaying`,`${prefix}현재음악`]
 }
