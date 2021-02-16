@@ -22,6 +22,10 @@ const bot = new Client({
 require('./util/misc.js')
 const yaml = require('js-yaml');
 const fs = require('fs');
+const { Player } = require("discord-player");
+const player = new Player(bot, process.env.youtubeapi);
+
+bot.player = player;
 
 let prefix = process.env.prefix;
 global.prefix = prefix;

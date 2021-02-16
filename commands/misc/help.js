@@ -19,6 +19,7 @@ module.exports = {
             .addField('ㅂㄷㅂㄷ/qeqe', 'ㅂㄷㅂㄷ')
             .addField(`${prefix}코로나/!covid`, `전국/경북 코로나 확진자 현황`)
             .addField(`${prefix}한강`, `한강 물 온도`)
+
             .addField('ㄱㅅㄱㅅㄱㅅㄱㅅ, rtrtrtrt, ㄳㄳㄳㄳ', '감사합니다아ㅏㅏ')
             //.addField('you know that, you know it', '잠재적 동의?')
             .addField(`${prefix}초대코드/${prefix}초대링크`, `초대링크 만들기`)
@@ -27,12 +28,11 @@ module.exports = {
             //.addField('fuck', '엿날리기', true)
             .addField('음', '펀쿨섹좌', true)
             .addField(`${prefix}fy/${prefix}료`, '엿날리기', true)
-            .addField(`${prefix}hitomi/${prefix}히토미/${prefix}hiyobi/${prefix}히요비/${prefix}h [번호]`, 'hitomi(hiyobi) helper')
-            .addField(`${prefix}github/${prefix}깃헙/${prefix}깃허브 [유저네임]`, `깃허브 유저 검색`)
             //.addField('투표(YES or NO)', '패치중...')
             //.addField('!dm', '갠메 공지')
             .addField('\u200B', '\u200B')
-            .addField(`${prefix}ad_help`, '어드민 명령어')
+            .addField(`${prefix}music_help`, '음악봇 명령어')
+            .addField(`${prefix}admin_help`, '어드민 명령어')
             //.addField('음악', '음악봇 명령어')
             //.addField('-play[p] <음악 링크 or 제목>', '음악 재생', true)
             //.addField('-stop', '음악 재생 정지', true )
@@ -42,7 +42,7 @@ module.exports = {
             //.addField('-queue[q]', '재생중인 음악 정보')
             .addField('\u200B', '\u200B')
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#5070', img)
+            .setFooter('Developed by 느윽대#5070', img)
 
         message.channel.send(embed)
     }
