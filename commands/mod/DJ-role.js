@@ -26,7 +26,7 @@ module.exports = {
         }
         let isDJ = DJmention._roles.find(x => x == DJrole.id);
         if (!isDJ) {
-            mutee.roles.remove(muterole.id).then(() => {
+            DJmention.roles.remove(DJrole.id).then(() => {
                 message.channel.send(`${DJmention.user}님의 DJ역할이 삭제 되었어요!`)
             }).catch(e => {
                 message.reply(`${DJmention.user}님의 DJ 역할을 삭제하지 못했어요. (오류)\n${e}`)
