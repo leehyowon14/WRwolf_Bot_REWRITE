@@ -1,5 +1,5 @@
 const { Client, Collection, Intents } = require("discord.js");
-const config = require("./config.json");
+const config = require("./config/config.json");
 const bot = new Client({
     ws: {
         intents: new Intents(['GUILDS',
@@ -22,16 +22,19 @@ const bot = new Client({
 require('./util/misc.js')
 const yaml = require('js-yaml');
 const fs = require('fs');
-const { Player } = require("discord-player");
-const player = new Player(bot, process.env.youtubeapi);
+const { Player } = require("discord-player", process.env.youtubeapi);
+const player = new Player(bot);
 
 bot.player = player;
+bot.config = require('./config/config.json')
+bot.emotes = bot.config.emotes;
+bot.colors = bot.config.colors;
 
 let prefix = process.env.prefix;
 global.prefix = prefix;
 
 try {
-    const doc = yaml.safeLoad(fs.readFileSync('./config.yml', 'utf8'));
+    const doc = yaml.safeLoad(fs.readFileSync('./config/config.yml', 'utf8'));
     // console.log({doc});
     console.log(doc.commands.misc);
     console.log(doc.commands.mod);

@@ -18,6 +18,6 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-  name: "볼륨",
+  name: "volume",
   aliases: [`${prefix}v`,`${prefix}volume`,`${prefix}불륨`]
 }
