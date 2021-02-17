@@ -29,6 +29,7 @@ commands:
     ping: ping commands
     random: random commands
     github: github commands
+    music_help: music_help commands
     #reactionrole: reactionrole commands
   mod:
     addRole: addRole commands
@@ -40,3 +41,16 @@ commands:
     removeRole: removeRole commands
     unban: unban commands
     unmute: unmute commands
+    DJ_role: DJ commands
+  
+  music:
+    clear-queue: clearQueue commands
+    loop: loop commands
+    now-playing: nowPlaying commands
+    pause: pause commands
+    play: play commands
+    queue: queue commands
+    resume: resume commands
+    set-volume: setVolume commands
+    skip: skip commands
+    stop: stop commands
