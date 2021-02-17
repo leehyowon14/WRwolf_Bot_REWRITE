@@ -22,7 +22,7 @@ module.exports = {
 
         await rMember.roles.add(role).catch(e => {
             console.log(e.message)
-            return message.channel.send(`${rMember.displayName}, already has the role!`)
+            return message.channel.send(`${rMember.displayName}, already has the role!\n(봇의 역할[Project_WRwolf_bot]이 역할 가장 위에있는지 확인해주세요)`)
         })
 
         let embed = new MessageEmbed()
