@@ -27,7 +27,7 @@ module.exports = {
             .addField(`${prefix}stop/${prefix}leave/${prefix}나가`, '음악 듣기 중단')
             .addField('\u200B', '\u200B')
             .addField("관리자 전용 명령어", "관리자만 쓸수있는 음악관련 명령어")
-            .addField(`${prefix}DJ [멘션]`, `DJ권한 주기/뺏기 (DJ역할이 없을때는 자동으로 생성됨)`)
+            .addField(`${prefix}dj [멘션]`, `DJ권한 주기/뺏기 (DJ역할이 없을때는 자동으로 생성됨)`)
             .addField('\u200B', '\u200B')
             .setTimestamp()
             .setFooter('Developed by 느윽대#5070', img)

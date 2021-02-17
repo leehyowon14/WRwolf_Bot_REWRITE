@@ -25,7 +25,7 @@ module.exports = {
             .addField(`${prefix}removerole [멘션] [역할멘션]`, '역할 제거')
             .addField(`${prefix}unban [멘션]`, '언밴')
             .addField(`${prefix}unmute [멘션]`, '언뮤트')
-            .addField(`${prefix}DJ [멘션]`, `DJ권한 주기/뺏기 (DJ역할이 없을때는 자동으로 생성됨)`)
+            .addField(`${prefix}dj [멘션]`, `DJ권한 주기/뺏기 (DJ역할이 없을때는 자동으로 생성됨)`)
             .addField('\u200B', '\u200B')
             .setTimestamp()
             .setFooter('Developed by sG.wolf#5070', img)
