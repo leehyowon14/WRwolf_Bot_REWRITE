@@ -1,6 +1,6 @@
 module.exports = {
     config: {
-        name: "DJ_role",
+        name: "DJ-role",
         aliases: [`${prefix}DJ`],
         description: "DJ",
         usage: "DJ <@username>",
