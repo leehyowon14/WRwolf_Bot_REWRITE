@@ -5,7 +5,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@discordjs/opus": "^0.4.0",
+    "@discordjs/opus": "^0.3.2",
     "@lavacord/discord.js": "0.0.7",
     "axios": "^0.21.1",
     "canvas": "^2.6.1",
@@ -13,7 +13,7 @@
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.5",
     "common-tags": "^1.8.0",
-    "discord-player": "^1.4.1",
+    "discord-player": "^2.3.1",
     "discord.js": "^12.5.1",
     "install": "^0.13.0",
     "js-yaml": "^3.14.1",
@@ -27,7 +27,7 @@
     "pretty-ms": "^7.0.1",
     "request": "^2.88.2",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^2.1.7"
+    "ytdl-core": "^3.2.0"
   },
   "main": "index.js",
   "devDependencies": {},
