@@ -27,7 +27,8 @@
     "pretty-ms": "^7.0.1",
     "request": "^2.88.2",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^3.2.0"
+    "ytdl-core": "^3.2.0",
+    "fs": "^0.0.2"
   },
   "main": "index.js",
   "devDependencies": {},
