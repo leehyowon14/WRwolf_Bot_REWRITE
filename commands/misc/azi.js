@@ -7,6 +7,9 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        if (args[0]) {
+            return;
+        }
         message.channel.send('사랑이다\n```\n퓌봉님 요청\n```')       
     }
 }
