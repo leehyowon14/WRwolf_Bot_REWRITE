@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "resume",
-    aliases: ["resume", "unpause"],
+    aliases: [`${prefix}resume`, `${prefix}unpause`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {

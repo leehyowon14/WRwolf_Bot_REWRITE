@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "repeat",
-    aliases: ["loop", "rp"],
+    aliases: [`${prefix}loop`, `${prefix}rp`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {

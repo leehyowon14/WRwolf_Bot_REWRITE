@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "play",
-    aliases: ["p"],
+    aliases: [`${prefix}p`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {

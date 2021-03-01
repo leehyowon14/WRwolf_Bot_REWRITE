@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "stop",
-    aliases: ["disconnect", "leave"],
+    aliases: [`${prefix}disconnect`, `${prefix}leave`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {

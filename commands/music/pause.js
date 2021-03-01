@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "pause",
-    aliases: ["pause", "hold"],
+    aliases: [`${prefix}pause`, `${prefix}hold`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {

@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "queue",
-    aliases: ["q"],
+    aliases: [`${prefix}q`],
     },
     run: async (bot, message, args) => {
         const queue = bot.distube.getQueue(message)

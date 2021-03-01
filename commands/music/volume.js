@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "volume",
-    aliases: ["v", "set", "set-volume"],
+    aliases: [`${prefix}v`, `${prefix}set`, `${prefix}set-volume`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {

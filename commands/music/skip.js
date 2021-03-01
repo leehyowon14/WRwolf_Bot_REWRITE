@@ -1,6 +1,7 @@
 module.exports = {
     config: {
     name: "skip",
+    aliases: [`${prefix}s`, `${prefix}skip`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {

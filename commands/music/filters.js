@@ -1,7 +1,7 @@
 module.exports = {
     config: {
     name: "filter",
-    aliases: ["filters"],
+    aliases: [`${prefix}filters`],
     inVoiceChannel: true,
     },
     run: async (bot, message, args) => {
