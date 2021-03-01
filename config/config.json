@@ -25,14 +25,12 @@
         "warning": "0xFFD100"
       },
       "emotes": {
-      "music": "🎶 ",
-      "queue": "🎞️",
-      "error": "❌",
-      "success": "☑️",
-      "warning": "⚠️",
-      "repeat": "🔁",
-      "pause": "⏸️",
-      "resume": "⏯️",
-      "stop": "⏹️"
+        "play": "▶️",
+        "stop": "⏹️",
+        "queue": "📄",
+        "success": "☑️",
+        "repeat": "🔁",
+        "error": "❌"
+        
       }
 }
