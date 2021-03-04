@@ -8,6 +8,7 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+      if (!args[0]) {
         message.guild.channels.cache
         .get(message.channel.id)
         .createInvite({ maxAge: 0 })
@@ -20,4 +21,9 @@ module.exports = {
         message.channel.send(embed)
           });
     }
-}
+
+      if (args[0]) {
+        return
+      }
+    }
+    }
