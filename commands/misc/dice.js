@@ -1,7 +1,7 @@
 module.exports = {
     config: {
-        name: "dice",
-        aliases: [`${prefix}dice`, `${prefix}주사위`],
+        name: `${prefix}dice`,
+        aliases: [`${prefix}주사위`],
         description: "주사위 던지기",
         usage: "dice",
         accessableby: "Members",

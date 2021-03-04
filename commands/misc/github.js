@@ -5,8 +5,8 @@ moment.locale("ko-KR");
 
 module.exports = {
     config: {
-        name: "github",
-        aliases: [`${prefix}깃허브`, `${prefix}깃헙`, `${prefix}github`],
+        name: `${prefix}github`,
+        aliases: [`${prefix}깃허브`, `${prefix}깃헙`],
         description: "깃허브 검색",
         usage: "github [이름]",
         accessableby: "Members",

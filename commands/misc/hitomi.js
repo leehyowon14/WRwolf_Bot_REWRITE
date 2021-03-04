@@ -4,8 +4,8 @@ var request = require('request');
 
 module.exports = {
     config: {
-        name: "hitomi",
-        aliases: [`${prefix}hitomi`, `${prefix}히토미`, `${prefix}hiyobi`, `${prefix}히요비`, `${prefix}h`],
+        name: `${prefix}hitomi`,
+        aliases: [`${prefix}히토미`, `${prefix}hiyobi`, `${prefix}히요비`, `${prefix}h`],
         description: "히토미 링크",
         usage: "hitomi [품번]",
         accessableby: "Members",

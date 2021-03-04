@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 module.exports = {
     config: {
-        name: "invite",
-        aliases: [`${prefix}invite`, `${prefix}초대코드`, `${prefix}초대링크`],
+        name: `${prefix}invite`,
+        aliases: [`${prefix}초대코드`, `${prefix}초대링크`],
         description: "",
         usage: "",
         accessableby: "Members",

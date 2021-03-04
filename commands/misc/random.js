@@ -1,7 +1,7 @@
 module.exports = {
     config: {
-        name: "random",
-        aliases: [`${prefix}random`, `${prefix}랜덤대답`],
+        name: `${prefix}random`,
+        aliases: [`${prefix}랜덤대답`],
         description: "랜덤 대답",
         usage: "random 피자 치킨 떡볶이",
         accessableby: "Members",
