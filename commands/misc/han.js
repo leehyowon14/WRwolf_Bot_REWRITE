@@ -2,13 +2,16 @@ const request = require("request")
 const { MessageEmbed } = require("discord.js");
 module.exports = {
     config: {
-        name: `${prefix}river`,
-        aliases: [`${prefix}한강`],
+        name: `river`,
+        aliases: [`${prefix}한강`, `${prefix}river`],
         description: "한강 수온",
         usage: "한강",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        if (message.content == this.config.name) {
+            return;
+        }
         if (args[0]) {
             return;
         }

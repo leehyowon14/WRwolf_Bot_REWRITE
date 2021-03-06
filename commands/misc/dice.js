@@ -1,12 +1,15 @@
 module.exports = {
     config: {
-        name: `${prefix}dice`,
-        aliases: [`${prefix}주사위`],
+        name: `dice`,
+        aliases: [`${prefix}주사위`, `${prefix}dice`],
         description: "주사위 던지기",
         usage: "dice",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        if (message.content == this.config.name) {
+            return;
+        }
         let min = 1;
         let max = 6;
         let dice_num = parseInt(Math.random() * (max - min) + min);

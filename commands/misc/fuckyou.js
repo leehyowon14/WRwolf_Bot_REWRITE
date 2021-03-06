@@ -1,12 +1,15 @@
 module.exports = {
     config: {
-        name: `${prefix}fuckyou`,
-        aliases: [`${prefix}fy`, `${prefix}료`],
+        name: `fuckyou`,
+        aliases: [`${prefix}fy`, `${prefix}료`, `${prefix}fuckyou`],
         description: "fuck you bitch",
         usage: "fy",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        if (message.content == this.config.name) {
+            return;
+        }
         if (args[0]) {
             return;
         }

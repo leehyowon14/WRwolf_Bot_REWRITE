@@ -1,12 +1,15 @@
 module.exports = {
     config: {
-        name: `${prefix}ping`,
+        name: `ping`,
         aliases: [`${prefix}ping`],
         description: "핑 상태",
         usage: "ping",
         accessableby: "Members"
     },
     run: async (bot, message, args) => {
+        if (message.content == this.config.name) {
+            return;
+        }
         if (args[0]) {
             return;
         }

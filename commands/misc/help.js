@@ -2,13 +2,16 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     config: {
-        name: `${prefix}help`,
+        name: `help`,
         aliases: [`${prefix}help`],
         description: "help",
         usage: "help",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        if (message.content == this.config.name) {
+            return;
+        }
         if (args[0]) {
             return;
         }

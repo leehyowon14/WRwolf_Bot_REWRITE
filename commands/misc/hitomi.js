@@ -4,13 +4,16 @@ var request = require('request');
 
 module.exports = {
     config: {
-        name: `${prefix}hitomi`,
-        aliases: [`${prefix}히토미`, `${prefix}hiyobi`, `${prefix}히요비`, `${prefix}h`],
+        name: `hitomi`,
+        aliases: [`${prefix}히토미`, `${prefix}hitomi`, `${prefix}hiyobi`, `${prefix}히요비`, `${prefix}h`],
         description: "히토미 링크",
         usage: "hitomi [품번]",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        if (message.content == this.config.name) {
+            return;
+        }
         const number = args[0]
         if (!number) {
             let embed = new MessageEmbed()

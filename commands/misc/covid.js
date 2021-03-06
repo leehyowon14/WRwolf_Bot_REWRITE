@@ -3,14 +3,17 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     config: {
-        name: `${prefix}covid`,
-        aliases: [`${prefix}코로나`],
+        name: `covid`,
+        aliases: [`${prefix}코로나`, `${prefix}covid`],
         description: "대한민국 코로나 상태",
         usage: "cv",
         accessableby: "Members"
     },
     run: async (bot, message, args) => {
         if (args[0]) {
+            return;
+        }
+        if (message.content == this.config.name) {
             return;
         }
     let url = "https://apiv2.corona-live.com/stats.json"
