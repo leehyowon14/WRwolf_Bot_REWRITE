@@ -12,9 +12,6 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        if (message.content == this.config.name) {
-            return;
-        }
         if (!args[0]) {
             let embed = new MessageEmbed()
             .setColor('#f94343')

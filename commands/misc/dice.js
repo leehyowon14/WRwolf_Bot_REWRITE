@@ -7,9 +7,6 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        if (message.content == this.config.name) {
-            return;
-        }
         let min = 1;
         let max = 6;
         let dice_num = parseInt(Math.random() * (max - min) + min);

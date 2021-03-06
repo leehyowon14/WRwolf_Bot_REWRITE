@@ -13,9 +13,6 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        if (message.content == this.config.name) {
-            return;
-        }
     let url = "https://apiv2.corona-live.com/stats.json"
     request(url, (error, response, body) => {
     let overview = JSON.parse(response.body).overview;

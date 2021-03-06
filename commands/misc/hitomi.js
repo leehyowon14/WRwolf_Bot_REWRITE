@@ -11,9 +11,6 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        if (message.content == this.config.name) {
-            return;
-        }
         const number = args[0]
         if (!number) {
             let embed = new MessageEmbed()
