@@ -13,6 +13,7 @@ module.exports = (bot, reload = false) => {
             } else {
                 let pull = require(`../commands/${dirs}/${file}`);
                 bot.commands.set(pull.config.aliases, pull);
+
             }
         };
     };
