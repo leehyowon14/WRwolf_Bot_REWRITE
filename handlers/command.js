@@ -12,8 +12,7 @@ module.exports = (bot, reload = false) => {
                 bot.commands.set(file, pull)
             } else {
                 let pull = require(`../commands/${dirs}/${file}`);
-                bot.commands.set(pull.config.aliases, pull);
-
+                bot.commands.set(pull.config.aliases);
             }
         };
     };
