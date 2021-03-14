@@ -12,9 +12,10 @@ module.exports = (bot, reload = false) => {
                 bot.commands.set(file, pull)
             } else {
                 let pull = require(`../commands/${dirs}/${file}`);
-                bot.commands.set(pull.config.aliases);
+                bot.commands.set(pull.config.name, pull);
+                if (pull.config.aliases) pull.config.aliases.forEach(a => bot.aliases.set(a, pull.config.name));
             }
         };
     };
-    ["misc", "mod"].forEach(x => load(x));
+    ["misc", "mod", "music"].forEach(x => load(x));
 };
