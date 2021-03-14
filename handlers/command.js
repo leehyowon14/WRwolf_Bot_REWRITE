@@ -17,5 +17,5 @@ module.exports = (bot, reload = false) => {
             }
         };
     };
-    ["misc", "mod", "music"].forEach(x => load(x));
+    ["misc", "mod"].forEach(x => load(x));
 };
