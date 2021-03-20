@@ -1,5 +1,4 @@
-const { BitField } = require("discord.js")
-const moment = require('moment-timezone');
+const { MessageEmbed } = require("discord.js");
 module.exports = async (bot, member) => {
     if (sysch) {
         let embed = new MessageEmbed()
