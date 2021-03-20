@@ -1,6 +1,8 @@
 const adminUserId = 745859722720051234;
 
 module.exports = async (bot, message) => {
+    let sysch = message.guild.systemChannel
+    global.sysch = sysch
     if(message.author.bot) return;
     if(message.channel.type == "dm") {
         if(message.author.id == adminUserId) return;

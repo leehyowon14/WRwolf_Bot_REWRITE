@@ -44,8 +44,10 @@ module.exports = {
             //.addField('-volume[v][set][set-volume] <1~100까지의 숫자>', '볼륨 조절', true)
             //.addField('-queue[q]', '재생중인 음악 정보')
             .addField('\u200B', '\u200B')
+            .addField(`로그`, `로그를 보기 위해서 시스템 채널을 설정해주세요!.`)
+            .addField(`설정 방법`, `서버설정-일반-시스템 메세지 채널`)
             .setTimestamp()
-            .setFooter('Developed by 느윽대#5070', img)
+            .setFooter('Developed by 느윽대#7777', img)
 
         message.channel.send(embed)
     }

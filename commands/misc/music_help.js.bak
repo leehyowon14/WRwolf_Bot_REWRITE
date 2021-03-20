@@ -30,7 +30,7 @@ module.exports = {
             .addField(`${prefix}dj [멘션]`, `DJ권한 주기/뺏기 (DJ역할이 없을때는 자동으로 생성됨)`)
             .addField('\u200B', '\u200B')
             .setTimestamp()
-            .setFooter('Developed by 느윽대#5070', img)
+            .setFooter('Developed by 느윽대#7777', img)
 
         message.channel.send(embed)
     }

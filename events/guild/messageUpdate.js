@@ -3,14 +3,6 @@ const { MessageEmbed } = require("discord.js");
 module.exports = async (bot, oldMessage, newMessage) => {
     if(newMessage.author.bot) return;
     if (!newMessage.guild.systemChannel) {
-        let embed = new MessageEmbed()
-        .setColor('#f94343')
-        .setAuthor('에러!')
-        .setTitle('시스템채널을 설정해주세요!')
-        .setDescription('서버설정-일반-시스템 메세지 채널')
-        .setTimestamp()
-        .setFooter('Developed by sG.wolf#5070')
-    newMessage.channel.send(embed)
     return;
     }
     if(oldMessage.content == newMessage.content) return;
