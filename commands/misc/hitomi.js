@@ -63,8 +63,6 @@ module.exports = {
                     .setFooter('Developed by sG.wolf#7777')
 
                 message.channel.send(embed)
-                message.react('👍')
-                message.react('👎')
                 if (message.channel.nsfw) {
                     message.channel.send({
                         files: [{
@@ -86,8 +84,6 @@ module.exports = {
                     .setFooter('Developed by sG.wolf#7777')
 
                 message.channel.send(embed)
-                message.react('👍')
-                message.react('👎')
                 if (message.channel.nsfw) {
                     message.channel.send({
                         files: [{
