@@ -47,6 +47,8 @@ module.exports = {
 
             const languages = $("a[href^='/index'][href$='.html']").text()
 
+            const thumbnails = $(".dj-img-cont").find('img').attr('src')
+
             if (languages == "한국어") {
                 let embed = new MessageEmbed()
                     .setColor('#73c4fa')
@@ -61,6 +63,16 @@ module.exports = {
                     .setFooter('Developed by sG.wolf#7777')
 
                 message.channel.send(embed)
+                message.react('👍')
+                message.react('👎')
+                if (message.channel.nsfw) {
+                    message.channel.send({
+                        files: [{
+                           attachment: `https:${thumbnails}`,
+                           name: "SPOILER_FILE.jpg"
+                        }]
+                     });
+                }
             }else{
                 let embed = new MessageEmbed()
                     .setColor('#73c4fa')
@@ -74,6 +86,16 @@ module.exports = {
                     .setFooter('Developed by sG.wolf#7777')
 
                 message.channel.send(embed)
+                message.react('👍')
+                message.react('👎')
+                if (message.channel.nsfw) {
+                    message.channel.send({
+                        files: [{
+                           attachment: `https:${thumbnails}`,
+                           name: "SPOILER_FILE.jpg"
+                        }]
+                     });
+                }
                 }
             }); 
     }
