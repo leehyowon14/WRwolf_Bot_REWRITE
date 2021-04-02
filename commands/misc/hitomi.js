@@ -64,6 +64,9 @@ module.exports = {
 
                 message.channel.send(embed)
                 if (message.channel.nsfw) {
+                    if (!thumbnails) {
+                        return
+                    }
                     message.channel.send({
                         files: [{
                            attachment: `https:${thumbnails}`,
@@ -85,6 +88,9 @@ module.exports = {
 
                 message.channel.send(embed)
                 if (message.channel.nsfw) {
+                    if (!thumbnails) {
+                        return
+                    }
                     message.channel.send({
                         files: [{
                            attachment: `https:${thumbnails}`,
