@@ -35,10 +35,8 @@ module.exports = {
         .addField("Date:", message.createdAt.toLocaleString())
 
         try {
-            let sChannel = message.guild.channels.cache.find(c => c.name == bot.warningCh)
-            sChannel.send(embed)
+            sysch.send(embed)
         } catch (error) {
-            console.log(bot.warningCh+"채널이 없어서 메세지를 못 보냅니다.");
             message.channel.send(embed)
         }
     }   
