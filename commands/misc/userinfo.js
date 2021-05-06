@@ -8,7 +8,7 @@ const placeholder = new Map();
 const moment = require('moment-timezone');
 
 
-let font_path = `./src/assets/fonts/GmarketSansTTFMedium.ttf`;
+let font_path = `./assets/fonts/GmarketSansTTFMedium.ttf`;
 Canvas.registerFont(font_path, 'GmarketSans')
 
 async function profile(message, data) {
