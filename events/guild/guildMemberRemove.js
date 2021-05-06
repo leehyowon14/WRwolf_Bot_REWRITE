@@ -6,7 +6,7 @@ module.exports = async (bot, member, message) => {
     .setColor('#f94343')
     .setTitle('')
     .addField('Log-Type', 'User leaves')
-    .addField('user:', member.user)
+    .addField('user:', member.username)
     .setTimestamp()
     sysch.send(embed)
     }
@@ -19,7 +19,7 @@ module.exports = async (bot, member, message) => {
             .setColor('#f94343')
             .setTitle('')
             .addField('Log-Type', 'banned user')
-            .addField('user:', member.user)
+            .addField('user:', member.username)
             .addField('reason:', '뮤트상태에서 서버 퇴장')
             .setTimestamp()
             sysch.send(embed)

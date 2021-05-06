@@ -19,7 +19,7 @@ module.exports = {
 
         if(!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("I dont have permission to perform this command")
 
-        banMember.send(`안녕! 넌 \`\`${message.guild.name}\`\`에서 강퇴당했어!\n이유 -> \`\`${reason}\`\``).then(() => 
+        banMember.send(`안녕! 넌 \`\`${message.guild.name}\`\`에서 밴당했어!\n이유 -> \`\`${reason}\`\``).then(() => 
         banMember.ban({ days: 0, reason: reason })).catch(err => console.log(err))
         // message.guild.members.cache.ban(banMember, { days: 0, reason: reason})).catch(err => console.log(err))
 

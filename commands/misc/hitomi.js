@@ -44,60 +44,36 @@ module.exports = {
             }
             
             const tags = $(".relatedtags a").text()
+            if (!tags) {
+                const tags  = "None(없음)"
+            }
 
             const languages = $("a[href^='/index'][href$='.html']").text()
 
             const thumbnails = $(".dj-img-cont").find('img').attr('src')
 
-            if (languages == "한국어") {
-                let embed = new MessageEmbed()
-                    .setColor('#73c4fa')
-                    .setTitle('HITOMI(HIYOBI) HELPER')
-                    .addField('제목', `${title}`)
-                    .addField('언어', languages)
-                    .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
-                    .addField('히요비 링크', `https://hiyobi.me/reader/${number}`)
-                    .addField('태그', `${tags}`)
-                    .addField('\u200B', '\u200B')
-                    .setTimestamp()
-                    .setFooter('Developed by sG.wolf#7777')
+            let embed = new MessageEmbed()
+                .setColor('#73c4fa')
+                .setTitle('HITOMI(HIYOBI) HELPER')
+                .addField('제목', `${title}`)
+                .addField('언어', languages)
+                .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
+                .addField('태그', `${tags}`)
+                .addField('\u200B', '\u200B')
+                .setTimestamp()
+                .setFooter('Developed by sG.wolf#7777')
 
-                message.channel.send(embed)
-                if (message.channel.nsfw) {
-                    if (!thumbnails) {
-                        return
-                    }
-                    message.channel.send({
-                        files: [{
-                           attachment: `https:${thumbnails}`,
-                           name: "SPOILER_FILE.jpg"
-                        }]
-                     });
+            message.channel.send(embed)
+            if (message.channel.nsfw) {
+                if (!thumbnails) {
+                    return
                 }
-            }else{
-                let embed = new MessageEmbed()
-                    .setColor('#73c4fa')
-                    .setTitle('HITOMI HELPER')
-                    .addField('제목', `${title}`)
-                    .addField('언어', languages)
-                    .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
-                    .addField('태그', `${tags}`)
-                    .addField('\u200B', '\u200B')
-                    .setTimestamp()
-                    .setFooter('Developed by sG.wolf#7777')
-
-                message.channel.send(embed)
-                if (message.channel.nsfw) {
-                    if (!thumbnails) {
-                        return
-                    }
-                    message.channel.send({
-                        files: [{
-                           attachment: `https:${thumbnails}`,
-                           name: "SPOILER_FILE.jpg"
-                        }]
-                     });
-                }
+                message.channel.send({
+                    files: [{
+                       attachment: `https:${thumbnails}`,
+                       name: "SPOILER_FILE.jpg"
+                    }]
+                });
                 }
             }); 
     }

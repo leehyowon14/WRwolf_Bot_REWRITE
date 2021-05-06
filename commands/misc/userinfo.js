@@ -130,8 +130,8 @@ var covid_notice_channel;
 
 module.exports = {
 	config: {
-		name: "userinfo2",
-		aliases: ["i2", "ui2", "ㅕㅑ2", "ㅑ2", "내정보2"],
+		name: "userinfo",
+		aliases: [`${prefix}userinfo`],
 		description: "내정보 보기2",
 		usage: "i2 <@username>",
 
