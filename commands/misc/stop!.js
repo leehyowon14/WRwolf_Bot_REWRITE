@@ -8,6 +8,6 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        message.channel.send('https://media.tenor.co/videos/15b7054826ae5754559e65770c675fb6/mp4')
+        message.channel.send('https://media1.tenor.com/images/d9599e2d1a5e6e492eb9efb63c87160b/tenor.gif?itemid=21048386')
     }
 }

@@ -8,6 +8,6 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        message.channel.send('https://tenor.com/view/%EC%96%91%EC%95%84%EC%A7%80-fist-angry-mad-gif-17326572')
+        message.channel.send('https://media1.tenor.com/images/4a34b3bb099c6c1e4dbe96fd6576f327/tenor.gif?itemid=20809990')
     }
 }
