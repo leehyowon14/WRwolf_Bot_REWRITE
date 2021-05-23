@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 module.exports = async (bot, member, message) => {
+    const sysch = member.guild.systemChannel
     const guild = member.guild
     if (sysch) {
     let embed = new MessageEmbed()

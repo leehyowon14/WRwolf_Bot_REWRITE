@@ -20,6 +20,7 @@ module.exports = {
             .addField('\u200B', '\u200B')
             .addField('이쉬/이쒸', '이쒸')
             .addField('ㅂㄷㅂㄷ/qeqe', 'ㅂㄷㅂㄷ')
+            .addField('멈춰!/멈춰!!', '학폭 멈춰!')
             .addField(`${prefix}코로나/!covid`, `전국/경북 코로나 확진자 현황`)
             .addField(`${prefix}한강/${prefix}river`, `한강 물 온도`)
 
@@ -35,7 +36,7 @@ module.exports = {
             //.addField('투표(YES or NO)', '패치중...')
             //.addField('!dm', '갠메 공지')
             .addField('\u200B', '\u200B')
-            .addField(`${prefix}music_help`, '음악봇 명령어')
+            //.addField(`${prefix}music_help`, '음악봇 명령어')
             .addField(`${prefix}ad_help`, '어드민 명령어')
             //.addField('음악', '음악봇 명령어')
             //.addField('-play[p] <음악 링크 or 제목>', '음악 재생', true)
