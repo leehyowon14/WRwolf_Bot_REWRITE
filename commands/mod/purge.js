@@ -11,6 +11,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         //if (message.author.id != adminUserId) return message.reply("너는 권한이 없어.");
+        if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("너는 권한이 없어.");
         const amount = parseInt(args[0]) || 1;
         message.channel.bulkDelete(amount + 1, true);
     }
