@@ -9,6 +9,7 @@ module.exports = {
         accessableby: "Administrators",
     },
     run: async (bot, message, args) => {
+        if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("너는 권한이 없어.");
         if (message.member != null) {
             let guild_name =  message.guild.name()
             let embed = new MessageEmbed()
