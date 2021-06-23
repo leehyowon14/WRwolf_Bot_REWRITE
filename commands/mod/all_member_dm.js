@@ -11,14 +11,14 @@ module.exports = {
     run: async (bot, message, args) => {
         if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("너는 권한이 없어.");
         if (message.member != null) {
-            let guild_name =  message.guild.name()
+            let guild_name =  message.guild.name
             let embed = new MessageEmbed()
                 .setAuthor(`📢공지 by ${guild_name}`)
                 .setColor("#186de6")
                 .setFooter(`울프봇.`)
                 .setTimestamp()
       
-            embed.addField("공지: ", contents)
+            embed.addField("공지: ", args[0])
       
             message.member.guild.members.cache.array().forEach((x) => {
               if (x.user.bot) return
