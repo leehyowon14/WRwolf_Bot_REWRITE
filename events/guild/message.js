@@ -59,7 +59,7 @@ function checkContinuousChatting(bot, message) {
 
 const adminUserId = 745859722720051234;
 
-module.exports = async (bot, message, guild) => {
+module.exports = async (bot, message) => {
     if(message.author.bot) return;
     if(message.channel.type == "dm") {
         if(message.author.id == adminUserId) return;
@@ -69,7 +69,7 @@ module.exports = async (bot, message, guild) => {
 
         return;
     }
-    if(guild.id == process.env.guild_id) {
+    if(message.guild.id == process.env.guild_id) {
         if(checkContinuousChatting(bot, message)) return;
     }
 
