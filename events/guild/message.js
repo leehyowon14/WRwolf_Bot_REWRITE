@@ -26,7 +26,7 @@ function checkContinuousChatting(bot, message) {
             if(msg.indexOf(fw) != -1) {
                 message.guild.members.cache.find(x => x.id == message.author.id).roles.add(muterole.id)
                 if(messageTime == forbiddenWordTime) {
-                    log_channel.send(message.content)
+                    log_channel.send(`${message.content} by ${message.author.tag}(Mute)`)
                     message.channel.bulkDelete(1, true);
                     message.reply(`첫 채팅이 욕이냐. 이 개새끼야. Mute 먹어라.\n\`\`사용한 욕: ${fw}\`\`\n${onmute_leave_channel_msg}`);
                 } else {
