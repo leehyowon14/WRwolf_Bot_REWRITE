@@ -4,7 +4,6 @@ const forbiddenWord = require('../../util/forbiddenWord.json');
 
 function checkContinuousChatting(bot, message) {
     let onmute_leave_channel_msg = '뮤트먹은 상태로 나가면 밴 됩니다.';
-    let member = message.guild.members.cache.find(x => x.user.id == message.author.id );
 
 
     // 관리자는 도배 걸리지 않음.
