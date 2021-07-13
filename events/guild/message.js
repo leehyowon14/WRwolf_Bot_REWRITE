@@ -1,8 +1,8 @@
-const log_channel = process.env.log_channel;
 const moment = require('moment-timezone');
 const forbiddenWord = require('../../util/forbiddenWord.json');
 
 function checkContinuousChatting(bot, message) {
+    const log_channel = bot.channels.cache.get(process.env.log_channel);
     let onmute_leave_channel_msg = '뮤트먹은 상태로 나가면 밴 됩니다.';
 
 
@@ -26,11 +26,11 @@ function checkContinuousChatting(bot, message) {
             if(msg.indexOf(fw) != -1) {
                 message.guild.members.cache.find(x => x.id == message.author.id).roles.add(muterole.id)
                 if(messageTime == forbiddenWordTime) {
-                    message.log_channel.send(message.content)
+                    log_channel.send(message.content)
                     message.channel.bulkDelete(1, true);
                     message.reply(`첫 채팅이 욕이냐. 이 개새끼야. Mute 먹어라.\n\`\`사용한 욕: ${fw}\`\`\n${onmute_leave_channel_msg}`);
                 } else {
-                    message.log_channel.send(message.content)
+                    log_channel.send(message.content)
                     message.channel.bulkDelete(1, true);
                     message.reply(`욕 하지마라. Mute 드셈.\n\`\`사용한 욕: ${fw}\`\`\n${onmute_leave_channel_msg}`);
                 }
