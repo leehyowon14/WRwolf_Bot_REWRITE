@@ -28,11 +28,11 @@ function checkContinuousChatting(bot, message) {
                 if(messageTime == forbiddenWordTime) {
                     log_channel.send(`${message.content} by ${message.author.tag}(Mute)`)
                     message.channel.bulkDelete(1, true);
-                    message.reply(`첫 채팅이 욕이냐. 이 개새끼야. Mute 먹어라.\n\`\`사용한 욕: ${fw}\`\`\n${onmute_leave_channel_msg}`);
+                    message.reply(`첫 채팅이 욕이냐. Mute 먹어라.\n${onmute_leave_channel_msg}`);
                 } else {
-                    log_channel.send(message.content)
+                    log_channel.send(`${message.content} by ${message.author.tag}(Mute)\nWord: ${fw}`)
                     message.channel.bulkDelete(1, true);
-                    message.reply(`욕 하지마라. Mute 드셈.\n\`\`사용한 욕: ${fw}\`\`\n${onmute_leave_channel_msg}`);
+                    message.reply(`욕 하지마라. Mute 드셈.\n${onmute_leave_channel_msg}`);
                 }
                 bot.authors.set(message.author.id, messageTime);
                 return true;
@@ -46,7 +46,7 @@ function checkContinuousChatting(bot, message) {
         return false;
     } else if(messageTime - time <= 1000) {
         message.guild.members.cache.find(x => x.id == message.author.id).roles.add(muterole.id)
-        message.reply(`단타 도배하지마세요. 씨발 님 Mute 드셈.\n \`\`전 채팅과의 간격 ${messageTime - time}ms\`\`\n${onmute_leave_channel_msg}`);
+        message.reply(`단타 도배하지마세요. 님 Mute 드셈.\n \`\`전 채팅과의 간격 ${messageTime - time}ms\`\`\n${onmute_leave_channel_msg}`);
         bot.authors.set(message.author.id, messageTime);
         return true;
     }
