@@ -1,9 +1,11 @@
 const { Client, Collection, Intents } = require("discord.js");
 const config = require("./config/config.json");
 const bot = new Client({
-        intents: new Intents(['GUILDS',
+        intents: new Intents([
+            'GUILDS',
             'GUILD_MEMBERS',
             'GUILD_BANS',
+            'GUILD_EMOJIS_AND_STICKERS',
             'GUILD_INTEGRATIONS',
             'GUILD_WEBHOOKS',
             'GUILD_INVITES',

@@ -5,7 +5,7 @@ module.exports = async (bot, member, message) => {
     if (sysch) {
     let embed = new MessageEmbed()
     .setColor('#ED4245')
-    .setTitle('')
+    .setTitle('User Log')
     .addField('Log-Type', 'User leaves')
     .addField('user:', member.user.tag)
     .setTimestamp()
