@@ -10,7 +10,7 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        message.channel.send(`🏓 Ping!`).then(m => {
+        message.channel.send({ content: `🏓 Ping!` }).then(m => {
             // m.edit(`🏓 Pong! (💙: ${m.createdTimestamp - message.createdTimestamp}ms. :purple_heart:: ${Math.round(bot.ws.ping)}ms.)`);
             m.edit(`🏓 Pong! (💙: ${m.createdTimestamp - message.createdTimestamp}ms.)`);
         });

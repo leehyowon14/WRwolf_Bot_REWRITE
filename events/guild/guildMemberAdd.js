@@ -3,11 +3,11 @@ module.exports = async (bot, member) => {
     const sysch = member.guild.systemChannel
     if (sysch) {
         let embed = new MessageEmbed()
-        .setColor('#f94343')
+        .setColor('#57F287')
         .setTitle('')
         .addField('Log-Type', 'new User')
-        .addField('user:', member.user)
+        .addField('user:', member.user.toString())
         .setTimestamp()
-        sysch.send(embed)
+        sysch.send({ embeds: [embed] })
     }
 }

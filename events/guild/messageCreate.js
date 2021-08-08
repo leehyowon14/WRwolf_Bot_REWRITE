@@ -7,7 +7,7 @@ function checkContinuousChatting(bot, message) {
 
 
     // 관리자는 도배 걸리지 않음.
-    if(message.member.hasPermission('ADMINISTRATOR')) return;
+    if(message.member.permissions.has('ADMINISTRATOR')) return;
 
     // 시간, 뮤트 롤
     let messageTime = moment().tz('Asia/Seoul').locale('ko').valueOf()
@@ -26,13 +26,13 @@ function checkContinuousChatting(bot, message) {
             if(msg.indexOf(fw) != -1) {
                 message.guild.members.cache.find(x => x.id == message.author.id).roles.add(muterole.id)
                 if(messageTime == forbiddenWordTime) {
-                    log_channel.send(`${message.content} by ${message.author.tag}(Mute)`)
+                    log_channel.send({ content: `${message.content} by ${message.author.tag}(Mute)` })
                     message.channel.bulkDelete(1, true);
-                    message.reply(`첫 채팅이 욕이냐. Mute 먹어라.\n${onmute_leave_channel_msg}`);
+                    message.reply({ content: `첫 채팅이 욕이냐. Mute 먹어라.\n${onmute_leave_channel_msg}`, allowedMentions: {repliedUser: true} });
                 } else {
-                    log_channel.send(`${message.content} by ${message.author.tag}(Mute)\nWord: ${fw}`)
+                    log_channel.send({ content: `${message.content} by ${message.author.tag}(Mute)\nWord: ${fw}` })
                     message.channel.bulkDelete(1, true);
-                    message.reply(`욕 하지마라. Mute 드셈.\n${onmute_leave_channel_msg}`);
+                    message.reply({ content : `욕 하지마라. Mute 드셈.\n${onmute_leave_channel_msg}`, allowedMentions: {repliedUser: true} });
                 }
                 bot.authors.set(message.author.id, messageTime);
                 return true;

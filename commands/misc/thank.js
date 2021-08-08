@@ -10,6 +10,6 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        message.channel.send('https://media.discordapp.net/attachments/785910540526157864/793784533350219786/ezgif.com-gif-maker_3.gif')
+        message.channel.send({ content: 'https://media.discordapp.net/attachments/785910540526157864/793784533350219786/ezgif.com-gif-maker_3.gif' })
     }
 }

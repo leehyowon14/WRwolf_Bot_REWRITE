@@ -18,7 +18,7 @@ module.exports = {
                 .addField(`초대링크`, invite.url)
                 .setTimestamp()
                 .setFooter('Developed by sG.wolf#7777')
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed] })
           });
     }
 

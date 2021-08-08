@@ -19,7 +19,7 @@ module.exports = {
             .setTitle('검색할 유저이름을 입력하여 주세요')
             .setTimestamp()
             .setFooter('Developed by sG.wolf#7777')
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed] })
         return;
         }
 
@@ -32,11 +32,11 @@ module.exports = {
             .setTitle(`\`${args.join(" ")}\` (이)라는 유저를 찾을 수 없습니다.`)
             .setTimestamp()
             .setFooter('Developed by sG.wolf#7777')
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed] })
         return;
         }
 
-        message.channel.send(new MessageEmbed().setTitle(`${login}님의 정보`).setColor(0x000000).setAuthor('Github', 'https://github.githubassets.com/favicons/favicon.png', 'https://github.com/').setFooter(login, avatar_url).setDescription(`[들어가기](${html_url})`).setThumbnail(avatar_url)
+        let embed = new MessageEmbed().setTitle(`${login}님의 정보`).setColor(0x000000).setAuthor('Github', 'https://github.githubassets.com/favicons/favicon.png', 'https://github.com/').setFooter(login, avatar_url).setDescription(`[들어가기](${html_url})`).setThumbnail(avatar_url)
         .addFields([
             {name: "이름", value: `**${login}**`, inline: true},
             {name: "상태 메세지", value: `**${bio ? bio : "없음"}**`},
@@ -48,6 +48,7 @@ module.exports = {
             {name: "팔로잉", value: `**${following ? `${following}명` : "없음"}**`, inline: true},
             {name: "가입 날짜", value: `**${moment(created_at).tz("Asia/seoul").format("YYYY년 MM월 DD일 dd요일 HH시 mm분")}**`},
             {name: "이메일", value: `**${email ? email : "없음"}**`, inline: true}
-        ]));
+        ]);
+        message.channel.send({ embeds: [embed] })
     }
 };

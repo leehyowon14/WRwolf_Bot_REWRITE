@@ -10,6 +10,6 @@ module.exports = {
         let min = 0;
         let max = args.length;
         let index = parseInt(Math.random() * (max - min) + min);
-        return message.reply(`${args[index]}가 나왔습니다.`);
+        return message.reply({ content: `${args[index]}가 나왔습니다.`, allowedMentions: {repliedUser: true} });
     }
 }

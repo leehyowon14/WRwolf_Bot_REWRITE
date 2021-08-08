@@ -10,6 +10,6 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        message.channel.send('https://cdn.discordapp.com/attachments/742044949859795019/755704078943649862/FirmLoathsomeFrillneckedlizard-size_restricted.gif')
+        message.channel.send({ content: 'https://cdn.discordapp.com/attachments/742044949859795019/755704078943649862/FirmLoathsomeFrillneckedlizard-size_restricted.gif' })
     }
 }

@@ -8,30 +8,30 @@ module.exports = async (bot, message) => {
     if (!message.guild.systemChannel) {
     return;
     }
-    if(message.attachments.array().length > 0) {
+    if([...message.attachments.values()].length > 0) {
         try {
-            const result = await fetch(message.attachments.array()[0].proxyURL);
+            const result = await fetch([...message.attachments.values()][0].proxyURL);
             if (!result.ok) throw new Error('Failed to get the avatar!');
             const avatar = await result.buffer();
 
-            const attachment = new MessageAttachment(avatar, message.attachments.array()[0].name);
+            const attachment = new MessageAttachment(avatar, [...message.attachments.values()][0].name);
             if(message.content.length == 0) {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
-                .setTitle('')
-                .setColor('#FFFF')
-                .addField('Log-Type', 'Deleted Message')
-                .addField('Message By:', message.author.tag)
-                .addField('Channel:', message.channel.name)
-                .setFooter(message.author.tag, img)
-                .setTimestamp()
-                message.guild.systemChannel.send(embed)
+                    .setTitle('Chatting Log')
+                    .setColor('#5865F2')
+                    .addField('Log-Type', 'Deleted Message')
+                    .addField('Message By:', message.author.tag)
+                    .addField('Channel:', message.channel.name)
+                    .setFooter(message.author.tag, img)
+                    .setTimestamp()
+                    message.guild.systemChannel.send({ embeds: [embed] })
 
             } else {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
-                    .setTitle('')
-                    .setColor('#FFFF')
+                    .setTitle('Chatting Log')
+                    .setColor('#5865F2')
                     .addField('Log-Type', 'Deleted Message')
                     .addField('Message By:', message.author.tag)
                     .addField('Channel:', message.channel.name)
@@ -39,18 +39,18 @@ module.exports = async (bot, message) => {
                     .setFooter(message.author.tag, img)
                     .setTimestamp()
                 
-                    message.guild.systemChannel.send(embed)
+                    message.guild.systemChannel.send({ embeds: [embed] })
             }
-            return message.guild.systemChannel.send(attachment);
+            return message.guild.systemChannel.send({ files : [attachment] });
         } catch (e) {
             console.log(e);
-            return SystemChannel.send(`An error occurred: **${e.message}**`);
+            return message.guild.SystemChannel.send(`An error occurred: **${e.message}**`);
         }
     }
     let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
     let embed = new MessageEmbed()
-        .setTitle('')
-        .setColor('#FFFF')
+        .setTitle('Chatting Log')
+        .setColor('#5865F2')
         .addField('Log-Type', 'Deleted Message')
         .addField('Message By:', message.author.tag)
         .addField('Channel:', message.channel.name)
@@ -58,5 +58,5 @@ module.exports = async (bot, message) => {
         .setFooter(message.author.tag, img)
         .setTimestamp()
     
-        message.guild.systemChannel.send(embed)
+        message.guild.systemChannel.send({ embeds: [embed] })
 }

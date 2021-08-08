@@ -54,8 +54,7 @@ module.exports = {
         .addField(`경북 현재 확진자 수(집계중)`, current.gyeongbuk_confirmed_person + `명`, true)
         .addField(`경북 어제  지금시간   -   현재지금시간의 확진자`, current.gyeongbuk_confirmed_person_diff + `명`,true)
         .addField(`--------------------------------------------------------------------------------------------------`, 'ㅤ')
-    message.channel.send(embed)
-    message.channel.send(embed4)
+        message.channel.send({ embeds: [embed, embed4] })
   })
     }
 }

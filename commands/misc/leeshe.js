@@ -10,6 +10,6 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        message.channel.send('https://tenor.com/view/%EC%96%91%EC%95%84%EC%A7%80-mad-angry-you-wanna-fight-me-gif-17326578')
+        message.channel.send({ content: 'https://tenor.com/view/%EC%96%91%EC%95%84%EC%A7%80-mad-angry-you-wanna-fight-me-gif-17326578' })
     }
 }

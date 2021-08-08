@@ -20,7 +20,7 @@ module.exports = {
           .setTitle('한강 수온')
           .setDescription('')
           .addField(':droplet: ' + river.temp, '측정 시각: ' + river.time, true)
-          message.channel.send(embed)
+          message.channel.send({ embeds: [embed] })
       }
   });
     }

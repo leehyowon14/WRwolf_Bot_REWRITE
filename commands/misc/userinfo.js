@@ -169,12 +169,12 @@ module.exports = {
 			const filename = `profile-${message.author.id}.png`;
 			const attachment = new MessageAttachment(buffer, filename);
 			// const attachment = new MessageAttachment(svg, filename);
-			await message.channel.send(attachment);
+			await message.channel.send({ files: [attachment] });
 
 		} catch (error) {
 			console.log(error);
 			// client.logger.error(error.stack);
-			return message.channel.send(`An error ocurred: **${error.message}**`);
+			return message.channel.send({ content: `An error ocurred: **${error.message}**` });
 		}
 	},
 	run: async (bot, message, args) => {
