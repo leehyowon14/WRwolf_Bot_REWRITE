@@ -4,6 +4,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node" : "16.6.1"
+  },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "axios": "^0.21.1",
