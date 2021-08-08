@@ -13,7 +13,7 @@ module.exports = {
 
         let img = "https://media1.tenor.com/images/8e341309b7d312f35f1869b2ffcaa8e8/tenor.gif?itemid=20146933"
         let embed = new MessageEmbed()
-            .setColor('#73c4fa')
+            .setColor('#5865F2')
             .setTitle('울프봇 (ADMIN)명령어')
             .setAuthor('울프봇 도움말', img)
             .addField('\u200B', '\u200B')

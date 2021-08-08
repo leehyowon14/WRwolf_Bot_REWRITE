@@ -14,7 +14,7 @@ module.exports = {
         }
         let img = "https://media1.tenor.com/images/8e341309b7d312f35f1869b2ffcaa8e8/tenor.gif?itemid=20146933"
         let embed = new MessageEmbed()
-            .setColor('#73c4fa')
+            .setColor('#5865F2')
             .setTitle('울프봇 명령어')
             .setAuthor('울프봇 도움말', img)
             .addField('\u200B', '\u200B')
@@ -48,6 +48,7 @@ module.exports = {
             .addField('\u200B', '\u200B')
             .addField(`로그`, `로그를 보기 위해서 시스템 채널을 설정해주세요!.`)
             .addField(`설정 방법`, `서버설정-일반-시스템 메세지 채널`)
+            .addField(`로그`, `짤방기능 사용을 위해서 채팅방의 주제를 "-짤방"으로 설정하여 주세요`)
             .setTimestamp()
             .setFooter('Developed by sG.wolf#7777', img)
 
