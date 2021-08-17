@@ -14,9 +14,13 @@ module.exports = async (bot, messages) => {
         .addField('Channel:', messages.first().channel.name)
         //.setFooter(message.author.tag)
         .setTimestamp()
-        messages.first().guild.systemChannel.send({ embeds: [embed] })
-
-        let Log = `Deleted Messages`;
+        if([...messages.values()].length > 10) {
+            messages.first().guild.systemChannel.send({ embeds: [embed] })
+        }
+        let Log = "```";
+        if([...messages.values()].length > 10) {
+            Log = `Deleted Messages`;
+        }
         for (const message of [...messages.values()].reverse()) {
             Log += `\r\n\r\n[${dateFormat(message.createdAt, 'yyyy/mm/dd ddd HH:MM:ss')}] ${message.author?.tag ?? 'Unknown'} `;
             if([...message.attachments.values()].length > 0) {
@@ -34,6 +38,12 @@ module.exports = async (bot, messages) => {
             Log += ' : ' + message.content;
         }
 
-        const log_txt_file = new MessageAttachment(Buffer.from(Log, 'utf-8'), 'DeletedMessages.txt');
-        messages.first().guild.systemChannel.send({ files : [log_txt_file] });
+        if([...messages.values()].length > 10) {
+            const log_txt_file = new MessageAttachment(Buffer.from(Log, 'utf-8'), 'DeletedMessages.txt');
+            messages.first().guild.systemChannel.send({ files : [log_txt_file] });
+        } else {
+            Log += "\n```"
+            embed.addField("Messages", Log)
+            messages.first().guild.systemChannel.send({ embeds: [embed] })
+        }
 }
