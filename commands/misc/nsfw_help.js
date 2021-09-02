@@ -43,6 +43,7 @@ module.exports = {
             .addField('\u200B', `${prefix}keta`, true)
             .addField('\u200B', `${prefix}kitsune`, true)
         let embed2 = new MessageEmbed()
+            .setColor('#5865F2')
             .addField('\u200B', `${prefix}kuni`, true)
             .addField('\u200B', `${prefix}lesbian`, true)
             .addField('\u200B', `${prefix}lewdavatar`, true)
