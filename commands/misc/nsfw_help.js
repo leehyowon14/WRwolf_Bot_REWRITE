@@ -42,6 +42,7 @@ module.exports = {
             .addField('\u200B', `${prefix}holoero`, true)
             .addField('\u200B', `${prefix}keta`, true)
             .addField('\u200B', `${prefix}kitsune`, true)
+        let embed2 = new MessageEmbed()
             .addField('\u200B', `${prefix}kuni`, true)
             .addField('\u200B', `${prefix}lesbian`, true)
             .addField('\u200B', `${prefix}lewdavatar`, true)
@@ -58,6 +59,6 @@ module.exports = {
             .setTimestamp()
             .setFooter('Developed by sG.wolf#7777', img)
 
-        message.channel.send({ embeds: [embed] })
+        message.channel.send({ embeds: [embed, embed2] })
     }
 }
