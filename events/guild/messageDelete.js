@@ -60,7 +60,7 @@ module.exports = async (bot, message) => {
         .addField('Log-Type', 'Deleted Message')
         .addField('Message By:', message.author.tag)
         .addField('Channel:', message.channel.name)
-        .addField('Message:', message.content)
+        .addField('Message:', content)
         .setFooter(message.author.tag, img)
         .setTimestamp()
     
