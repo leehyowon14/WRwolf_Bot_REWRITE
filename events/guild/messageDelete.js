@@ -23,6 +23,10 @@ module.exports = async (bot, message) => {
                     message.guild.systemChannel.send({ embeds: [embed] })
 
             } else {
+                let content = message.content
+                if (!message.content) {
+                    content = "undefined (It can be in embed format.)"
+                }
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
                     .setTitle('Chatting Log')
@@ -30,7 +34,7 @@ module.exports = async (bot, message) => {
                     .addField('Log-Type', 'Deleted Message')
                     .addField('Message By:', message.author.tag)
                     .addField('Channel:', message.channel.name)
-                    .addField('Message:', message.content)
+                    .addField('Message:', content)
                     .setFooter(message.author.tag, img)
                     .setTimestamp()
                 
@@ -44,6 +48,10 @@ module.exports = async (bot, message) => {
             console.log(e);
             return message.guild.SystemChannel.send({content: `An error occurred: **${e.message}**` });
         }
+    }
+    let content = message.content
+    if (!message.content) {
+        content = "undefined (It can be in embed format.)"
     }
     let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
     let embed = new MessageEmbed()
