@@ -17,5 +17,5 @@ module.exports = (bot, reload = false) => {
             }
         };
     };
-    ["misc", "nsfw", "mod"].forEach(x => load(x));
+    ["misc", "nsfw", "music", "mod"].forEach(x => load(x));
 };
