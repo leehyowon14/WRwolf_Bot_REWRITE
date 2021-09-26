@@ -18,7 +18,7 @@ module.exports = {
                 .setFooter('Developed by sG.wolf#7777')
             message.channel.send({ embeds: [embed] })
             return;
-        }
+        } //https://v1.nocodeapi.com/sgwolf/spotify/KGdqhhcdcldFaaLX/search?q=신호등&type=track&perPage=3&page=1
         let search = args.join(' ')
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
         request(url, (error, response, body) => {
@@ -29,13 +29,31 @@ module.exports = {
             let song_url_1 = data.tracks.items[0].external_urls.spotify
             let song_name_1 = data.tracks.items[0].name
             let song_preview_1 = data.tracks.items[0].preview_url
-
+            if (data.tracks.total == 1) {
+                let embed = new MessageEmbed()
+                    .setAuthor(`Search results for "${search}`)
+                    .addField(artist_1 + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
+                    .setTimestamp()
+                    .setFooter('Developed by sG.wolf')
+                message.channel.send({ embeds: [embed] })
+                return
+            }
             let artist_2 = data.tracks.items[1].album.artists[0].name
             let album_2 = data.tracks.items[1].album.name
             let album_type_2 = data.tracks.items[1].album.album_type
             let song_url_2 = data.tracks.items[1].external_urls.spotify
             let song_name_2 = data.tracks.items[1].name
             let song_preview_2 = data.tracks.items[1].preview_url
+            if (data.tracks.total == 2) {
+                let embed = new MessageEmbed()
+                    .setAuthor(`Search results for "${search}`)
+                    .addField(artist_1 + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
+                    .addField(artist_2 + song_name_2, `Album: ${album_2}(${album_type_2})\nSpotify: ${song_url_2}\nPreview: ${song_preview_2}`)
+                    .setTimestamp()
+                    .setFooter('Developed by sG.wolf')
+                message.channel.send({ embeds: [embed] })
+                return
+            }
             
             let artist_3 = data.tracks.items[2].album.artists[0].name
             let album_3 = data.tracks.items[2].album.name
