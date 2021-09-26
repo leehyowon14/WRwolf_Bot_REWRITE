@@ -23,21 +23,21 @@ module.exports = {
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
         request(url, (error, response, body) => {
             let data = JSON.parse(body)
-            let artist_1 = data.tracks.items[0].artists[0].name
+            let artist_1 = data.tracks.items[0].album.artists[0].name
             let album_1 = data.tracks.items[0].album.name
             let album_type_1 = data.tracks.items[0].album.album_type
             let song_url_1 = data.tracks.items[0].external_urls.spotify
             let song_name_1 = data.tracks.items[0].name
             let song_preview_1 = data.tracks.items[0].preview_url
 
-            let artist_2 = data.tracks.items[1].artists[0].name
+            let artist_2 = data.tracks.items[1].album.artists[0].name
             let album_2 = data.tracks.items[1].album.name
             let album_type_2 = data.tracks.items[1].album.album_type
             let song_url_2 = data.tracks.items[1].external_urls.spotify
             let song_name_2 = data.tracks.items[1].name
             let song_preview_2 = data.tracks.items[1].preview_url
             
-            let artist_3 = data.tracks.items[2].artists[0].name
+            let artist_3 = data.tracks.items[2].album.artists[0].name
             let album_3 = data.tracks.items[2].album.name
             let album_type_3 = data.tracks.items[2].album.album_type
             let song_url_3 = data.tracks.items[2].external_urls.spotify
