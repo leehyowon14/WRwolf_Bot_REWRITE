@@ -22,6 +22,15 @@ module.exports = {
         let search = args.join(' ')
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
         request(url, (error, response, body) => {
+            if (data.tracks.total == 0) {
+                let embed = new MessageEmbed()
+                .setAuthor(`Search results for "${search}`)
+                .addField("No result", `No result`)
+                .setTimestamp()
+                .setFooter('Developed by sG.wolf')
+            message.channel.send({ embeds: [embed] })
+            return
+            }
             let data = JSON.parse(body)
             let artist_1 = data.tracks.items[0].album.artists[0].name
             let album_1 = data.tracks.items[0].album.name
