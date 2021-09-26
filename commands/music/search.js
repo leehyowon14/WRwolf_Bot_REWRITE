@@ -22,7 +22,7 @@ module.exports = {
         let search = args.join(' ')
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
         request(url, (error, response, body) => {
-            let data = JSON.parse(body).result
+            let data = JSON.parse(body)
             let artist_1 = data.tracks.items[0].artists[0].name
             let album_1 = data.tracks.items[0].album.name
             let album_type_1 = data.tracks.items[0].album.album_type
