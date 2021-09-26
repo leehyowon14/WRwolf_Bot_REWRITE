@@ -18,7 +18,7 @@ module.exports = {
                 .setFooter('Developed by sG.wolf#7777')
             message.channel.send({ embeds: [embed] })
             return;
-        } //https://v1.nocodeapi.com/sgwolf/spotify/KGdqhhcdcldFaaLX/search?q=신호등&type=track&perPage=3&page=1
+        }
         let search = args.join(' ')
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
         request(url, (error, response, body) => {
