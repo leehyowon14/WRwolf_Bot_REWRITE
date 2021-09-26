@@ -4,6 +4,7 @@ const { MessageEmbed } = require("discord.js");
 function tinyurl(url) {
     request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
         if (body == "Error") return url;
+        console.log(body)
         return body
     })
 }
