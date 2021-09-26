@@ -25,6 +25,7 @@ module.exports = {
             let data = JSON.parse(body)
             if (data.tracks.total == 0) {
                 let embed = new MessageEmbed()
+                .setColor('#ED4245')
                 .setAuthor(`Search results for "${search}`)
                 .addField("No result", `No result`)
                 .setTimestamp()
@@ -40,8 +41,9 @@ module.exports = {
             let song_preview_1 = data.tracks.items[0].preview_url
             if (data.tracks.total == 1) {
                 let embed = new MessageEmbed()
+                    .setColor('#57F287')
                     .setAuthor(`Search results for "${search}`)
-                    .addField(artist_1 + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
+                    .addField(artist_1 + " - " + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf')
                 message.channel.send({ embeds: [embed] })
@@ -55,9 +57,10 @@ module.exports = {
             let song_preview_2 = data.tracks.items[1].preview_url
             if (data.tracks.total == 2) {
                 let embed = new MessageEmbed()
+                    .setColor('#57F287')
                     .setAuthor(`Search results for "${search}`)
-                    .addField(artist_1 + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
-                    .addField(artist_2 + song_name_2, `Album: ${album_2}(${album_type_2})\nSpotify: ${song_url_2}\nPreview: ${song_preview_2}`)
+                    .addField(artist_1 + " - " + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
+                    .addField(artist_2 + " - " + song_name_2, `Album: ${album_2}(${album_type_2})\nSpotify: ${song_url_2}\nPreview: ${song_preview_2}`)
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf')
                 message.channel.send({ embeds: [embed] })
@@ -72,10 +75,11 @@ module.exports = {
             let song_preview_3 = data.tracks.items[2].preview_url
 
             let embed = new MessageEmbed()
+                .setColor('#57F287')
                 .setAuthor(`Search results for "${search}`)
-                .addField(artist_1 + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
-                .addField(artist_2 + song_name_2, `Album: ${album_2}(${album_type_2})\nSpotify: ${song_url_2}\nPreview: ${song_preview_2}`)
-                .addField(artist_3 + song_name_3, `Album: ${album_3}(${album_type_3})\nSpotify: ${song_url_3}\nPreview: ${song_preview_3}`)
+                .addField(artist_1 + " - " + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
+                .addField(artist_2 + " - " + song_name_2, `Album: ${album_2}(${album_type_2})\nSpotify: ${song_url_2}\nPreview: ${song_preview_2}`)
+                .addField(artist_3 + " - " + song_name_3, `Album: ${album_3}(${album_type_3})\nSpotify: ${song_url_3}\nPreview: ${song_preview_3}`)
                 .setTimestamp()
                 .setFooter('Developed by sG.wolf')
             message.channel.send({ embeds: [embed] })
