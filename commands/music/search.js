@@ -28,6 +28,7 @@ module.exports = {
             data = JSON.parse(body)
             return data;
         })
+        console.log(data.tracks)
         
             if (!data.tracks.total) {
                 let embed = new MessageEmbed()
