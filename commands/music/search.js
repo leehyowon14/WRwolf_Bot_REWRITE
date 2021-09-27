@@ -5,8 +5,8 @@ const tinyurl = require("../../modules//tinyurl.js")
 async function get_data(url) {
     return new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
+            console.log(url)
             let data = JSON.parse(body)
-            console.log(data)
             resolve(data)
         })
     })
