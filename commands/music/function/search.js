@@ -1,6 +1,4 @@
-const request = require("request")
-const { MessageEmbed } = require("discord.js");
-const search = require("./function/search.js");
+const sp_search = require("./function/search.js");
 
 module.exports = {
     config: {
@@ -12,6 +10,6 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         let search = args.join(' ')
-        search.run(search, message)
+        sp_search.run(search, message)
     }
 }
