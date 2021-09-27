@@ -20,7 +20,7 @@ async function spotify(search, message) {
             let embed = new MessageEmbed()
                 .setColor('#ED4245')
                 .setAuthor(`Search results for "${search}`)
-                .addField("Eroor", `Unknown Error`)
+                .addField("Error", `Unknown Error`)
                 .setTimestamp()
                 .setFooter('Developed by sG.wolf')
             message.channel.send({ embeds: [embed] })
@@ -103,14 +103,7 @@ async function spotify(search, message) {
 }
 
 module.exports = {
-    config: {
-        name: `searchmusic`,
-        aliases: [`${prefix}spotify`],
-        description: "스포티파이 음악 검색",
-        usage: "!spotify [song name]",
-        accessableby: "Members",
-    },
-    run: (bot, message, args) => {
+    run: async (message, args) => {
         let search = args.join(' ')
         spotify(search, message)
     }
