@@ -4,8 +4,7 @@ const tinyurl = require("../../../modules//tinyurl.js")
 
 
 module.exports = {
-    run: async (message, args) => {
-        let search = args.join(' ')
+    run: async (message, search) => {
         if (!search) {
             let embed = new MessageEmbed()
                 .setColor('#ED4245')
