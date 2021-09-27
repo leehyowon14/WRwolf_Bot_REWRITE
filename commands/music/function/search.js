@@ -17,9 +17,9 @@ module.exports = {
             return;
         }
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
-        let data = JSON.parse("{}")
-        request(url, (error, response, body) => {
+        let data = request(url, (error, response, body) => {
             data = JSON.parse(body)
+            return data;
         })
             if (!data.tracks.total) {
                 let embed = new MessageEmbed()
