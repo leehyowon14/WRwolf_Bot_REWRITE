@@ -1,19 +1,5 @@
 const request = require("request")
 const { MessageEmbed } = require("discord.js");
-
-function tinyurl(url) {
-    return new Promise((resolve, reject) => {
-        request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
-            console.log(body)
-            if (body == "Error") {
-                return resolve(url);
-            }
-            return resolve(body);
-        })
-
-    })
-}
-
 module.exports = {
     config: {
         name: `searchmusic`,
@@ -23,6 +9,19 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        function tinyurl(url) {
+            return new Promise((resolve, reject) => {
+                request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
+                    console.log(body)
+                    if (body == "Error") {
+                        resolve(url);
+                    }
+                    resolve(body)
+                })
+        
+            })
+        }
+        
         if (!args[0]) {
             let embed = new MessageEmbed()
                 .setColor('#ED4245')
