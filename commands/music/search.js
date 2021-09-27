@@ -6,9 +6,9 @@ function tinyurl(url) {
         request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
             console.log(body)
             if (body == "Error") {
-                resolve(url);
+                return resolve(url);
             }
-            resolve(body)
+            return resolve(body);
         })
 
     })
