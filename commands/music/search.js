@@ -2,7 +2,7 @@ const request = require("request")
 const { MessageEmbed } = require("discord.js");
 const tinyurl = require("../../modules/tinyurl");
 
-async function search(search) {
+async function spotify(search) {
     if (!search) {
         let embed = new MessageEmbed()
             .setColor('#ED4245')
@@ -112,6 +112,6 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         let search = args.join(' ')
-        search(search)
+        spotify(search)
     }
 }
