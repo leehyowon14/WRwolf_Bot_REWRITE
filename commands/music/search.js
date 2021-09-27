@@ -1,7 +1,7 @@
 const request = require("request")
 const { MessageEmbed } = require("discord.js");
 
-async function tinyurl(url) {
+function tinyurl(url) {
     return new Promise((resolve, reject) => {
         request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
             console.log(body)
