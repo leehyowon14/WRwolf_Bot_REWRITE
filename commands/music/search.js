@@ -110,7 +110,7 @@ module.exports = {
         usage: "!spotify [song name]",
         accessableby: "Members",
     },
-    run: async (bot, message, args) => {
+    run: (bot, message, args) => {
         let search = args.join(' ')
         spotify(search, message)
     }
