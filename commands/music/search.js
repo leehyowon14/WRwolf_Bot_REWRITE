@@ -2,6 +2,14 @@ const request = require("request")
 const { MessageEmbed } = require("discord.js");
 const tinyurl = require("../../modules//tinyurl.js")
 
+async function get_data() {
+    return new Promise((resolve, reject) => {
+        request(url, (error, response, body) => {
+            data = JSON.parse(body)
+            resolve(data)
+        })
+    })
+}
 
 module.exports = {
     config: {
@@ -24,17 +32,17 @@ module.exports = {
             return;
         }
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
-        let data = await request(url, (error, response, body) => {
-            data = JSON.parse(body)
-            return data;
+        let data = JSON.parse("{}")
+        await get_data().then(v => function (v) {
+            data = v
         })
         console.log(data.tracks)
         
-            if (!data.tracks.total) {
+            if (!data.tracks) {
                 let embed = new MessageEmbed()
                     .setColor('#ED4245')
                     .setAuthor(`Search results for "${search}`)
-                    .addField("Error", `Unknown Error`)
+                    .addField("Error", `data.tracks is undifined`)
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf')
                 message.channel.send({ embeds: [embed] })
