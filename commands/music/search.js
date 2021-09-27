@@ -1,18 +1,6 @@
 const request = require("request")
 const { MessageEmbed } = require("discord.js");
 
-async function tinyurl(url) {
-    return new Promise((resolve, reject) => {
-        request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
-            console.log(body)
-            if (body == "Error") {
-                resolve(url);
-            }
-            resolve(body)
-        })
-
-    })
-}
 
 module.exports = {
     config: {
@@ -23,6 +11,19 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
+        
+        async function tinyurl(url) {
+            return new Promise((resolve, reject) => {
+                request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
+                    console.log(body)
+                    if (body == "Error") {
+                        resolve(url);
+                    }
+                    resolve(body)
+                })
+        
+            })
+        }
         
         if (!args[0]) {
             let embed = new MessageEmbed()
