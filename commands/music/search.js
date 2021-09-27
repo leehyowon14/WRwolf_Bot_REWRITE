@@ -1,5 +1,19 @@
 const request = require("request")
 const { MessageEmbed } = require("discord.js");
+
+async function tinyurl(url) {
+    return new Promise((resolve, reject) => {
+        request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
+            console.log(body)
+            if (body == "Error") {
+                resolve(url);
+            }
+            resolve(body)
+        })
+
+    })
+}
+
 module.exports = {
     config: {
         name: `searchmusic`,
@@ -9,18 +23,6 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        function tinyurl(url) {
-            return new Promise((resolve, reject) => {
-                request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
-                    console.log(body)
-                    if (body == "Error") {
-                        resolve(url);
-                    }
-                    resolve(body)
-                })
-        
-            })
-        }
         
         if (!args[0]) {
             let embed = new MessageEmbed()
@@ -49,9 +51,9 @@ module.exports = {
             let artist_1 = data.tracks.items[0].album.artists[0].name
             let album_1 = data.tracks.items[0].album.name
             let album_type_1 = data.tracks.items[0].album.album_type
-            let song_url_1 = tinyurl(data.tracks.items[0].external_urls.spotify).then(function(succ) {song_url_1 = succ})
+            await tinyurl(data.tracks.items[0].external_urls.spotify).then(v => song_url_1 = v)
             let song_name_1 = data.tracks.items[0].name
-            let song_preview_1 = tinyurl(data.tracks.items[0].preview_url).then(function(succ) {song_preview_1 = succ})
+            await tinyurl(data.tracks.items[0].preview_url).then(v => song_preview_1 = v)
             if (data.tracks.total == 1) {
                 let embed = new MessageEmbed()
                     .setColor('#57F287')
@@ -65,9 +67,9 @@ module.exports = {
             let artist_2 = data.tracks.items[1].album.artists[0].name
             let album_2 = data.tracks.items[1].album.name
             let album_type_2 = data.tracks.items[1].album.album_type
-            let song_url_2 = tinyurl(data.tracks.items[1].external_urls.spotify).then(function(succ) {song_url_2 = succ})
+            await tinyurl(data.tracks.items[1].external_urls.spotify).then(v => song_url_2 = v)
             let song_name_2 = data.tracks.items[1].name
-            let song_preview_2 = tinyurl(data.tracks.items[1].preview_url).then(function(succ) {song_preview_2 = succ})
+            await tinyurl(data.tracks.items[1].preview_url).then(v => song_preview_2 = v)
             if (data.tracks.total == 2) {
                 let embed = new MessageEmbed()
                     .setColor('#57F287')
@@ -83,9 +85,9 @@ module.exports = {
             let artist_3 = data.tracks.items[2].album.artists[0].name
             let album_3 = data.tracks.items[2].album.name
             let album_type_3 = data.tracks.items[2].album.album_type
-            let song_url_3 = tinyurl(data.tracks.items[2].external_urls.spotify).then(function(succ) {song_url_3 = succ})
+            await tinyurl(data.tracks.items[2].external_urls.spotify).then(v => song_url_3 = v)
             let song_name_3 = data.tracks.items[2].name
-            let song_preview_3 = tinyurl(data.tracks.items[2].preview_url).then(function(succ) {song_preview_3 = succ})
+            await tinyurl(data.tracks.items[2].preview_url).then(v => song_preview_3 = v)
 
             let embed = new MessageEmbed()
                 .setColor('#57F287')
