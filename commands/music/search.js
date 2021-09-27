@@ -15,7 +15,7 @@ async function get_data(url, message) {
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf')
                 message.channel.send({ embeds: [embed] })
-                reject(console.log(body))
+                return reject(console.log(body))
             }
             let data = JSON.parse(body)
             resolve(data)
@@ -43,7 +43,7 @@ module.exports = {
             message.channel.send({ embeds: [embed] })
             return;
         }
-        let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
+        let url = `${process.env.nocodeapi_spotify}search?q=${encodeURIComponent(search)}&type=track&perPage=3&page=1`
         await get_data(url, message).then(function (v) {
             data = v
         })
