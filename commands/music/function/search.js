@@ -17,8 +17,10 @@ module.exports = {
             return;
         }
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
+        let data = JSON.parse("{}")
         request(url, (error, response, body) => {
-            let data = JSON.parse(body)
+            data = JSON.parse(body)
+        })
             if (!data.tracks.total) {
                 let embed = new MessageEmbed()
                     .setColor('#ED4245')
@@ -101,7 +103,7 @@ module.exports = {
                 .setTimestamp()
                 .setFooter('Developed by sG.wolf')
             message.channel.send({ embeds: [embed] })
-        })
+        
         
     }
 }
