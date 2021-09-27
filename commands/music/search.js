@@ -35,7 +35,7 @@ module.exports = {
         await get_data(url).then(v => function (v) {
             data = v
         })
-        console.log(data.tracks)
+        console.log(data)
         
             if (!data.tracks) {
                 let embed = new MessageEmbed()
