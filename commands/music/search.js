@@ -9,12 +9,12 @@ async function get_data(url) {
             if (!body) {
                 let embed = new MessageEmbed()
                     .setColor('#ED4245')
-                    .setAuthor(`Search results for "${search}`)
+                    .setAuthor(`Error`)
                     .addField("Error", `body is undefinded`)
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf')
                 message.channel.send({ embeds: [embed] })
-                return
+                reject(console.log(body))
             }
             let data = JSON.parse(body)
             resolve(data)
