@@ -85,9 +85,9 @@ module.exports = {
             let artist_3 = data.tracks.items[2].album.artists[0].name
             let album_3 = data.tracks.items[2].album.name
             let album_type_3 = data.tracks.items[2].album.album_type
-            await tinyurl(data.tracks.items[2].external_urls.spotify).then(v => song_url_3 = v)
+            tinyurl(data.tracks.items[2].external_urls.spotify).then(v => song_url_3 = v)
             let song_name_3 = data.tracks.items[2].name
-            await tinyurl(data.tracks.items[2].preview_url).then(v => song_preview_3 = v)
+            tinyurl(data.tracks.items[2].preview_url).then(v => song_preview_3 = v)
 
             let embed = new MessageEmbed()
                 .setColor('#57F287')
