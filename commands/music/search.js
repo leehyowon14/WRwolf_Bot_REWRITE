@@ -2,7 +2,7 @@ const request = require("request")
 const { MessageEmbed } = require("discord.js");
 const tinyurl = require("../../modules//tinyurl.js")
 
-async function get_data(url) {
+async function get_data(url, message) {
     return new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
             console.log(body)
@@ -43,7 +43,7 @@ module.exports = {
             return;
         }
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
-        await get_data(url).then(function (v) {
+        await get_data(url, message).then(function (v) {
             data = v
         })
             if (!data.tracks) {
