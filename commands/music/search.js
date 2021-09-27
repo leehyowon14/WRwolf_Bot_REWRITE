@@ -33,9 +33,20 @@ module.exports = {
             return;
         }
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
-        await get_data(url).then(function (v) {
-            data = v
-        })
+        try {
+            await get_data(url).then(function (v) {
+                data = v
+            })
+        } catch (e) {
+            let embed = new MessageEmbed()
+                .setColor('#ED4245')
+                .setAuthor(`Search results for "${search}`)
+                .addField("Error", `Unknown Error`)
+                .setTimestamp()
+                .setFooter('Developed by sG.wolf')
+            message.channel.send({ embeds: [embed] })
+            return
+        }
         
             if (!data.tracks) {
                 let embed = new MessageEmbed()
