@@ -6,6 +6,7 @@ async function get_data(url, message) {
     return new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
             console.log(body)
+            console.log(url)
             if (!body) {
                 let embed = new MessageEmbed()
                     .setColor('#ED4245')
