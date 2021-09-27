@@ -5,7 +5,6 @@ const tinyurl = require("../../modules//tinyurl.js")
 async function get_data(url, message) {
     return new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
-            console.log(body)
             console.log(url)
             if (!body) {
                 let embed = new MessageEmbed()
@@ -50,7 +49,7 @@ module.exports = {
             if (!data.tracks) {
                 let embed = new MessageEmbed()
                     .setColor('#ED4245')
-                    .setAuthor(`Search results for "${search}`)
+                    .setAuthor(`Search results for "${search}"`)
                     .addField("Error", `data.tracks is undifined`)
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf')
@@ -60,7 +59,7 @@ module.exports = {
             if (data.tracks.total == 0) {
                 let embed = new MessageEmbed()
                 .setColor('#ED4245')
-                .setAuthor(`Search results for "${search}`)
+                .setAuthor(`Search results for "${search}"`)
                 .addField("No result", `No result`)
                 .setTimestamp()
                 .setFooter('Developed by sG.wolf')
@@ -90,7 +89,7 @@ module.exports = {
             if (data.tracks.total == 1) {
                 let embed = new MessageEmbed()
                     .setColor('#57F287')
-                    .setAuthor(`Search results for "${search}`)
+                    .setAuthor(`Search results for "${search}"`)
                     .addField(artist_1 + " - " + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf')
@@ -120,7 +119,7 @@ module.exports = {
             if (data.tracks.total == 2) {
                 let embed = new MessageEmbed()
                     .setColor('#57F287')
-                    .setAuthor(`Search results for "${search}`)
+                    .setAuthor(`Search results for "${search}"`)
                     .addField(artist_1 + " - " + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
                     .addField(artist_2 + " - " + song_name_2, `Album: ${album_2}(${album_type_2})\nSpotify: ${song_url_2}\nPreview: ${song_preview_2}`)
                     .setTimestamp()
@@ -152,7 +151,7 @@ module.exports = {
     
             let embed = new MessageEmbed()
                 .setColor('#57F287')
-                .setAuthor(`Search results for "${search}`)
+                .setAuthor(`Search results for "${search}"`)
                 .addField(artist_1 + " - " + song_name_1, `Album: ${album_1}(${album_type_1})\nSpotify: ${song_url_1}\nPreview: ${song_preview_1}`)
                 .addField(artist_2 + " - " + song_name_2, `Album: ${album_2}(${album_type_2})\nSpotify: ${song_url_2}\nPreview: ${song_preview_2}`)
                 .addField(artist_3 + " - " + song_name_3, `Album: ${album_3}(${album_type_3})\nSpotify: ${song_url_3}\nPreview: ${song_preview_3}`)
