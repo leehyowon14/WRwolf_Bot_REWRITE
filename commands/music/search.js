@@ -2,12 +2,15 @@ const request = require("request")
 const { MessageEmbed } = require("discord.js");
 
 function tinyurl(url) {
-    request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
-        console.log(body)
-        if (body == "Error") {
-            return url;
-        }
-        return body
+    return new Promise((resolve, reject) => {
+        request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
+            console.log(body)
+            if (body == "Error") {
+                resolve(url);
+            }
+            resolve(body)
+        })
+
     })
 }
 
