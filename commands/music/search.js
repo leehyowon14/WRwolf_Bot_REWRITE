@@ -33,10 +33,9 @@ module.exports = {
             return;
         }
         let url = `${process.env.nocodeapi_spotify}search?q=${search}&type=track&perPage=3&page=1`
-        await get_data(url).then(v => function (v) {
+        await get_data(url).then(function (v) {
             data = v
         })
-        console.log(data)
         
             if (!data.tracks) {
                 let embed = new MessageEmbed()
