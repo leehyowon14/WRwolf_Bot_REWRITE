@@ -30,7 +30,7 @@ module.exports = {
         .addField(`해외 유입`, list[0].oversea + `명`, true)
         .addField(`어제(` + list[1].date + `) 확진자수`, list[1].total + `명`)
         .setTimestamp()
-        .setFooter('Developed by sG.wolf', img)
+        .setFooter('Developed by sG.wolf')
     message.channel.send({ embeds: [embed] })
   })
     }

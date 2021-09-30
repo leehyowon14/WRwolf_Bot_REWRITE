@@ -25,7 +25,7 @@ async function get_data(url, message) {
 module.exports = {
     config: {
         name: `searchmusic`,
-        aliases: [`${prefix}spotify`],
+        aliases: [`${prefix}spotify`, `${prefix}스포티`],
         description: "스포티파이 음악 검색",
         usage: "!spotify [song name]",
         accessableby: "Members",
