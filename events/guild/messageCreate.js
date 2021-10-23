@@ -2,7 +2,12 @@ const moment = require('moment-timezone');
 const forbiddenWord = require('../../util/forbiddenWord.json');
 
 function checkContinuousChatting(bot, message) {
-    const log_channel = bot.channels.cache.get(process.env.log_channel);
+    let log_channel
+    if (message.guild.id == process.env.guild_id) {
+        log_channel = bot.channels.cache.get(process.env.log_channel);
+    } else if (message.guild.id == 896291397475368971) {
+        log_channel = bot.channels.cache.get("901449184144658543");
+    }
     let onmute_leave_channel_msg = '뮤트먹은 상태로 나가면 밴 됩니다.';
 
 
@@ -69,7 +74,7 @@ module.exports = async (bot, message) => {
 
         return;
     }
-    if(message.guild.id == process.env.guild_id) {
+    if(message.guild.id == process.env.guild_id || message.guild.id == 896291397475368971) {
         if(checkContinuousChatting(bot, message)) return;
     }
 

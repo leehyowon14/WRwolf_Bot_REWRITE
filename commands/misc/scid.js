@@ -56,7 +56,7 @@ module.exports = {
             }
             let embed = new MessageEmbed()
                 .setColor('#57F287')
-                .setAuthor(`${search}'s SCID'`)
+                .setAuthor(`${search}'s SCID`)
                 .addField("SCID", `${data}`)
                 .setTimestamp()
                 .setFooter('Developed by sG.wolf')
