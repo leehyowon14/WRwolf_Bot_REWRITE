@@ -1,8 +1,9 @@
 const GuildRank = require('../../db')
 const { MessageEmbed } = require("discord.js");
 
-let xp_req = 100
+let xp_req
 function levels(xp) {
+    xp_req = 100
     for (let i = 1; i < 2147483647; i++) {
         if (xp <= xp_req) {
             return xp_req;

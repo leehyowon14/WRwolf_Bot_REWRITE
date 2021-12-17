@@ -131,7 +131,7 @@ module.exports = async (bot, message) => {
     }
 
     const msgLen = message.content.split(" ").length;
-    let XP = Math.floor(Math.random() * (5 - 1) + 1)
+    let XP = Math.round(Math.random() * msgLen + 1);
     changeXP(message, XP, user.xp, user.level);
 
     let args = message.content.trim().split(/ +/g);
