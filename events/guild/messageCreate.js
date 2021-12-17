@@ -70,8 +70,9 @@ async function updateLevel(message, new_level) {
     message.channel.send({ content: `<@${message.author.id}>님, 레벨 ${new_level}가 되셨습니다!!` })
 }
 
-let xp_req = 100
+let xp_req
 function levels(xp) {
+    xp_req = 100;
     for (let i = 1; i < 2147483647; i++) {
         if (xp <= xp_req) {
             return i;
@@ -130,7 +131,7 @@ module.exports = async (bot, message) => {
     }
 
     const msgLen = message.content.split(" ").length;
-    let XP = msgLen * Math.floor((Math.random() * 12) + 1);
+    let XP = Math.floor(msgLen * 0.3);
     changeXP(message, XP, user.xp, user.level);
 
     let args = message.content.trim().split(/ +/g);
