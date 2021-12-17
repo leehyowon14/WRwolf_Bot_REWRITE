@@ -31,7 +31,7 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        let search = args.join('%20')
+        let search = args.join(' ')
         if (!search) {
             let embed = new MessageEmbed()
                 .setColor('#ED4245')

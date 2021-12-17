@@ -3,7 +3,7 @@ const adminUserId = 745859722720051234;
 module.exports = {
     config: {
         name: "clear",
-        aliases: [`${prefix}clear`, `${prefix}청소`],
+        aliases: [`${prefix}clear`, `${prefix}청소`, `${prefix}purge`],
         description: "청소",
         usage: "c <num>",
         accessableby: "Administrators",
