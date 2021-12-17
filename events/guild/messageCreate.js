@@ -67,7 +67,7 @@ const adminUserId = 745859722720051234;
 
 async function updateLevel(message, new_level) {
     await GuildRank.findOneAndUpdate({ user_id: message.author.id, guild_id: message.guild.id }, { level: new_level })
-    message.channel.send(`GG <@${message.author.id}>, you just advanced to Level ${new_level}`);
+    message.channel.send({ content: `<@${message.author.id}>님, ${new_level}이 되셨습니다!!` })
 }
 
 let xp_req = 100
