@@ -67,7 +67,7 @@ const adminUserId = 745859722720051234;
 
 async function updateLevel(message, new_level) {
     await GuildRank.findOneAndUpdate({ user_id: message.author.id, guild_id: message.guild.id }, { level: new_level })
-    message.channel.send({ content: `<@${message.author.id}>님, ${new_level}이 되셨습니다!!` })
+    message.channel.send({ content: `<@${message.author.id}>님, 레벨 ${new_level}가 되셨습니다!!` })
 }
 
 let xp_req = 100
@@ -76,16 +76,13 @@ function levels(xp) {
         if (xp <= xp_req) {
             return i;
         }
-        xp_req = xp_req * 2.3;
+        xp_req = Math.round(xp_req * 2.3)
     }
 }
 
 async function checkLevel(message,currentLevel, newXP) {
         
     const levelXPcheck = levels(newXP)
-
-    console.log(currentLevel+" is current level")
-    console.log(levelXPcheck+" is newLevelXP")
 
     if (currentLevel == levelXPcheck) {
         return;

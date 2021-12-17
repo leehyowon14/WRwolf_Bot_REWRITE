@@ -7,7 +7,7 @@ function levels(xp) {
         if (xp <= xp_req) {
             return xp_req;
         }
-        xp_req = xp_req * 2.3;
+        xp_req = Math.round(xp_req * 2.3)
     }
 }
 
