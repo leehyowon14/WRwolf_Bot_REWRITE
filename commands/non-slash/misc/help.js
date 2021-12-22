@@ -33,7 +33,7 @@ module.exports = {
             .addField('음', '펀쿨섹좌', true)
             //.addField(`${prefix}fy/${prefix}료`, '엿날리기', true)
             .addField(`${prefix}userinfo [유저멘션]`, '유저정보', )
-            //.addField('투표(YES or NO)', '패치중...')
+            .addField('!투표 (제목), (시간[단위: 초], (선택지1), (선택지2), (선택지3)....(최대 10개)', '투표.')
             //.addField('!dm', '갠메 공지')
             .addField('\u200B', '\u200B')
             //.addField(`${prefix}music_help`, '음악봇 명령어')
