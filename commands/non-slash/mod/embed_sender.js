@@ -21,7 +21,9 @@ module.exports = {
                 .setTimestamp()
                 .setFooter(footer)
             channel.send({ embeds: [embed1] })
-       }
-        sendEmbed(message.channel, arg[0], arg[1], arg[2], arg[3])
+        }
+        if (arg[0] && arg[1] && arg[2] && arg[3]) {
+            sendEmbed(message.channel, arg[0], arg[1], arg[2], arg[3])
+        }
     }
 }

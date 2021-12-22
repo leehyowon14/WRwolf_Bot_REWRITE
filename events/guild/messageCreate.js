@@ -1,6 +1,6 @@
 const moment = require('moment-timezone');
 const forbiddenWord = require('../../util/forbiddenWord.json');
-const GuildRank = require('../../db');
+const GuildRank = require('../../db/rank');
 
 function checkContinuousChatting(bot, message) {
     let log_channel

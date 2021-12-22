@@ -21,7 +21,8 @@ const bot = new Client({
 );
 require('./util/misc.js')
 bot.config = require("./config/config.json")
-
+let token = process.env.token
+global.token = token
 let prefix = process.env.prefix;
 global.prefix = prefix;
 
@@ -32,4 +33,4 @@ Object.values(config).forEach((x, i) => bot[Object.keys(config)[i]] = x);
 
 process.env.NODE_ENV = process.argv[2];
 
-bot.login(process.env.token);
+bot.login(token);

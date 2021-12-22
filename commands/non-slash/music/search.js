@@ -1,6 +1,6 @@
 const request = require("request")
 const { MessageEmbed } = require("discord.js");
-const tinyurl = require("../../modules//tinyurl.js")
+const tinyurl = require("../../../modules/tinyurl.js")
 
 async function get_data(url, message) {
     return new Promise((resolve, reject) => {

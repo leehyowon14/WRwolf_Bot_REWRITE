@@ -1,4 +1,4 @@
-const GuildRank = require('../../db')
+const GuildRank = require('../../../db/rank')
 const { MessageEmbed } = require("discord.js");
 
 let xp_req
