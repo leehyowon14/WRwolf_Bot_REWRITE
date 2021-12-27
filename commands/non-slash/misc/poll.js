@@ -48,8 +48,7 @@ module.exports = {
                 msg.react(emojis[i])
             }
             setTimeout(async function() {
-                let react = await msg.reactions.cache.fetch()
-                let reaction = [...react.values()]
+                let reaction = [...msg.reactions.cache.values()]
                 let result = await get_result(reaction)
                 msg.edit({content: result, embeds: [embed]})
             }, parseInt(args[1]) * 1000)
@@ -65,7 +64,8 @@ async function get_result(reaction) {
     let skipped = 0
     for (let i = 1; i < len + 1; i++) {
         if (reaction[i-1].me){
-            vote_count = reaction[i-1].count - 1
+            let reac = reaction[i-1].fetch()
+            vote_count = reac.count - 1
             result += `\n   ${i-skipped}번: ${vote_count}명`
         } else {
             skipped += 1
