@@ -64,7 +64,7 @@ async function get_result(reaction) {
     let skipped = 0
     for (let i = 1; i < len + 1; i++) {
         if (reaction[i-1].me){
-            let reac = reaction[i-1].fetch()
+            let reac = await reaction[i-1].fetch()
             vote_count = reac.count - 1
             result += `\n   ${i-skipped}번: ${vote_count}명`
         } else {
