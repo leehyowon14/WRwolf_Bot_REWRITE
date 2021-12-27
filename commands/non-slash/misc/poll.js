@@ -48,7 +48,8 @@ module.exports = {
                 msg.react(emojis[i])
             }
             setTimeout(async function() {
-                let reaction = [...msg.reactions.cache.values()]
+                let react = await msg.reactions.cache.fetch()
+                let reaction = [...react.values()]
                 let result = await get_result(reaction)
                 msg.edit({content: result, embeds: [embed]})
             }, parseInt(args[1]) * 1000)
