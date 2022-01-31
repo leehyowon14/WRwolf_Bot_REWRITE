@@ -9,9 +9,7 @@ module.exports = async (bot, message) => {
     return;
     }
     await message.guild.fetchAuditLogs().then(audit => {
-        console.log("del fetch start")
         del_u = audit.entries.first().executor.tag
-        console.log("del fetch stop")
     })
     if([...message.attachments.values()].length > 0) {
         try {
