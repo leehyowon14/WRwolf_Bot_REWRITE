@@ -8,13 +8,13 @@ module.exports = async (bot, message) => {
     if (!message.guild.systemChannel) {
     return;
     }
+    message.guild.fetchAuditLogs().then(audit => {
+        console.log("del fetch start")
+        del_u = audit.entries.first().executor.tag
+        console.log("del fetch stop")
+    })
     if([...message.attachments.values()].length > 0) {
         try {
-            message.guild.fetchAuditLogs().then(audit => {
-                console.log("del fetch start")
-                del_u = audit.entries.first().executor.tag
-                console.log("del fetch stop")
-            })
             if(message.content.length == 0) {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
