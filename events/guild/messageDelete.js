@@ -8,7 +8,7 @@ module.exports = async (bot, message) => {
     if (!message.guild.systemChannel) {
     return;
     }
-    message.guild.fetchAuditLogs().then(audit => {
+    await message.guild.fetchAuditLogs().then(audit => {
         console.log("del fetch start")
         del_u = audit.entries.first().executor.tag
         console.log("del fetch stop")
