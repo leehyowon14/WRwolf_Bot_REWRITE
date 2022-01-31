@@ -10,8 +10,9 @@ module.exports = async (bot, message) => {
     }
     if([...message.attachments.values()].length > 0) {
         try {
-            let audit_log = message.guild.fetchAuditLogs()
-            let del_u = audit_log.entries.first().executor.tag
+            message.guild.fetchAuditLogs().then(audit => {
+                del_u = audit.entries.first().executor.tag
+            })
             if(message.content.length == 0) {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
