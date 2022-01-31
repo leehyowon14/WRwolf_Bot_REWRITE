@@ -10,6 +10,8 @@ module.exports = async (bot, message) => {
     }
     if([...message.attachments.values()].length > 0) {
         try {
+            let audit_log = message.guild.fetchAuditLogs()
+            let del_u = audit_log.entries.first().executor.tag
             if(message.content.length == 0) {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
                 let embed = new MessageEmbed()
@@ -17,6 +19,7 @@ module.exports = async (bot, message) => {
                     .setColor('#5865F2')
                     .addField('Log-Type', 'Deleted Message')
                     .addField('Message By:', message.author.tag)
+                    .addField('Deleated By:', del_u)
                     .addField('Channel:', message.channel.name)
                     .setFooter(message.author.tag, img)
                     .setTimestamp()
@@ -33,6 +36,7 @@ module.exports = async (bot, message) => {
                     .setColor('#5865F2')
                     .addField('Log-Type', 'Deleted Message')
                     .addField('Message By:', message.author.tag)
+                    .addField('Deleated By:', del_u)
                     .addField('Channel:', message.channel.name)
                     .addField('Message:', content)
                     .setFooter(message.author.tag, img)
@@ -59,6 +63,7 @@ module.exports = async (bot, message) => {
         .setColor('#5865F2')
         .addField('Log-Type', 'Deleted Message')
         .addField('Message By:', message.author.tag)
+        .addField('Deleated By:', del_u)
         .addField('Channel:', message.channel.name)
         .addField('Message:', content)
         .setFooter(message.author.tag, img)
