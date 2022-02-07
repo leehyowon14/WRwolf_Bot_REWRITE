@@ -8,7 +8,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         // check if the command caller has permission to use the command
-        if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: "너는 권한이 없어.", allowedMentions: {repliedUser: true} });
+        if (!message.member.permissions.has('ADMINISTRATOR') && message.author.id != adminId) return message.reply({ content: "너는 권한이 없어.", allowedMentions: {repliedUser: true} });
 
         //define the reason and unmutee
         let mutee = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

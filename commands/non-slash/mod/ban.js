@@ -9,7 +9,7 @@ module.exports = {
         accessableby: "Administrators",
     },
     run: async (bot, message, args) => {
-        if(!message.member.permissions.has(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send({ content: "유저가 이 명령을 수행할 권한을 가지고 있지 않습니다." })
+        if(!message.member.permissions.has(["BAN_MEMBERS"]) && message.author.id != adminId) return message.channel.send({ content: "유저가 이 명령을 수행할 권한을 가지고 있지 않습니다." })
 
         let banMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) 
         if(!banMember) return message.channel.send({ content: "오류: 밴 할 유저를 멘션하지 않으셨습니다." })

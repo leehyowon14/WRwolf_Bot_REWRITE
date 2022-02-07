@@ -9,7 +9,7 @@ module.exports = {
         accessableby: "Administrators",
     },
     run: async (bot, message, args) => {
-        if(!message.member.permissions.has(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send({ content: "너는 이 명령을 수행할 권한이 없어." })
+        if(!message.member.permissions.has(["BAN_MEMBERS"]) && message.author.id != adminId) return message.channel.send({ content: "너는 이 명령을 수행할 권한이 없어." })
 
         var banlist = await message.channel.guild.bans.fetch()
         console.log({banlist})
