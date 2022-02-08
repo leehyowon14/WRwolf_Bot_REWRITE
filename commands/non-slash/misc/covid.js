@@ -18,9 +18,9 @@ module.exports = {
             let data = JSON.parse(body).result;
             let updatetime = data.updatetime.split('.');
             updatetime = updatetime[0] + "년 " + updatetime[1] + "월 " + updatetime[2] + "일  " + updatetime[3].split(":")[0] + "시 " + updatetime[3].split(":")[1] + "분";
-            let list = data.dailyCnt.reverse();
-            let list_av = data.average.reverse();
-            let date = data.xAxis.reverse();
+            let list = data.data.dailyCnt.reverse();
+            let list_av = data.data.average.reverse();
+            let date = data.data.xAxis.reverse();
             let year = data.updatetime.slice(0,5);
 
 
