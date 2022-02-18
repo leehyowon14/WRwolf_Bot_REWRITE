@@ -41,7 +41,7 @@ module.exports = (bot, reload = false) => {
         try {
             console.log('Started refreshing application (/) commands.');
         
-            await rest.put(Routes.applicationCommands("870885245283631154"), {
+            await rest.put(Routes.applicationCommands("785678825580658688"), {
               body: commands
             });
         
