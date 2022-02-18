@@ -23,31 +23,31 @@ module.exports = (bot, reload = false) => {
     };
     ["misc", "nsfw", "music", "mod", "meal"].forEach(x => non_slash_load(x));
 
-    // const commands = [];
-    // const slash_load = dirs => {
-    //     let dir_path = `./commands/slash/${dirs}/`;
-    //     const cmds = readdirSync(dir_path).filter(d => d.endsWith('.js'));
-    //     console.log(cmds)
-    //     for (let file of cmds) {
-    //         let command = require(`../commands/slash/${dirs}/${file}`);
-    //         if (Object.keys(command).length === 0) continue;
-    //         bot.commands.set(command.data.name, command);
-    //         commands.push(command.data.toJSON());
-    //     };
-    // };
-    // ["meal"].forEach(x => slash_load(x));
+    const commands = [];
+    const slash_load = dirs => {
+        let dir_path = `./commands/slash/${dirs}/`;
+        const cmds = readdirSync(dir_path).filter(d => d.endsWith('.js'));
+        console.log(cmds)
+        for (let file of cmds) {
+            let command = require(`../commands/slash/${dirs}/${file}`);
+            if (Object.keys(command).length === 0) continue;
+            bot.commands.set(command.data.name, command);
+            commands.push(command.data.toJSON());
+        };
+    };
+    ["meal"].forEach(x => slash_load(x));
 
-    // (async () => {
-    //     try {
-    //         console.log('Started refreshing application (/) commands.');
+    (async () => {
+        try {
+            console.log('Started refreshing application (/) commands.');
         
-    //         await rest.put(Routes.applicationCommands("870885245283631154"), {
-    //           body: commands
-    //         });
+            await rest.put(Routes.applicationCommands("870885245283631154"), {
+              body: commands
+            });
         
-    //         console.log('Successfully reloaded application (/) commands.');
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // })();
+            console.log('Successfully reloaded application (/) commands.');
+        } catch (error) {
+            console.error(error);
+        }
+    })();
 };
