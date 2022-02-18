@@ -34,7 +34,7 @@ module.exports = {
             school_type = School.Type.ELEMENTARY
         } else if (schoolType == '중학교') {
             school_type = School.Type.MIDDLE
-            console.log(school_type)
+            //console.log(school_type)
         } else if (schoolType == '고등학교') {
             school_type = School.Type.HIGH
         } else if (schoolType == '병설유치원') {
@@ -166,25 +166,25 @@ module.exports = {
                         region = School.Region.JEONNAM
                     } else if (i.values[0] == '제주') {
                         region = School.Region.JEJU
-                    } else {
-                        return interaction.editReply({ content: '잘못된 지역입니다!', ephemeral: true });
                     }
-                    console.log(interaction.options.getString('학교이름', true))
-                    search_n_run(interaction, interaction.options.getString('학교이름', true), school_type, region, row)
+                    //console.log(interaction.options.getString('학교이름', true))
+                    search_n_run(i, interaction.options.getString('학교이름', true), school_type, region)
                 }
             });
 
             collector.on('end', () => {
-                interaction.editReply({ components: row(true), ephemeral: true });
+                let embed = new MessageEmbed()
+                    .setTitle('학교 정보 입력')
+                    .setDescription('지역 선택완료!')
+                interaction.editReply({ embeds:[embed], components:[], ephemeral: true });
             });
         }
     }
 
-    async function search_n_run(interaction, school_name, school_type, region, row) {
+    async function search_n_run(interaction, school_name, school_type, region) {
         let result
         try {
             result = await school.search(region, school_name)
-            interaction.editReply({ components: row(true), ephemeral: true });
         } catch (e) {
             console.log(e)
         }

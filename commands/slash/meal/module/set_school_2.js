@@ -13,10 +13,10 @@ async function result_to_array(result, object, array, len) {
 
 module.exports = {
     run:async (interaction, result, school_name, school_type, region) => {
-        if (!result) return interaction.editReply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
+        if (!result) return interaction.reply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
         let len = Object.keys(result).length
         if (len == 0) {
-            interaction.editReply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
+            interaction.reply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
         }
 
         let array = []
@@ -27,7 +27,7 @@ module.exports = {
         }
 
         await result_to_array(result, object, array, len)
-        console.log(array[0])
+        //console.log(array[0])
 
         const row = (state) => [ new MessageActionRow()
 			.addComponents(
@@ -42,7 +42,7 @@ module.exports = {
             .setTitle('학교 선택')
             .setDescription('학교를 선택해주세요.')
             .setColor(0x00AE86)
-        interaction.editReply({ embeds: [embed], components: row(false), ephemeral: true });
+        interaction.reply({ embeds: [embed], components: row(false), ephemeral: true });
             const collector = interaction.channel.createMessageComponentCollector({componentType: "SELECT_MENU", time: 30000 });
             let school_code
             collector.on('collect', (i) => {
@@ -54,7 +54,8 @@ module.exports = {
                 } else {
                     collector.stop()
                     school_code = result[i.values[0]].schoolCode
-                    set_school(interaction.member.id, school_type, school_name, school_code, region, interaction)
+                    interaction.editReply({ components: [], ephemeral: true });
+                    set_school(interaction.member.id, school_type, school_name, school_code, region, i)
                 }
             });
         }
@@ -74,13 +75,13 @@ module.exports = {
                 .setTitle('완료!')
                 .setDescription('학교가 선택되었습니다')
                 .setColor(0x00AE86)
-            return interaction.editReply({ embeds: [embed], components: row(true), ephemeral: true });
+            return interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
             await meal.findOneAndUpdate({ user_id: id }, { school_type: type, school_name: name, school_region: region, school_code: code });
             let embed = new MessageEmbed()
                 .setTitle('완료!')
                 .setDescription('학교가 선택되었습니다')
                 .setColor(0x00AE86)
-            return interaction.editReply({ embeds: [embed], components: row(true), ephemeral: true });
+            return interaction.reply({ embeds: [embed], ephemeral: true });
         }
     }
