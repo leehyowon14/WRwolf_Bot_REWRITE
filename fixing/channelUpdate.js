@@ -12,7 +12,7 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 .addField('New Channel Name:', newChannel.name)
                 .addField('Channel Type:', newChannel.type.toString())
                 .setTimestamp()
-                sysch.send({ embeds: [embed] })
+                return sysch.send({ embeds: [embed] })
             }
             if (oldChannel.topic != newChannel.topic) {
                 let embed = new MessageEmbed()
@@ -23,7 +23,7 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 .addField('New Channel Topic:', newChannel.topic)
                 .addField('Channel Type:', newChannel.type.toString())
                 .setTimestamp()
-                sysch.send({ embeds: [embed] })
+                return sysch.send({ embeds: [embed] })
             }
             if (oldChannel.nsfw != newChannel.nsfw) {
                 let embed = new MessageEmbed()
@@ -34,7 +34,7 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 .addField('New Channel NSFW:', newChannel.nsfw.toString())
                 .addField('Channel Type:', newChannel.type.toString())
                 .setTimestamp()
-                sysch.send({ embeds: [embed] })
+                return sysch.send({ embeds: [embed] })
             }
         } else if (oldChannel.isVoice()) {
             if (oldChannel.bitrate != newChannel.bitrate) {
@@ -46,7 +46,7 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 .addField('New Channel Name:', newChannel.bitrate.toString())
                 .addField('Channel Type:', newChannel.type.toString())
                 .setTimestamp()
-                sysch.send({ embeds: [embed] })
+                return sysch.send({ embeds: [embed] })
             }
             if (oldChannel.userLimit != newChannel.userLimit) {
                 let embed = new MessageEmbed()
@@ -57,7 +57,7 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 .addField('New Channel Name:', newChannel.userLimit.toString())
                 .addField('Channel Type:', newChannel.type.toString())
                 .setTimestamp()
-                sysch.send({ embeds: [embed] })
+                return sysch.send({ embeds: [embed] })
             }
         }
     }

@@ -25,6 +25,8 @@ let token = process.env.token
 global.token = token
 let prefix = process.env.prefix;
 global.prefix = prefix;
+let adminId = 935708650536845312
+global.adminId = adminId
 
 bot.authors = new Collection();
 Object.values(config).forEach((x, i) => bot[Object.keys(config)[i]] = x);

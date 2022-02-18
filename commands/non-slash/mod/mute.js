@@ -10,7 +10,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         // check if the command caller has permission to use the command
-        if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply({ content: "너는 권한이 없어.", allowedMentions: {repliedUser: true} });
+        if (!message.member.permissions.has('ADMINISTRATOR') && message.author.id != adminId) return message.reply({ content: "너는 권한이 없어.", allowedMentions: {repliedUser: true} });
 
         //define the reason and mutee
         let mutee = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
@@ -25,19 +25,19 @@ module.exports = {
             try {
                 muterole = await message.guild.roles.create({name: "Muted", color: bot.colours.red_dark, reason: reason})
                 muterole.setPermissions(new BitField(0)); // 어떤 권한도 없는 상태
-                message.guild.channels.cache.forEach(async (channel, id) => { // 채널에서 muted 권한에게 아무 것도 안 주게 함.
-                    await channel.permissionOverwrites.create(muterole, {
-                        SEND_MESSAGES: false,
-                        ADD_REACTIONS: false,
-                        SEND_TTS_MESSAGES: false,
-                        ATTACH_FILES: false,
-                        SPEAK: false,
-                    })
-                })
             } catch (e) {
                 console.log(e.stack);
             }
         }
+        message.guild.channels.cache.forEach(async (channel, id) => { // 채널에서 muted 권한에게 아무 것도 안 주게 함.
+            await channel.permissionOverwrites.create(muterole, {
+                SEND_MESSAGES: false,
+                ADD_REACTIONS: false,
+                SEND_TTS_MESSAGES: false,
+                ATTACH_FILES: false,
+                SPEAK: false,
+            })
+        })
 
         // add role to the mentioned user and also send the user a dm explaing where and why they were muted
         mutee.roles.add(muterole.id).then(() => {
