@@ -52,7 +52,7 @@ module.exports = {
         let embed = new MessageEmbed()
             .setTitle('코로나 확진자 현황')
             .setColor('#FEE75C')
-            .setDescription(`${updatetime} 기준.`)
+            .setDescription(`어제 확진자수 업데이트시각:\n   ${updatetime}`)
             .addField(`총 확진자수(현재시간)`, today + `명`)
             .addField(`어제(` + year + date[0] + `) 확진자수`, list[0] + `명`)
             .addField(`7일 평균`, list_av[0] + `명`, true)
