@@ -14,7 +14,7 @@ async function covid_live() {
     let url = "https://apiv3.corona-live.com/domestic/live.json";
     return new Promise((resolve, reject) => { 
         request(url, (error, response, body) => {
-            let data = JSON.parse(body).result;
+            let data = JSON.parse(body);
             resolve(data)
         })
     })
