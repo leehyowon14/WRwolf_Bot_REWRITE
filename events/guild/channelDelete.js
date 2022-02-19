@@ -3,7 +3,7 @@ module.exports = async (bot, channel) => {
     const sysch = channel.guild.systemChannel
     if (sysch) {
         let embed = new MessageEmbed()
-        .setColor('#57F287')
+        .setColor('#ED4245')
         .setTitle('Channel Log')
         .addField('Log-Type', 'Channel Deleted')
         .addField('Channel Name:', channel.name)
