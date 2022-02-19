@@ -58,7 +58,7 @@ module.exports = {
                 .setColor('#57F287')
                 .setAuthor(`${search}'s SCID`)
                 .addField("SCID", `${data}`)
-                .addImage(`https://prod.cloud.rockstargames.com/members/sc/8501/${data}/publish/gta5/mpchars/0.png`)
+                .setThumbnail(`https://prod.cloud.rockstargames.com/members/sc/8501/${data}/publish/gta5/mpchars/0.png`)
                 .setTimestamp()
                 .setFooter('Developed by sG.wolf')
             message.channel.send({ embeds: [embed] })

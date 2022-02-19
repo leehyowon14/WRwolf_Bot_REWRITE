@@ -176,6 +176,7 @@ module.exports = {
                 let embed = new MessageEmbed()
                     .setTitle('학교 정보 입력')
                     .setDescription('지역 선택완료!')
+                    .setColor(0x00AE86)
                 interaction.editReply({ embeds:[embed], components:[], ephemeral: true });
             });
         }
