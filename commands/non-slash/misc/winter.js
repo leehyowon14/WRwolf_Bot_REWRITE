@@ -138,6 +138,23 @@ const winter_array = [
     "https://cdn.discordapp.com/attachments/926506367232139294/944229212179546172/IMG_0492.jpg",
     "https://cdn.discordapp.com/attachments/926506367232139294/944229212410245120/IMG_0493.jpg",
     "https://cdn.discordapp.com/attachments/926506367232139294/944229212733177906/IMG_0494.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944574520658911232/IMG_0538.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944574520923144202/IMG_0539.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944574521216757840/IMG_0540.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944591291193364531/IMG_0546.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944591291419869184/IMG_0547.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944602506133127248/274305523_356380946357859_7927512271384389180_n.mp4",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944946209863397467/IMG_0576.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944946210081497108/IMG_0577.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/944946210328936519/IMG_0578.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945014013908123658/IMG_0606.gif",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945333969161965618/IMG_5388.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945333969401024563/IMG_5389.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945359444529803314/IMG_0654.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945574124212858900/IMG_5404.png",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945574124544204840/IMG_5405.png",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945574124791660544/IMG_5406.png",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945574125039128576/IMG_5407.png",
 ]
 
 module.exports = {
