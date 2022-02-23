@@ -155,6 +155,17 @@ const winter_array = [
     "https://cdn.discordapp.com/attachments/926506367232139294/945574124544204840/IMG_5405.png",
     "https://cdn.discordapp.com/attachments/926506367232139294/945574124791660544/IMG_5406.png",
     "https://cdn.discordapp.com/attachments/926506367232139294/945574125039128576/IMG_5407.png",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945644106665848872/IMG_0680.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945644534044446780/IMG_0681.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945675400628019210/IMG_0700.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945675400896450630/IMG_0699.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945675405564715058/IMG_0698.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945675405833154610/IMG_0697.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945675413517111366/IMG_0696.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945675413718433792/IMG_0695.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945675425265385542/IMG_0692.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945682062550134854/IMG_0704.jpg",
+    "https://cdn.discordapp.com/attachments/926506367232139294/945912411188240384/IMG_0711.jpg". // 2022/02/23 14:18 
 ]
 
 module.exports = {
