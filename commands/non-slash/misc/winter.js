@@ -165,7 +165,7 @@ const winter_array = [
     "https://cdn.discordapp.com/attachments/926506367232139294/945675413718433792/IMG_0695.jpg",
     "https://cdn.discordapp.com/attachments/926506367232139294/945675425265385542/IMG_0692.jpg",
     "https://cdn.discordapp.com/attachments/926506367232139294/945682062550134854/IMG_0704.jpg",
-    "https://cdn.discordapp.com/attachments/926506367232139294/945912411188240384/IMG_0711.jpg". // 2022/02/23 14:18 
+    "https://cdn.discordapp.com/attachments/926506367232139294/945912411188240384/IMG_0711.jpg", // 2022/02/23 14:18 
 ]
 
 module.exports = {
