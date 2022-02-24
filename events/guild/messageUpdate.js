@@ -1,10 +1,22 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, WebhookClient } = require("discord.js");
+const protex = require('../../db/protection.js')
+
+const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/946400164443197460/zQE06FdTCSAr9MWA1luGsapCZLGPPXaatvMvAkhYk2ec5iJzEv5q-sPZ0pUgsae2oOSo'})
 
 module.exports = async (bot, oldMessage, newMessage) => {
     if(newMessage.author.bot) return;
     if (!newMessage.guild.systemChannel) {
     return;
     }
+
+    let isUserUseProtection
+    let user = await protex.findOne({user_id: message.author.id})
+    if (!user) {
+        isUserUseProtection = false
+    } else {
+        isUserUseProtection = user.is_Activated 
+    }
+
     if(oldMessage.content == newMessage.content) return;
     let img = oldMessage.author.avatar ? `https://cdn.discordapp.com/avatars/${oldMessage.author.id}/${oldMessage.author.avatar}.webp?size=256` : undefined;
     let embed = new MessageEmbed()
@@ -17,5 +29,10 @@ module.exports = async (bot, oldMessage, newMessage) => {
         .addField('New Message:', newMessage.content)
         .setFooter(oldMessage.author.tag, img)
         .setTimestamp()
-        newMessage.guild.systemChannel.send({ embeds: [embed] })
+    if (isUserUseProtection) {
+        return webhookClient.send({
+            embeds: [embed]
+        });
+    }
+    newMessage.guild.systemChannel.send({ embeds: [embed] })
 }
