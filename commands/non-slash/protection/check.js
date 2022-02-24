@@ -3,8 +3,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     config: {
-        name: "lisence_check",
-        aliases: [`${prefix}lisence_check`],
+        name: "license_check",
+        aliases: [`${prefix}license_check`],
         description: "울프울프 프로텍션 유저서정보",
         usage: "lisence_check <@username>",
         accessableby: "Owner",
