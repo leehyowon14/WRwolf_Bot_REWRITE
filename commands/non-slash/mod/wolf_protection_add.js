@@ -1,4 +1,4 @@
-const protex = require('../../../../db/protection.js')
+const protex = require('../../../db/protection.js')
 
 module.exports = {
     config: {
