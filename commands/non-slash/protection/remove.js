@@ -27,18 +27,13 @@ module.exports = {
                 is_Activated: false
             })
             await user.save()
-            let embed = new MessageEmbed()
-                .setTitle('완료!')
-                .setDescription('변경사항이 저장되었습니다.')
-                .setColor(0x00AE86)
-            return message.reply({ embeds: [embed] });
         } else {
             await protex.findOneAndUpdate({ user_id: id }, { is_Activated: false });
-            let embed = new MessageEmbed()
-                .setTitle('완료!')
-                .setDescription('변경사항이 저장되었습니다.')
-                .setColor(0x00AE86)
-            return message.reply({ embeds: [embed] });
         }
+        let embed = new MessageEmbed()
+            .setTitle('완료!')
+            .setDescription('변경사항이 저장되었습니다.')
+            .setColor(0x00AE86)
+        message.reply({ embeds: [embed] });
     }
 }

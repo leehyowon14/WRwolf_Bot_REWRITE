@@ -3,10 +3,10 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     config: {
-        name: "add_user",
-        aliases: [`${prefix}add_user`],
-        description: "울프울프 프로텍션 유저 추가",
-        usage: "add_user <@username>",
+        name: "remove_user",
+        aliases: [`${prefix}remove_user`],
+        description: "울프울프 프로텍션 유저 삭제",
+        usage: "remove_user <@username>",
         accessableby: "Owner",
     },
     run: async (bot, message, args) => {
@@ -24,21 +24,29 @@ module.exports = {
             user = new protex({
                 user_id: id,
                 register_date: time,
-                is_Activated: true
+                is_Activated: false
             })
             await user.save()
-            let embed = new MessageEmbed()
-                .setTitle('완료!')
-                .setDescription('변경사항이 저장되었습니다.')
-                .setColor(0x00AE86)
-            return message.reply({ embeds: [embed] });
-        } else {
-            await protex.findOneAndUpdate({ user_id: id }, { is_Activated: true });
-            let embed = new MessageEmbed()
-                .setTitle('완료!')
-                .setDescription('변경사항이 저장되었습니다.')
-                .setColor(0x00AE86)
-            return message.reply({ embeds: [embed] });
         }
+        
+
+        let uid = user.user_id
+        let embed
+        if (user.is_Activated) {
+            embed = new MessageEmbed()
+                .setTitle("Protection")
+                .setDescription(`Userinfo(${uid})`)
+                .addField("Status", "Activated")
+                .addField("Activation Date", user.register_date)
+                .setColor('#57F287')
+        } else {
+            embed = new MessageEmbed()
+                .setTitle("Protection")
+                .setDescription(`Userinfo(${uid})`)
+                .addField("Status", "Disactivated")
+                .setColor('#ED4245')
+        }
+        message.reply({ embeds:[embed] })
+
     }
 }
