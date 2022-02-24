@@ -24,6 +24,7 @@ function changeCommandStringLength(str, limitLen = 8) {
 }
 
 global.log = log;
+global.getTime = getTime;
 global.greenChalk = green;
 global.orangeChalk = orange;
 global.redChalk = red;

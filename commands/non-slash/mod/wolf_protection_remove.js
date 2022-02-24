@@ -5,7 +5,7 @@ module.exports = {
         name: "remove_user",
         aliases: [`${prefix}remove_user`],
         description: "울프울프 프로텍션 유저 삭제",
-        usage: "add_user <@username>",
+        usage: "remove_user <@username>",
         accessableby: "Owner",
     },
     run: async (bot, message, args) => {
