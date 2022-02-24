@@ -3,10 +3,10 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     config: {
-        name: "remove_user",
-        aliases: [`${prefix}remove_user`],
-        description: "울프울프 프로텍션 유저 삭제",
-        usage: "remove_user <@username>",
+        name: "lisence_check",
+        aliases: [`${prefix}lisence_check`],
+        description: "울프울프 프로텍션 유저서정보",
+        usage: "lisence_check <@username>",
         accessableby: "Owner",
     },
     run: async (bot, message, args) => {
