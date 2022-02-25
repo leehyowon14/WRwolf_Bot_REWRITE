@@ -42,23 +42,23 @@ module.exports = {
             if (!title) {
                 let embed = new MessageEmbed()
                     .setColor('#ED4245')
-                    .setAuthor('에러!')
+                    .setAuthor({name='에러!'})
                     .setTitle('없는작품입니다')
                     .setTimestamp()
-                    .setFooter('Developed by sG.wolf#7777')
+                    .setFooter({text='Developed by sG.wolf#7777'})
                 return message.channel.send({ embeds: [embed] })
             }
             
-            let tags = "";
+            let tags;
             if (data.tags.length == 0) {
                 tags = "None(없음)"
             } else {
                 for (let i = 0; i < data.tags.length; i++) {
                     let tag = data.tags[i];
                     if (tag.female == "1") {
-                        tags = tags + `🚺` + tag.tag
+                        tags = tags + `♀️` + tag.tag
                     } else if (tag.male == "1") {
-                        tags = tags + `🚹` + tag.tag
+                        tags = tags + `♂️` + tag.tag
                     } else {
                         tags = tags + `🏷` + tag.tag
                     }
@@ -69,15 +69,24 @@ module.exports = {
             }
             
             let languages = data.language_localname
-            languages = languages + `(` + data.language + `)`
-
-            let artists = "";
-            for (let i = 0; i<data.artists.length; i++) {
-                let artist = data.artists[i].artist
-                artists = `${artists}${artist}, `
+            if (data.language) {
+                languages = languages + `(` + data.language + `)`
             }
 
-            let thumbnails = 
+            let artists;
+            if (data.artists) {
+                for (let i = 0; i<data.artists.length; i++) {
+                    let artist = data.artists[i].artist
+                    artists = `${artists}${artist}, `
+                }
+            } else {
+                artists = "None(없음)"
+            }
+
+            let thumbnails;
+            if (!data.files.length == 0) {
+                thumbnails = data.files[0]
+            }
 
             let embed = new MessageEmbed()
                 .setColor('#5865F2')
@@ -89,14 +98,14 @@ module.exports = {
                 .addField('태그', `${tags}`)
                 .addField('\u200B', '\u200B')
                 .setTimestamp()
-                .setFooter('Developed by sG.wolf#7777')
+                .setFooter({text='Developed by sG.wolf#7777'})
 
             message.channel.send({ embeds: [embed] })
             if (message.channel.nsfw) {
                 if (!thumbnails) {
                     return
                 }
-                message.channel.send({ files: [{attachment: `https:${thumbnails}`, name: "SPOILER_FILE.jpg"}] });
+                message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
                 }
             }); 
     }
