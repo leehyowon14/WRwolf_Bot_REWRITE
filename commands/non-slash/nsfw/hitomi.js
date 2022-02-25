@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-var cheerio = require('cheerio');
 var request = require('request');
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        const number = args[0]
+        let number = args[0]
         if (!number) {
             let embed = new MessageEmbed()
                 .setColor('#ED4245')
@@ -24,13 +23,21 @@ module.exports = {
         }
 
         
-        var url = `https://ltn.hitomi.la/galleryblock/${number}.html`;
+        var options = {
+            url : `https://ltn.hitomi.la/galleries/${number}.js`,
+            method:'GET',
+            headers: {
+                'Accept': '*/*',
+				'Connection': 'keep-alive',
+				'Referer': 'https://hitomi.la'
+            }
+        };
 
-        request(url, function(error, response, html){
+        request(options, function(error, response, body){
                 
-            var $ = cheerio.load(html);
-        
-            const title = $("h1.lillie > a").text()
+            let data = JSON.parse(body.slice(18))
+
+            let title = data.title
             
             if (!title) {
                 let embed = new MessageEmbed()
@@ -39,24 +46,45 @@ module.exports = {
                     .setTitle('없는작품입니다')
                     .setTimestamp()
                     .setFooter('Developed by sG.wolf#7777')
-                message.channel.send({ embeds: [embed] })
-                return;
+                return message.channel.send({ embeds: [embed] })
             }
             
-            let tags = $(".relatedtags a").text()
-            if (!tags) {
+            let tags = "";
+            if (data.tags.length == 0) {
                 tags = "None(없음)"
+            } else {
+                for (let i = 0; i < data.tags.length; i++) {
+                    let tag = data.tags[i];
+                    if (tag.female == "1") {
+                        tags = tags + `🚺` + tag.tag
+                    } else if (tag.male == "1") {
+                        tags = tags + `🚹` + tag.tag
+                    } else {
+                        tags = tags + `🏷` + tag.tag
+                    }
+                    if (i != data.tags.length-1) {
+                        tags = tags + ", "
+                    }
+                }
             }
             
-            const languages = $("a[href^='/index'][href$='.html']").text()
+            let languages = data.language_localname
+            languages = languages + `(` + data.language + `)`
 
-            const thumbnails = $(".dj-img-cont").find('img').attr('src')
+            let artists = "";
+            for (let i = 0; i<data.artists.length; i++) {
+                let artist = data.artists[i].artist
+                artists = `${artists}${artist}, `
+            }
+
+            let thumbnails = 
 
             let embed = new MessageEmbed()
                 .setColor('#5865F2')
                 .setTitle('HITOMI HELPER')
                 .addField('제목', `${title}`)
                 .addField('언어', languages)
+                .addField('아티스트', artists)
                 .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
                 .addField('태그', `${tags}`)
                 .addField('\u200B', '\u200B')
