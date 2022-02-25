@@ -45,7 +45,7 @@ module.exports = {
                     .setAuthor({name:'에러!'})
                     .setTitle('없는작품입니다')
                     .setTimestamp()
-                    .setFooter({text='Developed by sG.wolf#7777'})
+                    .setFooter({text:'Developed by sG.wolf#7777'})
                 return message.channel.send({ embeds: [embed] })
             }
             
