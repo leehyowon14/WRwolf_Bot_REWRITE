@@ -14,10 +14,10 @@ module.exports = {
         if (!number) {
             let embed = new MessageEmbed()
                 .setColor('#ED4245')
-                .setAuthor('에러!')
+                .setAuthor({name:'에러!'})
                 .setTitle('번호를 입력해주세요')
                 .setTimestamp()
-                .setFooter('Developed by sG.wolf#7777')
+                .setFooter({text:'Developed by sG.wolf#7777'})
             message.channel.send({ embeds: [embed] })
             return;
         }
@@ -42,7 +42,7 @@ module.exports = {
             if (!title) {
                 let embed = new MessageEmbed()
                     .setColor('#ED4245')
-                    .setAuthor({name='에러!'})
+                    .setAuthor({name:'에러!'})
                     .setTitle('없는작품입니다')
                     .setTimestamp()
                     .setFooter({text='Developed by sG.wolf#7777'})
@@ -98,7 +98,7 @@ module.exports = {
                 .addField('태그', `${tags}`)
                 .addField('\u200B', '\u200B')
                 .setTimestamp()
-                .setFooter({text='Developed by sG.wolf#7777'})
+                .setFooter({text:'Developed by sG.wolf#7777'})
 
             message.channel.send({ embeds: [embed] })
             if (message.channel.nsfw) {
