@@ -49,7 +49,7 @@ module.exports = {
                 return message.channel.send({ embeds: [embed] })
             }
             
-            let tags;
+            let tags="";
             if (data.tags.length == 0) {
                 tags = "None(없음)"
             } else {
@@ -73,7 +73,7 @@ module.exports = {
                 languages = languages + `(` + data.language + `)`
             }
 
-            let artists;
+            let artists = "";
             if (data.artists) {
                 for (let i = 0; i<data.artists.length; i++) {
                     let artist = data.artists[i].artist
