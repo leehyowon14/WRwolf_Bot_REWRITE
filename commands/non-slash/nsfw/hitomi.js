@@ -45,11 +45,11 @@ module.exports = {
                     .setAuthor({name:'에러!'})
                     .setTitle('없는작품입니다')
                     .setTimestamp()
-                    .setFooter({text:'Developed by sG.wolf#7777'})
+                    .setFooter({text='Developed by sG.wolf#7777'})
                 return message.channel.send({ embeds: [embed] })
             }
             
-            let tags="";
+            let tags;
             if (data.tags.length == 0) {
                 tags = "None(없음)"
             } else {
@@ -77,7 +77,6 @@ module.exports = {
             if (data.artists) {
                 for (let i = 0; i<data.artists.length; i++) {
                     let artist = data.artists[i].artist
-                    if (!artist) artist = artist
                     artists = `${artists}${artist}, `
                 }
             } else {
@@ -107,7 +106,7 @@ module.exports = {
             //         return
             //     }
             //     message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
-            //     }
-            // }); 
+            // }
+            }); 
     }
 }
