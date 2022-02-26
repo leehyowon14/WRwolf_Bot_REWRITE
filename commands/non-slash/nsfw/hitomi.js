@@ -130,7 +130,7 @@ async function getGGjs() {
     });//end of promise
 }
 
-async function getThumbnailPath(hash) {}
+async function getThumbnailPath(hash) {
     await getGGjs().then(function(gg) {
         eval(gg)
         return new Promise((resolve, reject) => {
