@@ -117,7 +117,7 @@ module.exports = {
 async function getGGjs() {
     return new Promise((resolve, reject) => {
         var options = {
-            url : `https://ltn.hitomi.la/ggjs`,
+            url : `https://ltn.hitomi.la/gg.js`,
             method:'GET',
             headers: {
                 'Accept': '*/*',
