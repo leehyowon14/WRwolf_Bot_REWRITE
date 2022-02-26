@@ -134,11 +134,11 @@ async function getGGjs() {
 async function getThumbnailPath(hash) {
     await getGGjs().then(function(gg) {
         eval(gg)
-        return new Promise((resolve, reject) => {
-            let first = gg.b()
-            let second = gg.s(hash)
-            let path = `${first}${second}/${hash}`
-            resolve(path)
-        })
     });
+    return new Promise((resolve, reject) => {
+        let first = gg.b
+        let second = gg.s(hash)
+        let path = `${first}${second}/${hash}`
+        resolve(path)
+    })
 }
