@@ -50,7 +50,7 @@ module.exports = {
             }
             
             let tags="";
-            if (data.tags.length == 0) {
+            if (!data.tags) {
                 tags = "None(없음)"
             } else {
                 for (let i = 0; i < data.tags.length; i++) {
