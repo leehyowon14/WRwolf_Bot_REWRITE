@@ -34,7 +34,7 @@ module.exports = {
         };
 
         request(options, function(error, response, body){
-            
+
             let data = JSON.parse(body.slice(18))
 
             let title = data.title
@@ -132,8 +132,8 @@ async function getGGjs() {
 }
 
 async function getThumbnailPath(hash) {
-    await getGGjs().then(function(body) {
-        eval(body)
+    await getGGjs().then(function(gg) {
+        eval(gg)
     });
     return new Promise((resolve, reject) => {
         let first = gg.b()
