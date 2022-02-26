@@ -84,13 +84,6 @@ module.exports = {
             }
             artists = artists.slice(0, -2)
 
-            let thumbnails;
-            if (data.files) {
-                getThumbnailPath(data.files[0].hash).then(function(path) {
-                    thumbnails = `https://a.hitomi.la/webp/${path}`
-                })
-            }
-
             let embed = new MessageEmbed()
                 .setColor('#5865F2')
                 .setTitle('HITOMI HELPER')
@@ -104,13 +97,19 @@ module.exports = {
                 .setFooter({text:'Developed by sG.wolf#7777'})
 
             message.channel.send({ embeds: [embed] })
-            if (message.channel.nsfw) {
-                if (!thumbnails) {
-                    return
-                }
-                message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
+        });
+        
+        let thumbnails;
+        await getThumbnailPath(data.files[0].hash).then(function(path) {
+            thumbnails = `https://a.hitomi.la/webp/${path}`
+        }) 
+        
+        if (message.channel.nsfw) {
+            if (!thumbnails) {
+                return
             }
-            }); 
+            message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
+        }
     }
 }
 
@@ -131,7 +130,7 @@ async function getGGjs() {
     });//end of promise
 }
 
-async function getThumbnailPath(hash) {
+async function getThumbnailPath(hash) {}
     await getGGjs().then(function(gg) {
         eval(gg)
         return new Promise((resolve, reject) => {
