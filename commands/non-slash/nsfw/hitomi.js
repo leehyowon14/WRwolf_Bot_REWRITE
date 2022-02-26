@@ -110,6 +110,7 @@ module.exports = {
                 }
                 message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
             }
+            console.log(thumbnails)
 
         }); //end of request
     }
