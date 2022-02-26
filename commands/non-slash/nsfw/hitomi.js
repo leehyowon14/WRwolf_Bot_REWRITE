@@ -82,6 +82,7 @@ module.exports = {
             } else {
                 artists = "None(없음)"
             }
+            artists = artists.slice(0, -2)
 
             let thumbnails;
             if (!data.files.length == 0) {
