@@ -9,7 +9,7 @@ module.exports = {
         usage: "hitomi [품번]",
         accessableby: "Members",
     },
-    run: async (bot, message, args) => {
+    run: (bot, message, args) => {
         let number = args[0]
         if (!number) {
             let embed = new MessageEmbed()
@@ -32,10 +32,10 @@ module.exports = {
 				'Referer': 'https://hitomi.la'
             }
         };
+        let data;
+        request(options, async (error, response, body) => {
 
-        request(options, function(error, response, body){
-
-            let data = JSON.parse(body.slice(18))
+            data = JSON.parse(body.slice(18))
 
             let title = data.title
             
@@ -83,6 +83,11 @@ module.exports = {
                 artists = "None(없음)"
             }
             artists = artists.slice(0, -2)
+            
+            let thumbnails;
+            await getThumbnailPath(data.files[0].hash).then(function(path) {
+                thumbnails = `https://a.hitomi.la/webp/${path}`
+            }) 
 
             let embed = new MessageEmbed()
                 .setColor('#5865F2')
@@ -97,19 +102,16 @@ module.exports = {
                 .setFooter({text:'Developed by sG.wolf#7777'})
 
             message.channel.send({ embeds: [embed] })
-        });
-        
-        let thumbnails;
-        await getThumbnailPath(data.files[0].hash).then(function(path) {
-            thumbnails = `https://a.hitomi.la/webp/${path}`
-        }) 
-        
-        if (message.channel.nsfw) {
-            if (!thumbnails) {
-                return
+
+
+            if (message.channel.nsfw) {
+                if (!thumbnails) {
+                    return
+                }
+                message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
             }
-            message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
-        }
+
+        }); //end of request
     }
 }
 
