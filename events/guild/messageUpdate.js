@@ -10,7 +10,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
     }
 
     let isUserUseProtection
-    let user = await protex.findOne({user_id: message.author.id})
+    let user = await protex.findOne({user_id: newMessage.author.id})
     if (!user) {
         isUserUseProtection = false
     } else {
