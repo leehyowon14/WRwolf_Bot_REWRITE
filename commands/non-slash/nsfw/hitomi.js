@@ -34,7 +34,7 @@ module.exports = {
         };
 
         request(options, function(error, response, body){
-                
+            
             let data = JSON.parse(body.slice(18))
 
             let title = data.title
@@ -85,16 +85,18 @@ module.exports = {
             artists = artists.slice(0, -2)
 
             let thumbnails;
-            if (!data.files.length == 0) {
-                thumbnails = data.files[0]
+            if (data.files) {
+                getThumbnailPath(data.files[0].hash).then(function(path) {
+                    thumbnails = `https://a.hitomi.la/webp/${path}`
+                })
             }
 
             let embed = new MessageEmbed()
                 .setColor('#5865F2')
                 .setTitle('HITOMI HELPER')
                 .addField('제목', `${title}`)
-                .addField('언어', languages)
-                .addField('아티스트', artists)
+                .addField('언어', `${languages}`)
+                .addField('아티스트', `${artists}`)
                 .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
                 .addField('태그', `${tags}`)
                 .addField('\u200B', '\u200B')
@@ -102,12 +104,41 @@ module.exports = {
                 .setFooter({text:'Developed by sG.wolf#7777'})
 
             message.channel.send({ embeds: [embed] })
-            // if (message.channel.nsfw) {
-            //     if (!thumbnails) {
-            //         return
-            //     }
-            //     message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
-            // }
+            if (message.channel.nsfw) {
+                if (!thumbnails) {
+                    return
+                }
+                message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
+            }
             }); 
     }
+}
+
+async function getGGjs() {
+    return new Promise((resolve, reject) => {
+        var options = {
+            url : `https://ltn.hitomi.la/ggjs`,
+            method:'GET',
+            headers: {
+                'Accept': '*/*',
+				'Connection': 'keep-alive',
+				'Referer': 'https://hitomi.la'
+            }
+        };
+        request(options, function(error, response, gg){
+            resolve(gg)
+        }); // end of request
+    });//end of promise
+}
+
+async function getThumbnailPath(hash) {
+    await getGGjs().then(function(body) {
+        eval(body)
+    });
+    return new Promise((resolve, reject) => {
+        let first = gg.b()
+        let second = gg.s(hash)
+        let path = `${first}${second}/${hash}`
+        resolve(path)
+    })
 }
