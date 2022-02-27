@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, DataResolver } = require("discord.js");
 var request = require('request');
 
 module.exports = {
@@ -140,25 +140,26 @@ async function getThumbnailUrl(hash) {
     let b = 16
     let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
     let m = r.exec(url);
-    if (!m) {
-        return url
-    }
-    let g = parseInt(m[2]+m[1], b);
-    if (!isNaN(g)) {
-        retval = String.fromCharCode(97 + gg.m(g)) + retval;
-    }
-    url = 'https://'+retval+'.'+url.slice(10)
-    var options = {
-        url : url,
-        method:'GET',
-        headers: {
-            'Accept': '*/*',
-            'Connection': 'keep-alive',
-            'Referer': 'https://hitomi.la'
+    if (m) {
+        let g = parseInt(m[2]+m[1], b);
+        if (!isNaN(g)) {
+            retval = String.fromCharCode(97 + gg.m(g)) + retval;
         }
-    };
-    request(options, function(error, response, body){
-        console.log(body)
-        return body
+        url = 'https://'+retval+'.'+url.slice(10)
+    }
+    
+    return new Promise(resolve => {
+        var options = {
+            url : url,
+            method:'GET',
+            headers: {
+                'Accept': '*/*',
+                'Connection': 'keep-alive',
+                'Referer': 'https://hitomi.la'
+            }
+        };
+        request(options, function(error, response, body){
+            resolve(DataResolver.resolveFileAsBuffer(body))
+        });
     });
 }
