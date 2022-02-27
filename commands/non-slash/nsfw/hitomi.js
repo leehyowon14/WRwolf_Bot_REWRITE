@@ -99,7 +99,7 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-            await getThumbnailPath(data.files[0].hash, message).then(async (url) => {
+            getThumbnailPath(data.files[0].hash, message).then(async (url) => {
                 if (message.channel.nsfw) {
                     if (!url) {
                         return
@@ -113,7 +113,7 @@ module.exports = {
 }
 
 async function getGGjs() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         var options = {
             url : `https://ltn.hitomi.la/gg.js`,
             method:'GET',
@@ -129,9 +129,9 @@ async function getGGjs() {
     });//end of promise
 }
 
-async function getThumbnailPath(hash, message) {
-    await getGGjs().then(function(gg) {
-        gg =eval(gg)
+function getThumbnailPath(hash, message) {
+    getGGjs().then(function(gg) {
+        gg = eval(gg)
     })
     
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
