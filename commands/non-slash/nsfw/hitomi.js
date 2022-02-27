@@ -1,5 +1,6 @@
 const { MessageEmbed, DataResolver } = require("discord.js");
-var request = require('request');
+const request = require('request');
+const fs = require('fs');
 
 module.exports = {
     config: {
