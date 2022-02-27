@@ -160,7 +160,7 @@ async function getThumbnailUrl(hash) {
             }
         };
         request(options, function(error, response, body){
-            console.log(typeof body)
+            resolve(Buffer.from(body))
         });
     });
 }
