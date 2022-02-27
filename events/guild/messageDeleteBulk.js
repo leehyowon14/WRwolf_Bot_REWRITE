@@ -1,11 +1,27 @@
 const { MessageAttachment } = require('discord.js');
 const { MessageEmbed } = require("discord.js");
 const dateFormat = require('dateformat')
+const protex = require('../../db/protection.js')
+
+const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/946400164443197460/zQE06FdTCSAr9MWA1luGsapCZLGPPXaatvMvAkhYk2ec5iJzEv5q-sPZ0pUgsae2oOSo'})
 
 module.exports = async (bot, messages) => {
-    if (!messages.first().guild.systemChannel) {
-    return;
+    if (!message.guild.systemChannel) {
+        return;
     }
+
+    let isUserUseProtection
+    let user = await protex.findOne({user_id: [...messages.values()].first().author.id})
+    if (!user) {
+        isUserUseProtection = false
+    } else {
+        isUserUseProtection = user.is_Activated 
+    }
+
+    if (!messages.first().guild.systemChannel) {
+        return;
+    }
+
     let embed = new MessageEmbed()
         .setTitle('Chatting Log')
         .setColor('#5865F2')
@@ -36,6 +52,18 @@ module.exports = async (bot, messages) => {
                 }
             }
             Log += ' : ' + message.content;
+        }
+
+        if (isUserUseProtection) {
+            if([...messages.values()].length > 10) {
+                const log_txt_file = new MessageAttachment(Buffer.from(Log, 'utf-8'), 'DeletedMessages.txt');
+                webhookClient.send({ files : [log_txt_file] });
+            } else {
+                Log += "\n```"
+                embed.addField("Messages", Log)
+                webhookClient.send({ embeds: [embed] })
+            }
+            return
         }
 
         if([...messages.values()].length > 10) {
