@@ -99,16 +99,7 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-            await getThumbnailPath(data.files[0].hash).then(function(url) {
-                console.log(url)
-                let thumbnails = url
-                if (message.channel.nsfw) {
-                    if (!thumbnails) {
-                        return
-                    }
-                    message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
-                }//if nsfw channel
-            }) // end of getThumbnailPath
+            getThumbnailPath(data.files[0].hash, message)
         }); //end of request
     }
 }
@@ -130,7 +121,7 @@ async function getGGjs() {
     });//end of promise
 }
 
-async function getThumbnailPath(hash) {
+async function getThumbnailPath(hash, message) {
     await getGGjs().then(function(gg) {
         eval(gg)
         return new Promise((resolve, reject) => {
@@ -148,12 +139,14 @@ async function getThumbnailPath(hash) {
             if (!isNaN(g)) {
                 retval = String.fromCharCode(97 + gg.m(g)) + retval;
             }
-            console.log(first)
-            console.log(second)
-            console.log(retval)
-            url = 'https://'+retval+url.slice(10)
-            console.log(url)
-            resolve(url);
+            url = 'https://'+retval+'.'+url.slice(10)
+            
+            if (message.channel.nsfw) {
+                if (!url) {
+                    return
+                }
+                message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
+            }
         })
     });
 }
