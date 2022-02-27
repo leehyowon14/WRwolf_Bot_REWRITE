@@ -121,34 +121,32 @@ async function getGGjs() {
     });//end of promise
 }
 
-async function getThumbnailPath(hash, message) {
+function getThumbnailPath(hash, message) {
     await getGGjs().then(function(gg) {
         eval(gg)
-        return new Promise((resolve, reject) => {
-            let first = gg.b
-            let second = gg.s(hash)
-            let url = `https://a.hitomi.la/webp/${first}${second}/${hash}`
-            let retval = "a"
-            let b = 16
-            let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
-            let m = r.exec(url);
-            if (!m) {
-                resolve(url)
-            }
-            let g = parseInt(m[2]+m[1], b);
-            if (!isNaN(g)) {
-                retval = String.fromCharCode(97 + gg.m(g)) + retval;
-            }
-            url = 'https://'+retval+'.'+url.slice(10)
+        
+        let first = gg.b
+        let second = gg.s(hash)
+        let url = `https://a.hitomi.la/webp/${first}${second}/${hash}`
+        let retval = "a"
+        let b = 16
+        let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
+        let m = r.exec(url);
+        if (!m) {
+            resolve(url)
+        }
+        let g = parseInt(m[2]+m[1], b);
+        if (!isNaN(g)) {
+            retval = String.fromCharCode(97 + gg.m(g)) + retval;
+        }
+        url = 'https://'+retval+'.'+url.slice(10)
             
-            if (message.channel.nsfw) {
-                if (!url) {
-                    return
-                }
-                message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
+        if (message.channel.nsfw) {
+            if (!url) {
+                return
             }
-            console.log(url)
-
-        })
-    });
+            message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
+        }
+        console.log(url)
+    })
 }
