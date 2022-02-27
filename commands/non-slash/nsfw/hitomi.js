@@ -112,27 +112,23 @@ module.exports = {
     }
 }
 
-async function getGGjs() {
-    return new Promise((resolve) => {
-        var options = {
-            url : `https://ltn.hitomi.la/gg.js`,
-            method:'GET',
-            headers: {
-                'Accept': '*/*',
-				'Connection': 'keep-alive',
-				'Referer': 'https://hitomi.la'
-            }
-        };
-        request(options, function(error, response, gg){
-            resolve(gg.slice(13));
-        }); // end of request
-    });//end of promise
+function getGGjs() {
+    var options = {
+        url : `https://ltn.hitomi.la/gg.js`,
+        method:'GET',
+        headers: {
+            'Accept': '*/*',
+			'Connection': 'keep-alive',
+			'Referer': 'https://hitomi.la'
+        }
+    };
+    request(options, function(error, response, gg){
+        return gg.slice(13)
+    }); // end of request
 }
 
 function getThumbnailPath(hash, message) {
-    getGGjs().then(function(gg) {
-        gg = eval(gg)
-    })
+    eval(getGGjs());
     
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
