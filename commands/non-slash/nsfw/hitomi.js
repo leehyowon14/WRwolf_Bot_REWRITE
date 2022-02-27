@@ -113,18 +113,20 @@ module.exports = {
 }
 
 async function getGGjs() {
-    var options = {
-        url : `https://ltn.hitomi.la/gg.js`,
-        method:'GET',
-        headers: {
-            'Accept': '*/*',
-			'Connection': 'keep-alive',
-			'Referer': 'https://hitomi.la'
-        }
-    };
-    request(options, function(error, response, gg){
-        return gg.slice(13)
-    }); // end of request
+    return new Promise((resolve, reject) => {
+        var options = {
+            url : `https://ltn.hitomi.la/gg.js`,
+            method:'GET',
+            headers: {
+                'Accept': '*/*',
+				'Connection': 'keep-alive',
+				'Referer': 'https://hitomi.la'
+            }
+        };
+        request(options, function(error, response, gg){
+            resolve(gg)
+        }); // end of request
+    });//end of promise
 }
 
 async function getThumbnailPath(hash) {
