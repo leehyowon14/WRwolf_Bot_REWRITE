@@ -148,6 +148,17 @@ async function getThumbnailUrl(hash) {
         retval = String.fromCharCode(97 + gg.m(g)) + retval;
     }
     url = 'https://'+retval+'.'+url.slice(10)
-    
-    return url
+    var options = {
+        url : url,
+        method:'GET',
+        headers: {
+            'Accept': '*/*',
+            'Connection': 'keep-alive',
+            'Referer': 'https://hitomi.la'
+        }
+    };
+    request(options, function(error, response, body){
+        console.log(body)
+        return body
+    });
 }
