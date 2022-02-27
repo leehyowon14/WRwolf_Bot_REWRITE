@@ -121,7 +121,7 @@ async function getGGjs() {
     });//end of promise
 }
 
-function getThumbnailPath(hash, message) {
+async function getThumbnailPath(hash, message) {
     await getGGjs().then(function(gg) {
         eval(gg)
         
