@@ -128,7 +128,7 @@ function getGGjs() {
 }
 
 function getThumbnailPath(hash, message) {
-    eval(getGGjs());
+    let gg = eval(getGGjs());
     
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
