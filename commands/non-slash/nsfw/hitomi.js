@@ -99,7 +99,15 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-            getThumbnailPath(data.files[0].hash, message)
+            await getThumbnailPath(data.files[0].hash, message).then(async (url) => {
+                if (message.channel.nsfw) {
+                    if (!url) {
+                        return
+                    }
+                    message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
+                }
+                console.log(url)
+            })
         }); //end of request
     }
 }
@@ -128,25 +136,19 @@ async function getThumbnailPath(hash, message) {
         hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
         let url = `https://a.hitomi.la/webp/${hash}.`
-        let retval = "a"
+        let retval = "tn"
         let b = 16
         let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
         let m = r.exec(url);
         if (!m) {
-            resolve(url)
+            return url
         }
         let g = parseInt(m[2]+m[1], b);
         if (!isNaN(g)) {
             retval = String.fromCharCode(97 + gg.m(g)) + retval;
         }
         url = 'https://'+retval+'.'+url.slice(10)
-            
-        if (message.channel.nsfw) {
-            if (!url) {
-                return
-            }
-            message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
-        }
-        console.log(url)
+        
+        return url
     })
 }
