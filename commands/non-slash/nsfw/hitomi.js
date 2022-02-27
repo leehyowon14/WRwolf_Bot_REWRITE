@@ -112,7 +112,7 @@ module.exports = {
     }
 }
 
-function getGGjs() {
+async function getGGjs() {
     var options = {
         url : `https://ltn.hitomi.la/gg.js`,
         method:'GET',
