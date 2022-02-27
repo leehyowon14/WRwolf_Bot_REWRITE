@@ -152,7 +152,7 @@ async function getThumbnailPath(hash) {
             console.log(second)
             console.log(url)
             console.log(retval)
-            resolve(url.replace(/\/\...?\.hitomi\.la\//, '//'+retval+'.hitomi.la/'));
+            resolve(url.replace(/\/\..?\.hitomi\.la\//, '//'+retval+'.hitomi.la/'));
         })
     });
 }
