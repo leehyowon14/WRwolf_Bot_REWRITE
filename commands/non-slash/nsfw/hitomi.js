@@ -128,8 +128,10 @@ async function getGGjs() {
 }
 
 async function getThumbnailPath(hash) {
-    await getGGjs().then(v => {return eval(v)})
+    let g = await getGGjs().then(v => {return v})
     
+    eval(g)
+
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
     let url = `https://a.hitomi.la/webp/${hash}.`
