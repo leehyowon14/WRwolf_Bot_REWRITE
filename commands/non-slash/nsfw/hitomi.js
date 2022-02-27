@@ -33,7 +33,7 @@ module.exports = {
             }
         };
         let data;
-        request(options, async (error, response, body) => {
+        request(options, (error, response, body) => {
 
             data = JSON.parse(body.slice(18))
 
@@ -99,15 +99,15 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-            getThumbnailPath(data.files[0].hash, message).then(async (url) => {
-                if (message.channel.nsfw) {
-                    if (!url) {
-                        return
-                    }
-                    message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
+            let url = getThumbnailPath(data.files[0].hash, message)
+            
+            if (message.channel.nsfw) {
+                if (!url) {
+                    return
                 }
-                console.log(url)
-            })
+                message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
+            }
+            console.log(url)
         }); //end of request
     }
 }
@@ -127,8 +127,9 @@ function getGGjs() {
     }); // end of request
 }
 
-function getThumbnailPath(hash, message) {
-    let gg = eval(getGGjs());
+async function getThumbnailPath(hash) {
+    await getGGjs().then(v => {gg = v})
+    eval(gg)
     
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
