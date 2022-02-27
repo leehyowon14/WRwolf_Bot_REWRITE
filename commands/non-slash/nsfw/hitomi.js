@@ -100,8 +100,6 @@ module.exports = {
             message.channel.send({ embeds: [embed] })
 
             await getThumbnailPath(data.files[0].hash).then(function(url) {
-                console.log(data.files[0].hash)
-                console.log(url)
                 let thumbnails = url
                 if (message.channel.nsfw) {
                     if (!thumbnails) {
@@ -126,7 +124,7 @@ async function getGGjs() {
             }
         };
         request(options, function(error, response, gg){
-            resolve(gg)
+            resolve(gg.slice(12, gg.length-1));
         }); // end of request
     });//end of promise
 }
