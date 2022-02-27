@@ -99,7 +99,7 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-            let url = getThumbnailPath(data.files[0].hash, message)
+            let url = await getThumbnailPath(data.files[0].hash, message).then(v => {return v})
             
             if (message.channel.nsfw) {
                 if (!url) {
@@ -128,8 +128,7 @@ async function getGGjs() {
 }
 
 async function getThumbnailPath(hash) {
-    await getGGjs().then(v => {gg = v})
-    eval(gg)
+    await getGGjs().then(v => {return eval(v)})
     
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
