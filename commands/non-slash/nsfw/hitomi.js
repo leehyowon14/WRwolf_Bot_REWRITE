@@ -9,7 +9,7 @@ module.exports = {
         usage: "hitomi [품번]",
         accessableby: "Members",
     },
-    run: (bot, message, args) => {
+    run: async (bot, message, args) => {
         let number = args[0]
         if (!number) {
             let embed = new MessageEmbed()
