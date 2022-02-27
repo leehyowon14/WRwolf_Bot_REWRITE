@@ -1,16 +1,25 @@
-const axios = require('axios');
+const request = require("request")
 const { MessageEmbed } = require("discord.js");
 const tinyurl = require("../../../modules/tinyurl.js")
 
 async function get_data(url, message) {
-    let response = await axios({
-        method: 'get',
-        url: url,
-    });
-    if (!response.data) {
-        return false;
-    }
-    return JSON.parse(response.data)
+    return new Promise((resolve, reject) => {
+        request(url, (error, response, body) => {
+            console.log(url)
+            if (!body) {
+                let embed = new MessageEmbed()
+                    .setColor('#ED4245')
+                    .setAuthor(`Error`)
+                    .addField("Error", `body is undefinded`)
+                    .setTimestamp()
+                    .setFooter('Developed by sG.wolf')
+                message.channel.send({ embeds: [embed] })
+                return reject(console.log(body))
+            }
+            let data = JSON.parse(body)
+            resolve(data)
+        })
+    })
 }
 
 module.exports = {

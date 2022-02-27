@@ -1,4 +1,4 @@
-const request = require("request")
+const axios = require('axios');
 const { MessageEmbed } = require("discord.js");
 module.exports = {
     config: {
@@ -12,9 +12,12 @@ module.exports = {
         if (args[0]) {
             return;
         }
-        request('http://hangang.dkserver.wo.tc', (error, response, html) => {
-      if (!error && response.statusCode == 200) {
-          const river = JSON.parse(html);
+        let response = await axios({
+            method: 'get',
+            url: `http://hangang.dkserver.wo.tc`,
+        });
+        if (response.status == 200) {
+          const river = JSON.parse(response.data);
           let embed = new MessageEmbed()
           .setColor('#4fe8a3')
           .setTitle('한강 수온')
@@ -22,6 +25,5 @@ module.exports = {
           .addField(':droplet: ' + river.temp, '측정 시각: ' + river.time, true)
           message.channel.send({ embeds: [embed] })
       }
-  });
     }
 }

@@ -1,12 +1,15 @@
-const axios = require('axios');
+const request = require("request")
 
 module.exports = {
     run: async (url) => {
-        let response = await axios({
-            method: 'get',
-            url: "https://tinyurl.com/api-create.php?url=" + url,
-        });
-        if (response.data == "Error") return url
-        return response.data
+        return new Promise((resolve, reject) => {
+            request("https://tinyurl.com/api-create.php?url=" + url, (error, response, body) => {
+                console.log("tinyurl module: " + body)
+                if (body == "Error") {
+                    resolve(url);
+                }
+                resolve(body)
+            })
+        })
     }
 }
