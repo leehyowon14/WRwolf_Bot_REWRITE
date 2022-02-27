@@ -6,12 +6,9 @@ const protex = require('../../db/protection.js')
 const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/946400164443197460/zQE06FdTCSAr9MWA1luGsapCZLGPPXaatvMvAkhYk2ec5iJzEv5q-sPZ0pUgsae2oOSo'})
 
 module.exports = async (bot, messages) => {
-    if (!message.guild.systemChannel) {
-        return;
-    }
 
     let isUserUseProtection
-    let user = await protex.findOne({user_id: [...messages.values()].first().author.id})
+    let user = await protex.findOne({user_id: messages.first().author.id})
     if (!user) {
         isUserUseProtection = false
     } else {
