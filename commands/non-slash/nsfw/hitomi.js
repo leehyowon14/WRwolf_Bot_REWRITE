@@ -151,7 +151,7 @@ async function getThumbnailPath(hash) {
             console.log(first)
             console.log(second)
             console.log(retval)
-            url = url.replace(/\/\..?\.hitomi\.la\//, '//'+retval+'.hitomi.la/');
+            url = 'https://'+retval+url.slice(10)
             console.log(url)
             resolve(url);
         })
