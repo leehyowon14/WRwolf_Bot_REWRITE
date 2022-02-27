@@ -79,10 +79,10 @@ module.exports = {
                     let artist = data.artists[i].artist
                     artists = `${artists}${artist}, `
                 }
+                artists = artists.slice(0, -2)
             } else {
                 artists = "None(없음)"
             }
-            artists = artists.slice(0, -2)
             
 
             let embed = new MessageEmbed()
@@ -100,8 +100,8 @@ module.exports = {
             message.channel.send({ embeds: [embed] })
 
             let thumbnails;
-            await getThumbnailPath(data.files[0].hash).then(function(path) {
-                thumbnails = `https://a.hitomi.la/webp/${path}`
+            await getThumbnailPath(data.files[0].hash).then(function(url) {
+                thumbnails = url
                 if (message.channel.nsfw) {
                     if (!thumbnails) {
                         return
@@ -138,8 +138,8 @@ async function getThumbnailPath(hash) {
             let first = gg.b
             let second = gg.s(hash)
             let url = `https://a.hitomi.la/webp/${first}${second}/${hash}`
-            
-            let retval = "a"
+            resolve(url)
+            //let retval = "a"
 
         })
     });
