@@ -147,6 +147,8 @@ async function getThumbnailPath(hash, message) {
                 }
                 message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
             }
+            console.log(url)
+
         })
     });
 }
