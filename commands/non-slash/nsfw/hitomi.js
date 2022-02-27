@@ -101,6 +101,7 @@ module.exports = {
 
             await getThumbnailPath(data.files[0].hash).then(function(url) {
                 console.log(data.files[0].hash)
+                console.log(url)
                 let thumbnails = url
                 if (message.channel.nsfw) {
                     if (!thumbnails) {
@@ -108,7 +109,6 @@ module.exports = {
                     }
                     message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
                 }//if nsfw channel
-                console.log(url)
             }) // end of getThumbnailPath
         }); //end of request
     }
