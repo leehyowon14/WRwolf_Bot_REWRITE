@@ -99,9 +99,8 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-            let thumbnails;
             await getThumbnailPath(data.files[0].hash).then(function(url) {
-                thumbnails = url
+                let thumbnails = url
                 if (message.channel.nsfw) {
                     if (!thumbnails) {
                         return
