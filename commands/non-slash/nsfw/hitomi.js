@@ -124,7 +124,7 @@ async function getGGjs() {
             }
         };
         request(options, function(error, response, gg){
-            resolve(gg.slice(12, gg.length-1));
+            resolve(gg.slice(13));
         }); // end of request
     });//end of promise
 }
