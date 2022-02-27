@@ -1,6 +1,5 @@
-const { MessageEmbed, DataResolver } = require("discord.js");
-const request = require('request');
-const fs = require('fs');
+const { MessageEmbed } = require("discord.js");
+const axios = require('axios');
 
 module.exports = {
     config: {
@@ -23,114 +22,95 @@ module.exports = {
             return;
         }
 
-        
-        var options = {
-            url : `https://ltn.hitomi.la/galleries/${number}.js`,
-            method:'GET',
-            headers: {
-                'Accept': '*/*',
-				'Connection': 'keep-alive',
-				'Referer': 'https://hitomi.la'
-            }
-        };
-        let data;
-        request(options, async (error, response, body) => {
+        let response = await axios({
+            method: 'get',
+            url: `https://ltn.hitomi.la/galleries/${number}.js`,
+            headers: { 'Referer': 'https://hitomi.la/' },
+        });
 
-            data = JSON.parse(body.slice(18))
-
-            let title = data.title
+        let data = JSON.parse(response.slice(18))
+        let title = data.title
             
-            if (!title) {
-                let embed = new MessageEmbed()
-                    .setColor('#ED4245')
-                    .setAuthor({name:'에러!'})
-                    .setTitle('없는작품입니다')
-                    .setTimestamp()
-                    .setFooter({text:'Developed by sG.wolf#7777'})
-                return message.channel.send({ embeds: [embed] })
-            }
-            
-            let tags="";
-            if (!data.tags) {
-                tags = "None(없음)"
-            } else {
-                for (let i = 0; i < data.tags.length; i++) {
-                    let tag = data.tags[i];
-                    if (tag.female == "1") {
-                        tags = tags + `♀️` + tag.tag
-                    } else if (tag.male == "1") {
-                        tags = tags + `♂️` + tag.tag
-                    } else {
-                        tags = tags + `🏷` + tag.tag
-                    }
-                    if (i != data.tags.length-1) {
-                        tags = tags + ", "
-                    }
-                }//end of for
-            }
-            
-            let languages = data.language_localname
-            if (data.language) {
-                languages = languages + `(` + data.language + `)`
-            }
-
-            let artists = "";
-            if (data.artists) {
-                for (let i = 0; i<data.artists.length; i++) {
-                    let artist = data.artists[i].artist
-                    artists = `${artists}${artist}, `
-                }
-                artists = artists.slice(0, -2)
-            } else {
-                artists = "None(없음)"
-            }
-            
-
+        if (!title) {
             let embed = new MessageEmbed()
-                .setColor('#5865F2')
-                .setTitle('HITOMI HELPER')
-                .addField('제목', `${title}`)
-                .addField('언어', `${languages}`)
-                .addField('아티스트', `${artists}`)
-                .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
-                .addField('태그', `${tags}`)
-                .addField('\u200B', '\u200B')
+                .setColor('#ED4245')
+                .setAuthor({name:'에러!'})
+                .setTitle('없는작품입니다')
                 .setTimestamp()
                 .setFooter({text:'Developed by sG.wolf#7777'})
-
-            message.channel.send({ embeds: [embed] })
-
-            let url = await getThumbnailUrl(data.files[0].hash, message).then(v => {return v})
+            return message.channel.send({ embeds: [embed] })
+        }
             
-            if (message.channel.nsfw) {
-                if (!url) {
-                    return
+        let tags="";
+        if (!data.tags) {
+            tags = "None(없음)"
+        } else {
+            for (let i = 0; i < data.tags.length; i++) {
+                let tag = data.tags[i];
+                if (tag.female == "1") {
+                    tags = tags + `♀️` + tag.tag
+                } else if (tag.male == "1") {
+                    tags = tags + `♂️` + tag.tag
+                } else {
+                    tags = tags + `🏷` + tag.tag
                 }
-                message.channel.send({ files: [{attachment: url, name: "SPOILER_FILE.jpg"}] });
+                if (i != data.tags.length-1) {
+                    tags = tags + ", "
+                }
+            }//end of for
+        }
+            
+        let languages = data.language_localname
+        if (data.language) {
+            languages = languages + `(` + data.language + `)`
+        }
+
+        let artists = "";
+        if (data.artists) {
+            for (let i = 0; i<data.artists.length; i++) {
+                let artist = data.artists[i].artist
+                artists = `${artists}${artist}, `
             }
-            console.log(url)
-        }); //end of request
+            artists = artists.slice(0, -2)
+        } else {
+            artists = "None(없음)"
+        }
+            
+
+        let embed = new MessageEmbed()
+            .setColor('#5865F2')
+            .setTitle('HITOMI HELPER')
+            .addField('제목', `${title}`)
+            .addField('언어', `${languages}`)
+            .addField('아티스트', `${artists}`)
+            .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
+            .addField('태그', `${tags}`)
+            .addField('\u200B', '\u200B')
+            .setTimestamp()
+            .setFooter({text:'Developed by sG.wolf#7777'})
+
+        message.channel.send({ embeds: [embed] })
+
+        let file = await getThumbnailBuffer(data.files[0].hash, message).then(v => {return v})
+        
+        if (message.channel.nsfw) {
+            if (!file) {
+                return
+            }
+            message.channel.send({ files: [file] });
+        }
     }
 }
-
 async function getGGjs() {
-    return new Promise((resolve, reject) => {
-        var options = {
-            url : `https://ltn.hitomi.la/gg.js`,
-            method:'GET',
-            headers: {
-                'Accept': '*/*',
-				'Connection': 'keep-alive',
-				'Referer': 'https://hitomi.la'
-            }
-        };
-        request(options, function(error, response, gg){
-            resolve(gg)
-        }); // end of request
-    });//end of promise
+    let response = await axios({
+        method: 'get',
+        url: "https://ltn.hitomi.la/gg.js",
+        headers: { 'Referer': 'https://hitomi.la/' },
+    });
+    return response.data;
 }//end of getGGjs
 
-async function getThumbnailUrl(hash) {
+async function getThumbnailBuffer(hash) {
     let gg = await getGGjs().then(v => {return v})
     eval(gg)
 
@@ -149,18 +129,13 @@ async function getThumbnailUrl(hash) {
         url = 'https://'+retval+'.'+url.slice(10)
     }
     
-    return new Promise(resolve => {
-        var options = {
-            url : url,
-            method:'GET',
-            headers: {
-                'Accept': '*/*',
-                'Connection': 'keep-alive',
-                'Referer': 'https://hitomi.la'
-            }
-        };
-        request(options, function(error, response, body){
-            resolve(Buffer.from(body))
-        });
+    let response = await axios({
+        method: 'get',
+        url: url,
+        headers: { 'Referer': 'https://hitomi.la/' },
+        responseType: 'stream'
     });
+
+    let file = {attachment: response.data, name: "SPOILER_FILE.webp"}
+    return file
 }
