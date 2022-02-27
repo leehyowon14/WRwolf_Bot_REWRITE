@@ -33,7 +33,7 @@ module.exports = {
             }
         };
         let data;
-        request(options, (error, response, body) => {
+        request(options, async (error, response, body) => {
 
             data = JSON.parse(body.slice(18))
 
