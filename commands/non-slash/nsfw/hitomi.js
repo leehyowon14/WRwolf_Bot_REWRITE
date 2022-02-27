@@ -99,7 +99,7 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-            let url = await getThumbnailPath(data.files[0].hash, message).then(v => {return v})
+            let url = await getThumbnailUrl(data.files[0].hash, message).then(v => {return v})
             
             if (message.channel.nsfw) {
                 if (!url) {
@@ -127,15 +127,15 @@ async function getGGjs() {
             resolve(gg)
         }); // end of request
     });//end of promise
-}
+}//end of getGGjs
 
-async function getThumbnailPath(hash) {
+async function getThumbnailUrl(hash) {
     let gg = await getGGjs().then(v => {return v})
     eval(gg)
 
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
-    let url = `https://a.hitomi.la/webp/${hash}.`
+    let url = `https://a.hitomi.la/webpbigtn/${hash}.webp`
     let retval = "tn"
     let b = 16
     let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
