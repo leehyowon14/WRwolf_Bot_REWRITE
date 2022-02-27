@@ -159,7 +159,7 @@ async function getThumbnailUrl(hash) {
             }
         };
         request(options, function(error, response, body){
-            resolve(DataResolver.resolveFileAsBuffer(body))
+            resolve(body.pipe(fs.createWriteStream(filename)))
         });
     });
 }
