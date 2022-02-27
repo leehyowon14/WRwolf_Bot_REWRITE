@@ -1,23 +1,15 @@
-const request = require("request")
+const axios = require('axios');
 const { MessageEmbed } = require("discord.js");
 
 async function get_data(url, message) {
-    return new Promise((resolve, reject) => {
-        request(url, (error, response, body) => {
-            console.log(url)
-            if (!body) {
-                let embed = new MessageEmbed()
-                    .setColor('#ED4245')
-                    .setAuthor(`Error`)
-                    .addField("Error", `body is undefinded`)
-                    .setTimestamp()
-                    .setFooter('Developed by sG.wolf')
-                message.channel.send({ embeds: [embed] })
-                return reject(console.log(body))
-            }
-            resolve(body)
-        })
-    })
+    let response = await axios({
+        method: 'get',
+        url: url,
+    });
+    if (!response.data) {
+        return false
+    }
+    return response.data;
 }
 
 module.exports = {

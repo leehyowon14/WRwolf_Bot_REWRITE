@@ -1,23 +1,19 @@
-const request = require("request")
+const axios = require('axios');
 const { MessageEmbed } = require("discord.js");
 
 async function naver_covid() {
-    let url = "https://m.search.naver.com/p/csearch/content/nqapirender.nhn?where=m&pkid=9005&key=diffV2API";
-    return new Promise((resolve, reject) => { 
-        request(url, (error, response, body) => {
-            let data = JSON.parse(body).result;
-            resolve(data)
-        })
-    })
+    let response = await axios({
+        method: 'get',
+        url: `https://m.search.naver.com/p/csearch/content/nqapirender.nhn?where=m&pkid=9005&key=diffV2API`,
+    });
+    return JSON.parse(response.data).result;
 }
 async function covid_live() {
-    let url = "https://apiv3.corona-live.com/domestic/live.json";
-    return new Promise((resolve, reject) => { 
-        request(url, (error, response, body) => {
-            let data = JSON.parse(body);
-            resolve(data)
-        })
-    })
+    let response = await axios({
+        method: 'get',
+        url: `https://apiv3.corona-live.com/domestic/live.json`,
+    });
+    return JSON.parse(response.data);
 }
 
 module.exports = {
