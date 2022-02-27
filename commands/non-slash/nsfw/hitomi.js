@@ -130,8 +130,8 @@ async function getGGjs() {
 }
 
 async function getThumbnailPath(hash) {
-    let ggJs = await getGGjs().then(v => {return v})
-    eval(ggJs)
+    let gg = await getGGjs().then(v => {return v})
+    eval(gg)
 
     hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
 
