@@ -124,10 +124,10 @@ async function getGGjs() {
 async function getThumbnailPath(hash, message) {
     await getGGjs().then(function(gg) {
         eval(gg)
-        
-        let first = gg.b
-        let second = gg.s(hash)
-        let url = `https://a.hitomi.la/webp/${first}${second}/${hash}`
+
+        hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
+
+        let url = `https://a.hitomi.la/webp/${hash}.`
         let retval = "a"
         let b = 16
         let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
