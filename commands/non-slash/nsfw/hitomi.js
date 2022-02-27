@@ -146,7 +146,7 @@ async function getThumbnailPath(hash) {
             }
             let g = parseInt(m[2]+m[1], b);
             if (!isNaN(g)) {
-                retval = String.fromCharCode(97 + gg.m(g) + retval);
+                retval = String.fromCharCode(97 + gg.m(g)) + retval;
             }
             console.log(first)
             console.log(second)
