@@ -148,7 +148,10 @@ async function getThumbnailPath(hash) {
             if (!isNaN(g)) {
                 retval = String.fromCharCode(97 + gg.m(g) + retval);
             }
-            
+            console.log(first)
+            console.log(second)
+            console.log(url)
+            console.log(retval)
             resolve(url.replace(/\/\...?\.hitomi\.la\//, '//'+retval+'.hitomi.la/'));
         })
     });
