@@ -65,7 +65,7 @@ module.exports = {
                     if (i != data.tags.length-1) {
                         tags = tags + ", "
                     }
-                }
+                }//end of for
             }
             
             let languages = data.language_localname
@@ -132,23 +132,23 @@ async function getGGjs() {
 async function getThumbnailPath(hash, message) {
     await getGGjs().then(function(gg) {
         eval(gg)
-
-        hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
-
-        let url = `https://a.hitomi.la/webp/${hash}.`
-        let retval = "tn"
-        let b = 16
-        let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
-        let m = r.exec(url);
-        if (!m) {
-            return url
-        }
-        let g = parseInt(m[2]+m[1], b);
-        if (!isNaN(g)) {
-            retval = String.fromCharCode(97 + gg.m(g)) + retval;
-        }
-        url = 'https://'+retval+'.'+url.slice(10)
-        
-        return url
     })
+    
+    hash = hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash)
+
+    let url = `https://a.hitomi.la/webp/${hash}.`
+    let retval = "tn"
+    let b = 16
+    let r = /\/[0-9a-f]{61}([0-9a-f]{2})([0-9a-f])/;
+    let m = r.exec(url);
+    if (!m) {
+        return url
+    }
+    let g = parseInt(m[2]+m[1], b);
+    if (!isNaN(g)) {
+        retval = String.fromCharCode(97 + gg.m(g)) + retval;
+    }
+    url = 'https://'+retval+'.'+url.slice(10)
+    
+    return url
 }
