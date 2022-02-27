@@ -28,7 +28,7 @@ module.exports = {
             headers: { 'Referer': 'https://hitomi.la/' },
         });
 
-        let data = JSON.parse(response.slice(18))
+        let data = JSON.parse(response.data.slice(18))
         let title = data.title
             
         if (!title) {
@@ -107,7 +107,7 @@ async function getGGjs() {
         url: "https://ltn.hitomi.la/gg.js",
         headers: { 'Referer': 'https://hitomi.la/' },
     });
-    return response.data;
+    return response.data.slice(13);
 }//end of getGGjs
 
 async function getThumbnailBuffer(hash) {
