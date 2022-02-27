@@ -84,10 +84,6 @@ module.exports = {
             }
             artists = artists.slice(0, -2)
             
-            let thumbnails;
-            await getThumbnailPath(data.files[0].hash).then(function(path) {
-                thumbnails = `https://a.hitomi.la/webp/${path}`
-            }) 
 
             let embed = new MessageEmbed()
                 .setColor('#5865F2')
@@ -103,15 +99,17 @@ module.exports = {
 
             message.channel.send({ embeds: [embed] })
 
-
-            if (message.channel.nsfw) {
-                if (!thumbnails) {
-                    return
-                }
-                message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
-            }
-            console.log(thumbnails)
-
+            let thumbnails;
+            await getThumbnailPath(data.files[0].hash).then(function(path) {
+                thumbnails = `https://a.hitomi.la/webp/${path}`
+                if (message.channel.nsfw) {
+                    if (!thumbnails) {
+                        return
+                    }
+                    message.channel.send({ files: [{attachment: thumbnails, name: "SPOILER_FILE.jpg"}] });
+                }//if nsfw channel
+                console.log(thumbnails)
+            }) // end of getThumbnailPath
         }); //end of request
     }
 }
@@ -139,8 +137,10 @@ async function getThumbnailPath(hash) {
         return new Promise((resolve, reject) => {
             let first = gg.b
             let second = gg.s(hash)
-            let path = `${first}${second}/${hash}`
-            resolve(path)
+            let url = `https://a.hitomi.la/webp/${first}${second}/${hash}`
+            
+            let retval = "a"
+
         })
     });
 }
