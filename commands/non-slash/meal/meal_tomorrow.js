@@ -80,10 +80,10 @@ module.exports = {
                 default: '급식이 없습니다.'
 
             })
-            let day = meal_.day + 1
+            let day_ = meal_.day + 1
             let embed = new MessageEmbed()
                 .setTitle(`${school_name}의 ${meal_.month}월 ${day}자 급식`)
-                .setDescription(meal_.day)
+                .setDescription(meal_.day_)
                 .setColor(0xFFFFFF)
                 .setTimestamp()
             return message.reply({ embeds: [embed], allowedMentions: {repliedUser: true} });
