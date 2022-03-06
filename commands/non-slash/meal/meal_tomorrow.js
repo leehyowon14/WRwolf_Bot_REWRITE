@@ -16,6 +16,10 @@ module.exports = {
         if (args[0]) {
             return
         }
+        let user = await meal.findOne({user_id: message.author.id})
+        if (!user) {
+            return message.reply({ content : `학교를 먼저 설정하여 주세요.`, allowedMentions: {repliedUser: true} });
+        }
 
         let school_name = user.school_name
         let school_type
