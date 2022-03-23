@@ -78,12 +78,13 @@ module.exports = {
 
             let meal_ = await school.getMeal({
                 default: '급식이 없습니다.'
-
             })
-            let day_ = meal_.day + 1
+            let d = meal_.day + 1
+            d = d.toString()
+
             let embed = new MessageEmbed()
                 .setTitle(`${school_name}의 ${meal_.month}월 ${day}자 급식`)
-                .setDescription(meal_.day_)
+                .setDescription(meal_.d)
                 .setColor(0xFFFFFF)
                 .setTimestamp()
             return message.reply({ embeds: [embed], allowedMentions: {repliedUser: true} });
