@@ -15,7 +15,7 @@ module.exports = {
         axios.get(`http://hangang.dkserver.wo.tc`)
             .then(function (response) {
                 if (response.status == 200) {
-                    let river = JSON.parse(response.data);
+                    let river = response.data
                     let embed = new MessageEmbed()
                         .setColor('#4fe8a3')
                         .setTitle('한강 수온')
