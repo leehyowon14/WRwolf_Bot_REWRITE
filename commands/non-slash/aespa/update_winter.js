@@ -42,7 +42,9 @@ module.exports = {
         let msgs = fetchAllMessages(bot)
         let obj = {"messages" : msgs}
         let json = JSON.stringify(obj);
-        fs.writeFile('./json/winter.json', json);
+        fs.writeFile('./json/winter.json', json, 'utf-8', function(error) {
+          console.log('write end!');
+        });
         
         let embed = new MessageEmbed()
           .setTitle("aespa image update.")
