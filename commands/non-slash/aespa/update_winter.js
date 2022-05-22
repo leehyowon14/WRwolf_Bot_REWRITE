@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const fs = require('fs');
 
-async function fetchAllMessages() {
-    const channel = client.channels.cache.get("926506367232139294");
+async function fetchAllMessages(bot) {
+    const channel = bot.channels.cache.get("926506367232139294");
     let messages = [];
   
     // Create message pointer
@@ -39,7 +39,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "너는 이 명령을 수행할 권한이 없어." })
-        let msgs = fetchAllMessages()
+        let msgs = fetchAllMessages(bot)
         let obj = {"messages" : msgs}
         let json = JSON.stringify(obj);
         fs.writeFile('./json/winter.json', json);
