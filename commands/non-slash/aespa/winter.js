@@ -15,7 +15,7 @@ module.exports = {
             return;
         }
 
-        fs.readFileSync('./json/winter.json', 'utf8', (err, data) => {
+        fs.readFileSync('/json/winter.json', 'utf8', (err, data) => {
             if (err) throw err;
             let winter_array = JSON.parse(data).messages
             let min = 0;

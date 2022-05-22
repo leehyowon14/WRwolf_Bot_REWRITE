@@ -1,4 +1,5 @@
 const fs = require('fs');
+
 module.exports = {
     config: {
         name: "리나",
@@ -14,7 +15,7 @@ module.exports = {
             return;
         }
 
-        fs.readFileSync('./json/karina.json', 'utf8', (err, data) => {
+        fs.readFileSync('/json/karina.json', 'utf8', (err, data) => {
             if (err) throw err;
             let karina_array = JSON.parse(data).messages
             let min = 0;
