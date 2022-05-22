@@ -36,7 +36,7 @@ module.exports = {
                 .setAuthor('에러!')
                 .setTitle('검색할 유저의 닉네임을 입력하여주세요')
                 .setTimestamp()
-                .setFooter('Developed by sG.wolf#7777')
+                .setFooter('Developed by sG.wolf#5732')
             message.channel.send({ embeds: [embed] })
             return;
         }

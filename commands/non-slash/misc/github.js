@@ -18,7 +18,7 @@ module.exports = {
             .setAuthor('에러!')
             .setTitle('검색할 유저이름을 입력하여 주세요')
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#7777')
+            .setFooter('Developed by sG.wolf#5732')
         message.channel.send({ embeds: [embed] })
         return;
         }
@@ -31,7 +31,7 @@ module.exports = {
             .setAuthor('에러!')
             .setTitle(`\`${args.join(" ")}\` (이)라는 유저를 찾을 수 없습니다.`)
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#7777')
+            .setFooter('Developed by sG.wolf#5732')
         message.channel.send({ embeds: [embed] })
         return;
         }

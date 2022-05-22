@@ -58,7 +58,7 @@ module.exports = {
             .addField(`NSFW 주의사항`, `NSFW컨텐츠를 보기 위해서는 채널이 NSFW채널이어야 합니다.`)
             .addField(`설정 방법`, `채널 편집(채널 설정) - 일반 - "연령제한 채널" 을 켜주세요.`)
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#7777', img)
+            .setFooter('Developed by sG.wolf#5732', img)
 
         message.channel.send({ embeds: [embed, embed2] })
     }

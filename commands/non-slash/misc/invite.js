@@ -17,7 +17,7 @@ module.exports = {
                 .setColor('#186de6')
                 .addField(`초대링크`, invite.url)
                 .setTimestamp()
-                .setFooter('Developed by sG.wolf#7777')
+                .setFooter('Developed by sG.wolf#5732')
         message.channel.send({ embeds: [embed] })
           });
     }

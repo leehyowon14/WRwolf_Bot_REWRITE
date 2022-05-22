@@ -26,7 +26,7 @@ module.exports = {
             .setTitle(`${member.user.username}님의 아바타`)
             .setImage(av)
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#7777')
+            .setFooter('Developed by sG.wolf#5732')
         message.channel.send({ embeds: [embed] })
 
 	},
