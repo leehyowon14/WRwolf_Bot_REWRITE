@@ -21,7 +21,8 @@ module.exports = {
             let min = 0;
             let max = winter_array.length;
             let msg = winter_array[parseInt(Math.random() * (max - min) + min)];
-            message.channel.send({ content: msg })
+            console.log(msg);
+            message.reply({ content: msg })
         });
     }
 }

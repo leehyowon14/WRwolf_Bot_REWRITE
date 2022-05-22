@@ -2,7 +2,7 @@ const fs = require('fs');
 
 module.exports = {
     config: {
-        name: "리나",
+        name: "리나야",
         aliases: [`${prefix}karina`, `${prefix}리나야`],
         description: "카리나 짤",
         usage: "리나야",
@@ -21,7 +21,7 @@ module.exports = {
             let min = 0;
             let max = karina_array.length;
             let msg = karina_array[parseInt(Math.random() * (max - min) + min)];
-            message.channel.send({ content: msg });
+            message.reply({ content: msg });
         });
     }
 }
