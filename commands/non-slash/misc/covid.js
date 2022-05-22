@@ -20,8 +20,7 @@ module.exports = {
             method: 'get',
             url: `https://m.search.naver.com/p/csearch/content/nqapirender.nhn?where=m&pkid=9005&key=diffV2API`,
         });
-        let data = JSON.parse(response.data);
-        data = data.result
+        let data = response.data.result
         let updatetime = data.updatetime.split('.');
         updatetime = updatetime[0] + "년 " + updatetime[1] + "월 " + updatetime[2] + "일  " + updatetime[3].split(":")[0] + "시 " + updatetime[3].split(":")[1] + "분";
         let list = data.data.dailyCnt.reverse();
