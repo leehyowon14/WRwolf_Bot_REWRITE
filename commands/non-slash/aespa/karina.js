@@ -15,7 +15,7 @@ module.exports = {
             return;
         }
 
-        fs.readFileSync('./commands/non-slash/aespa/json/karina.json', 'utf8', (err, data) => {
+        fs.readFile('./commands/non-slash/aespa/json/karina.json', 'utf8', (err, data) => {
             if (err) throw err;
             let karina_array = JSON.parse(data).messages
             let min = 0;
