@@ -45,6 +45,7 @@ module.exports = {
         fs.writeFile('./json/winter.json', json, 'utf-8', function(error) {
           console.log('write end!');
         });
+        console.log(obj)
         
         let embed = new MessageEmbed()
           .setTitle("aespa image update.")
