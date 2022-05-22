@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = bot => {
     let activities = [
@@ -11,6 +12,15 @@ module.exports = bot => {
     setInterval(() => bot.user.setActivity(`${prefix}help | ${activities[i++ % activities.length]}`, { type: "WATCHING" }), 5000)
 
     log(`${redChalk(bot.user.username)} ${greenChalk('is online')}`);
+
+    let time = getTime();
+    let embed = new MessageEmbed()
+        .setColor('#57F287')
+        .setAuthor({ name :` ${bot.user.username} is now ONLINE!` })
+        .setDescription(`${time}`)
+        .setTimestamp()
+        .setFooter({ name: 'Developed by sG.wolf' })
+    bot.channels.cache.get("937378383912927302").send({embed: [embed]});
 
     mongoose.connect('mongodb+srv://WRwolf_:asdfg1010@cluster0.aaxs7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useNewUrlParser: true,

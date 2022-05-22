@@ -32,6 +32,6 @@ module.exports = {
                     .setFooter({ name: 'Developed by sG.wolf' })
                 message.channel.send({ embeds: [embed] })
                 console.log(error);
-            }
+            });
     }
 }
