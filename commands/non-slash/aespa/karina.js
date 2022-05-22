@@ -1,4 +1,4 @@
-const karina_json = require("./json/karina.json")
+const karina_json = require("./json/karina.json");
 let karina_array = karina_json.messages
 module.exports = {
     config: {
@@ -18,6 +18,6 @@ module.exports = {
         let min = 0;
         let max = karina_array.length;
         let msg = karina_array[parseInt(Math.random() * (max - min) + min)];
-        message.channel.send({ content: msg })
+        message.channel.send({ content: msg });
     }
 }

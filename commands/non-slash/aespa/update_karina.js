@@ -24,7 +24,7 @@ async function fetchAllMessages() {
   
           // Update our message pointer to be last message in page of messages
           message = 0 < messagePage.size ? messagePage.at(messagePage.size - 1) : null;
-        }
+        });
     }
     console.log("get all karina picture's link successfully");
     return messages;
