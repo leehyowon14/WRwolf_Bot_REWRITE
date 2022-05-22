@@ -36,7 +36,7 @@ module.exports = {
         return;
         }
 
-        let embed = new MessageEmbed().setTitle(`${login}님의 정보`).setColor(0x000000).setAuthor('Github', 'https://github.githubassets.com/favicons/favicon.png', 'https://github.com/').setFooter(login, avatar_url).setDescription(`[들어가기](${html_url})`).setThumbnail(avatar_url)
+        let embed = new MessageEmbed().setTitle(`${login}님의 정보`).setColor(0x000000).setAuthor('Github', 'https://github.githubassets.com/favicons/favicon.png', 'https://github.com/').setFooter({ text: login, iconURL: avatar_url }).setDescription(`[들어가기](${html_url})`).setThumbnail(avatar_url)
         .addFields([
             {name: "이름", value: `**${login}**`, inline: true},
             {name: "상태 메세지", value: `**${bio ? bio : "없음"}**`},

@@ -37,7 +37,7 @@ module.exports = async (bot, message) => {
                     .addField('Message By:', message.author.tag)
                     .addField('Deleated By:', del_u)
                     .addField('Channel:', message.channel.name)
-                    .setFooter(message.author.tag, img)
+                    .setFooter({ text: message.author.tag, iconURL: img })
                     .setTimestamp()
 
             } else {
@@ -56,7 +56,7 @@ module.exports = async (bot, message) => {
                     .addField('Deleated By:', del_u)
                     .addField('Channel:', message.channel.name)
                     .addField('Message:', content)
-                    .setFooter(message.author.tag, img)
+                    .setFooter({ text: message.author.tag, iconURL: img })
                     .setTimestamp()
             }
         } catch (e) {
@@ -79,7 +79,7 @@ module.exports = async (bot, message) => {
             .addField('Deleated By:', del_u)
             .addField('Channel:', message.channel.name)
             .addField('Message:', content)
-            .setFooter(message.author.tag, img)
+            .setFooter({ text: message.author.tag, iconURL: img })
             .setTimestamp()
     }
     if (isUserUseProtection) {

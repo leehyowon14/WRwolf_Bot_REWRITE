@@ -27,7 +27,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
         .addField('Channel:', oldMessage.channel.name)
         .addField('Old Message:', oldMessage.content)
         .addField('New Message:', newMessage.content)
-        .setFooter(oldMessage.author.tag, img)
+        .setFooter({ text:oldMessage.author.tag, iconURL: img })
         .setTimestamp()
     if (isUserUseProtection) {
         return webhookClient.send({
