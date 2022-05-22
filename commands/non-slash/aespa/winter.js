@@ -21,6 +21,7 @@ module.exports = {
             let min = 0;
             let max = winter_array.length;
             let msg = winter_array[parseInt(Math.random() * (max - min) + min)];
+            console.log(winter_array);
             message.reply({ content: msg })
         });
     }
