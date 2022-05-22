@@ -19,8 +19,8 @@ module.exports = bot => {
         .setAuthor({ name :` ${bot.user.username} is now ONLINE!` })
         .setDescription(`${time}`)
         .setTimestamp()
-        .setFooter({ name: 'Developed by sG.wolf' })
-    bot.channels.cache.get("937378383912927302").send({embed: [embed]});
+        .setFooter({ text: 'Developed by sG.wolf' })
+    bot.channels.cache.get("977866703998435350").send({embed: [embed]});
 
     mongoose.connect('mongodb+srv://WRwolf_:asdfg1010@cluster0.aaxs7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useNewUrlParser: true,

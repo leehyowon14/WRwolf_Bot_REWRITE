@@ -32,7 +32,7 @@ module.exports = {
                         .setAuthor({ name :`Search results for "${search}"` })
                         .addField("Error", `System Error`)
                         .setTimestamp()
-                        .setFooter({ name: 'Developed by sG.wolf' })
+                        .setFooter({ text: 'Developed by sG.wolf' })
                     message.channel.send({ embeds: [embed] })
                     return
                 }
@@ -42,7 +42,7 @@ module.exports = {
                     .addField("SCID", `${data}`)
                     .setThumbnail(`https://prod.cloud.rockstargames.com/members/sc/8501/${data}/publish/gta5/mpchars/0.png`)
                     .setTimestamp()
-                    .setFooter({ name: 'Developed by sG.wolf' })
+                    .setFooter({ text: 'Developed by sG.wolf' })
                 message.channel.send({ embeds: [embed] })
             console.log(response);
             })
@@ -52,7 +52,7 @@ module.exports = {
                     .setAuthor({ name :`Search results for "${search}"` })
                     .addField("Error", `System Error`)
                     .setTimestamp()
-                    .setFooter({ name: 'Developed by sG.wolf' })
+                    .setFooter({ text: 'Developed by sG.wolf' })
                 message.channel.send({ embeds: [embed] })
                 console.log(error);
             })
