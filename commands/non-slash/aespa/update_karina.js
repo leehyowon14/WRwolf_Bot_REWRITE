@@ -16,8 +16,8 @@ async function fetchAllMessages(bot) {
         .then(messagePage => {
           messagePage.forEach(msg => {
             if ([...msg.attachments.values()].length > 0) {
-              for (let i = 0; i<[...message.attachments.values()].length; i++) {
-                messages.push([...message.attachments.values()][i].url);
+              for (let i = 0; i<[...msg.attachments.values()].length; i++) {
+                messages.push([...msg.attachments.values()][i].url);
               }
             }
           });
@@ -42,7 +42,7 @@ module.exports = {
         let msgs = fetchAllMessages(bot)
         let obj = {"messages" : msgs}
         let json = JSON.stringify(obj);
-        fs.writeFile('./json/karina.json', json, 'utf-8', function(error) { 
+        fs.writeFile('./commands/non-slash/aespa/json/karina.json', json, 'utf-8', function(error) { 
           console.log('write end!');
         });
         
