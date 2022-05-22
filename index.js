@@ -21,9 +21,9 @@ const bot = new Client({
 );
 require('./util/misc.js')
 bot.config = require("./config/config.json")
-let token = process.env.token
+let token = 'OTQ2NjMwMzIwNzM4OTUxMjQ4.YhhgMA.e6g-qavPWVhEnfTG_2j6fuNNd8M'
 global.token = token
-let prefix = process.env.prefix;
+let prefix = '!';
 global.prefix = prefix;
 let adminId = 935708650536845312
 global.adminId = adminId

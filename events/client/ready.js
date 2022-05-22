@@ -12,7 +12,7 @@ module.exports = bot => {
 
     log(`${redChalk(bot.user.username)} ${greenChalk('is online')}`);
 
-    mongoose.connect(process.env.mongoose, {
+    mongoose.connect('mongodb+srv://WRwolf_:asdfg1010@cluster0.aaxs7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => {
