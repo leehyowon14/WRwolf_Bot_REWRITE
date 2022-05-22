@@ -1,5 +1,4 @@
-const karina_json = require("./json/karina.json");
-let karina_array = karina_json.messages
+const fs = require('fs');
 module.exports = {
     config: {
         name: "리나",
@@ -15,9 +14,13 @@ module.exports = {
             return;
         }
 
-        let min = 0;
-        let max = karina_array.length;
-        let msg = karina_array[parseInt(Math.random() * (max - min) + min)];
-        message.channel.send({ content: msg });
+        fs.readFileSync('./json/karina.json', 'utf8', (err, data) => {
+            if (err) throw err;
+            let karina_array = JSON.parse(data).messages
+            let min = 0;
+            let max = karina_array.length;
+            let msg = karina_array[parseInt(Math.random() * (max - min) + min)];
+            message.channel.send({ content: msg });
+        });
     }
 }

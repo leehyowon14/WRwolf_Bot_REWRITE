@@ -1,5 +1,5 @@
-const winter_json = require("./json/winter.json")
-let winter_array = winter_json.messages
+const fs = require('fs');
+
 module.exports = {
     config: {
         name: "겨울이",
@@ -15,9 +15,13 @@ module.exports = {
             return;
         }
 
-        let min = 0;
-        let max = winter_array.length;
-        let msg = winter_array[parseInt(Math.random() * (max - min) + min)];
-        message.channel.send({ content: msg })
+        fs.readFileSync('./json/winter.json', 'utf8', (err, data) => {
+            if (err) throw err;
+            let winter_array = JSON.parse(data).messages
+            let min = 0;
+            let max = winter_array.length;
+            let msg = winter_array[parseInt(Math.random() * (max - min) + min)];
+            message.channel.send({ content: msg })
+        });
     }
 }
