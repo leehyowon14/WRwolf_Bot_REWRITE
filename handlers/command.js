@@ -21,7 +21,7 @@ module.exports = (bot, reload = false) => {
             }
         };
     };
-    ["misc", "nsfw", "music", "mod", "meal", "protection"].forEach(x => non_slash_load(x));
+    ["misc", "nsfw", "mod", "meal", "protection"].forEach(x => non_slash_load(x));
 
     const commands = [];
     const slash_load = dirs => {
