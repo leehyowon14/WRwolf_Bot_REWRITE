@@ -50,6 +50,6 @@ module.exports = {
           .setTitle("aespa image update.")
           .setDescription(`winter's image has been updated successfully`)
           .setColor('#57F287')
-        message.reply(embed)
+        message.reply({ embeds: [embed] })
     }
 }
