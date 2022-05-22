@@ -39,12 +39,13 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "너는 이 명령을 수행할 권한이 없어." })
-        let msgs = fetchAllMessages(bot)
-        let obj = {"messages" : msgs}
-        let json = JSON.stringify(obj);
-        fs.writeFile('./commands/non-slash/aespa/json/karina.json', json, 'utf-8', function(error) { 
-          console.log('write end!');
-        });
+        fetchAllMessages(bot).then(msgs => {
+          let obj = {"messages" : msgs}
+          let json = JSON.stringify(obj);
+          fs.writeFile('./commands/non-slash/aespa/json/karina.json', json, 'utf-8', function(error) {
+            console.log('write end!');
+          });
+        })
         
         let embed = new MessageEmbed()
           .setTitle("aespa image update.")
