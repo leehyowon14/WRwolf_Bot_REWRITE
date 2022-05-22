@@ -21,7 +21,7 @@ module.exports = {
             let min = 0;
             let max = winter_array.length;
             let msg = winter_array[parseInt(Math.random() * (max - min) + min)];
-            console.log(winter_array);
+            if (!msg) return message.reply({ content: '에러! 다시 시도해주세요' });
             message.reply({ content: msg })
         });
     }

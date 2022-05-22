@@ -21,6 +21,7 @@ module.exports = {
             let min = 0;
             let max = karina_array.length;
             let msg = karina_array[parseInt(Math.random() * (max - min) + min)];
+            if (!msg) return message.reply({ content: '에러! 다시 시도해주세요' });
             message.reply({ content: msg });
         });
     }
