@@ -15,10 +15,10 @@ module.exports = {
         if (!args[0]) {
             let embed = new MessageEmbed()
             .setColor('#f94343')
-            .setAuthor('에러!')
+            .setAuthor({ name: '에러!' })
             .setTitle('검색할 유저이름을 입력하여 주세요')
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#5732')
+            .setFooter({ text: 'Developed by sG.wolf#5732' })
         message.channel.send({ embeds: [embed] })
         return;
         }
@@ -28,10 +28,10 @@ module.exports = {
         if (!login) {
             let embed = new MessageEmbed()
             .setColor('#f94343')
-            .setAuthor('에러!')
+            .setAuthor({ name: '에러!' })
             .setTitle(`\`${args.join(" ")}\` (이)라는 유저를 찾을 수 없습니다.`)
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#5732')
+            .setFooter({ text: 'Developed by sG.wolf#5732' })
         message.channel.send({ embeds: [embed] })
         return;
         }

@@ -32,7 +32,7 @@ module.exports = {
 
         let embed = new MessageEmbed()
         .setColor(bot.colours.redlight)
-        .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
+        .setAuthor({ name: `${message.guild.name} Modlogs`, iconURL: message.guild.iconURL })
         .addField("Moderation:", "unban")
         .addField("Moderated on:", `${bannedMember.username} (${bannedMember.id})`)
         .addField("Moderator:", message.author.username)

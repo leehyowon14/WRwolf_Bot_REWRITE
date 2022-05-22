@@ -52,7 +52,7 @@ module.exports = {
             .addField(`설정 방법`, `서버설정-일반-시스템 메세지 채널`)
             .addField(`로그`, `짤방기능 사용을 위해서 채팅방의 주제를 "-짤방"으로 설정하여 주세요`)
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#5732', img)
+            .setFooter({ text: 'Developed by sG.wolf#5732', iconURL: img })
 
         message.channel.send({ embeds: [embed] })
     }

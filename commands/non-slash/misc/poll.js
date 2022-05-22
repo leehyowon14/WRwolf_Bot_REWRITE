@@ -41,7 +41,7 @@ module.exports = {
             embed.setColor("#00ff00")
             embed.setTitle(`${args[0]}`)
             embed.setDescription(`${tempString}`)
-            embed.setFooter(`투표 시간: ${args[1]}초`)
+            embed.setFooter({ text: `투표 시간: ${args[1]}초` })
             embed.setTimestamp()
         message.channel.send({ embeds: [embed] }).then(msg => {
             for (let i=0; i<args.length - 2; i++) {

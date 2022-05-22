@@ -15,7 +15,7 @@ module.exports = {
         let embed = new MessageEmbed()
             .setColor('#5865F2')
             .setTitle('울프봇 (ADMIN)명령어')
-            .setAuthor('울프봇 도움말', img)
+            .setAuthor({ name: '울프봇 도움말', iconURL: img })
             .addField('\u200B', '\u200B')
             //.addField(`${prefix}addrole [멘션] [역할멘션]', '역할추가`)
             .addField(`${prefix}ban [멘션]`, '밴')
@@ -28,7 +28,7 @@ module.exports = {
             .addField(`${prefix}dj [멘션]`, `DJ권한 주기/뺏기 (DJ역할이 없을때는 자동으로 생성됨)`)
             .addField('\u200B', '\u200B')
             .setTimestamp()
-            .setFooter('Developed by sG.wolf#5732', img)
+            .setFooter({ text:'Developed by sG.wolf#5732', iconURL: img })
 
         message.channel.send({ embeds: [embed] })
     }

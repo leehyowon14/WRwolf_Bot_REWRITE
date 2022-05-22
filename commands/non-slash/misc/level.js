@@ -42,7 +42,7 @@ module.exports = {
             .setColor("#00ff00")
             .setTitle(`${mentioned_user.user.tag}'s Level`)
             .setDescription(`Level: ${user.level}\nXP: ${xp}/${req_xp}`)
-            .setFooter(`Requested by ${message.author.tag}`)
+            .setFooter({ text: `Requested by ${message.author.tag}` })
             .setTimestamp()
         message.channel.send({ embeds: [embed] })
     }
