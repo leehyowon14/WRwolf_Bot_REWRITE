@@ -20,7 +20,7 @@ module.exports = bot => {
         .setDescription(`${time}`)
         .setTimestamp()
         .setFooter({ text: 'Developed by sG.wolf' })
-    bot.channels.cache.get("978601266009747456").send({embeds: [embed]});
+    bot.channels.cache.get("977866703998435350").send({embeds: [embed]});
 
     mongoose.connect('mongodb+srv://WRwolf_:asdfg1010@cluster0.aaxs7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
         useNewUrlParser: true,
