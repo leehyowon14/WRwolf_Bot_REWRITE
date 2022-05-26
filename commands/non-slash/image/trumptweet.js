@@ -10,9 +10,10 @@ module.exports = {
 		accessableby: "Members",
 	},
 	core: async (bot, message, args) => {
+		args = args.join(" ");
         let response = await axios({
             method: 'get',
-            url: encodeURI(`https://nekobot.xyz/api/imagegen?type=trumptweet&text=${args[0]}`),
+            url: encodeURI(`https://nekobot.xyz/api/imagegen?type=trumptweet&text=${args}`),
         });
 		if (response.status !== 200) return message.channel.send("api 서버 오류");
 		av = response.data.message

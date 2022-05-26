@@ -10,6 +10,7 @@ module.exports = {
 		accessableby: "Members",
 	},
 	core: async (bot, message, args) => {
+		args = args.join(" ");
         let response = await axios({
             method: 'get',
             url: encodeURI(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${args[0]}`),
