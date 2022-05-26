@@ -39,6 +39,6 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: 'Developed by sG.wolf#5732', iconURL: img })
 
-        message.channel.send({ embeds: [embed, embed2] })
+        message.channel.send({ embeds: [embed] })
     }
 }
