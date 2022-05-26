@@ -36,6 +36,7 @@ module.exports = {
             .addField('\u200B', `${prefix}boobs`, true)
             .addField('\u200B', `${prefix}pgif`, true)
             .addField('\u200B', `${prefix}anal`, true)
+            .addField('\u200B', `${prefix}4k`, true)
             .setTimestamp()
             .setFooter({ text: 'Developed by sG.wolf#5732', iconURL: img })
 
