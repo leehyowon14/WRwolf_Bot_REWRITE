@@ -1,6 +1,6 @@
 //https://docs.nekobot.xyz/#image-generation-baguette
 
-const MessageEmbed = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 const axios = require('axios');
 module.exports = {
 	config: {

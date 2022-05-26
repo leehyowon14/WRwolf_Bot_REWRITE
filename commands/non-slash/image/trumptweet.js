@@ -1,6 +1,6 @@
 //https://docs.nekobot.xyz/#image-generation-trumptweet
 const axios = require('axios');
-const MessageEmbed = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
 	config: {
