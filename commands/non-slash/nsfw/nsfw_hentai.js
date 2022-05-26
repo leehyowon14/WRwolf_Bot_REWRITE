@@ -1,6 +1,5 @@
-const client = require('nekos.life');
 const Discord = require('discord.js')
-const neko = new client();
+const axios = require('axios');
 
 module.exports = {
     config: {
@@ -11,29 +10,23 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-  //command
-
   //Checks channel for nsfw
    
   if (!message.channel.nsfw) {
       message.react('💢');
 
       return message.reply({ content : `이곳은 NSFW채널이 아닙니다.`, allowedMentions: {repliedUser: true} })
-      
   }
+  let response = await axios({
+    method: 'get',
+    url: `https://nekobot.xyz/api/image?type=hentai`,
+  });
+  if (response.status !== 200) return message.channel.send("api 서버 오류");
+  av = response.data.message
 
-  async function emsend() {
-    let uwu = (await neko.nsfw.hentai());
-
-    const embed = new Discord.MessageEmbed()
-    .setTitle("Hentai")
-    .setImage(uwu.url)
+  let embed = new Discord.MessageEmbed()
+    .setTitle("hentai")
+    .setImage(av)
     .setColor(`#FF0000`)
-    .setURL(uwu.url);
-    message.channel.send({ embeds: [embed] });
-
-
-    }
-        emsend();
-    }
+  message.channel.send({ embeds: [embed] });
 };

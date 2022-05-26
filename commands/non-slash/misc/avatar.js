@@ -1,10 +1,4 @@
-const { Canvas } = require('canvas-constructor');
-const { MessageAttachment, MessageEmbed } = require('discord.js');
-
-
-let font_path = `./assets/fonts/GmarketSansTTFMedium.ttf`;
-Canvas.registerFont(font_path, 'GmarketSans')
-
+const MessageEmbed = require('discord.js');
 
 module.exports = {
 	config: {
