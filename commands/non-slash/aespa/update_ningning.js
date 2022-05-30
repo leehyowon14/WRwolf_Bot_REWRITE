@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const fs = require('fs');
 
 async function fetchAllMessages(bot) {
-  const channel = bot.channels.cache.get("937378383912927302");
+  const channel = bot.channels.cache.get("979408582778945576");
   let messages = [];
 
   // Create message pointer
@@ -26,15 +26,15 @@ async function fetchAllMessages(bot) {
         message = 0 < messagePage.size ? messagePage.at(messagePage.size - 1) : null;
       });
   }
-  console.log("get all winter picture's link successfully");
+  console.log("get all ningning picture's link successfully");
   return messages;
 } //https://stackoverflow.com/questions/63322284/discord-js-get-an-array-of-all-messages-in-a-channel
 
 module.exports = {
     config: {
-        name: `${prefix}update_karina`,
-        description: "get karina image",
-        usage: "!update_karina",
+        name: `${prefix}update_ningning`,
+        description: "get ningning image",
+        usage: "!update_ningning",
         accessableby: "Admin",
     },
     run: async (bot, message, args) => {
@@ -42,14 +42,14 @@ module.exports = {
         fetchAllMessages(bot).then(msgs => {
           let obj = {"messages" : msgs}
           let json = JSON.stringify(obj);
-          fs.writeFile('./commands/non-slash/aespa/json/karina.json', json, 'utf-8', function(error) {
+          fs.writeFile('./commands/non-slash/aespa/json/ningning.json', json, 'utf-8', function(error) {
             console.log('write end!');
           });
         })
         
         let embed = new MessageEmbed()
           .setTitle("aespa image update.")
-          .setDescription(`karina's image has been updated successfully`)
+          .setDescription(`ningning's image has been updated successfully`)
           .setColor('#57F287')
         message.reply({ embeds: [embed] })
     }
