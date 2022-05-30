@@ -40,6 +40,7 @@ module.exports = {
     run: async (bot, message, args) => {
         if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "너는 이 명령을 수행할 권한이 없어." })
         fetchAllMessages(bot).then(msgs => {
+          console.log(msgs)
           let obj = {"messages" : msgs}
           let json = JSON.stringify(obj);
           fs.writeFile('./commands/non-slash/aespa/json/ningning.json', json, 'utf-8', function(error) {
