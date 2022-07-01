@@ -13,7 +13,7 @@ module.exports = {
             .setColor("#a93fff")
             .setAuthor({name: "aespa Member Profile"})
             .setThumbnail("https://cdn.discordapp.com/attachments/869082781999833118/992470199070625834/unknown.png")
-            .setTitle("🦋NingNing(닝닝)-aespa")
+            .setTitle("🦋 NingNing(닝닝)-aespa")
             .addField("본명", "닝이줘(宁艺卓)", true)
             .addField("국적", "🇨🇳 중국", true)
             .addField("키 / 혈액형", "161cm / O형", true)

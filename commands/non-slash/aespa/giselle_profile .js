@@ -13,7 +13,7 @@ module.exports = {
             .setColor("#000000")
             .setAuthor({name: "aespa Member Profile"})
             .setThumbnail("https://cdn.discordapp.com/attachments/869082781999833118/992471823222575114/unknown.png")
-            .setTitle("🌙Giselle(지젤)-aespa")
+            .setTitle("🌙 Giselle(지젤)-aespa")
             .addField("본명", "우치나가 애리(内永えり)\n[김애리]", true)
             .addField("국적", "🇯🇵 일본", true)
             .addField("키 / 혈액형", "163~164cm / O형", true)

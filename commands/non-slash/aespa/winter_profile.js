@@ -13,7 +13,7 @@ module.exports = {
             .setColor("#FEE75C")
             .setAuthor({name: "aespa Member Profile"})
             .setThumbnail("https://cdn.discordapp.com/attachments/869082781999833118/992467130048065566/unknown.png")
-            .setTitle("⭐Winter(윈터)-aespa")
+            .setTitle("⭐ Winter(윈터)-aespa")
             .addField("본명", "김민정", true)
             .addField("국적", "🇰🇷 대한민국", true)
             .addField("키 / 혈액형 / 발사이즈", "164cm / A / 225mm", true)
