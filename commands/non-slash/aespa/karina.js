@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = {
     config: {
         name: "리나야",
-        aliases: [`${prefix}karina`, `${prefix}리나야`, '리나'],
+        aliases: [`${prefix}karina`, `${prefix}리나야`, '리나', '지민이', '지민아'],
         description: "카리나 짤",
         usage: "리나야",
         accessableby: "Members",

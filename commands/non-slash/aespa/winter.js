@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = {
     config: {
         name: "겨울이",
-        aliases: [`${prefix}winter`, `${prefix}겨울`, '겨울아'],
+        aliases: [`${prefix}winter`, `${prefix}겨울`, '겨울아', '민정이', '민정아','겨울이누나', '겨울이눈나', '윈터눈나', '윈터누나'],
         description: "겨울이 짤",
         usage: "겨울이",
         accessableby: "Members",
