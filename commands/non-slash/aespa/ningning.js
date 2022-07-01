@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = {
     config: {
         name: "닝닝아",
-        aliases: [`${prefix}ningning`, `닝아`, '닝닝'],
+        aliases: [`${prefix}ningning`, `닝아`],
         description: "닝닝 짤",
         usage: "닝닝아",
         accessableby: "Members",
