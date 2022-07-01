@@ -10,7 +10,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         let embed = new MessageEmbed()
-            .setColor("#57F287")
+            .setColor("#000000")
             .setAuthor({name: "aespa Member Profile"})
             .setThumbnail("https://cdn.discordapp.com/attachments/869082781999833118/992471823222575114/unknown.png")
             .setTitle("🌙Giselle(지젤)-aespa")
@@ -20,6 +20,6 @@ module.exports = {
             .addField("전투 능력", "Xenoglossy(빛을 다루는 통역사)")
             .setFooter({text: "2000.10.30"})
             .setTimestamp()
-        message.reply(embed);
+       message.reply({embeds: [embed]});;
     }
 }

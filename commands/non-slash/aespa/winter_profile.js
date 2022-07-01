@@ -10,7 +10,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         let embed = new MessageEmbed()
-            .setColor("#57F287")
+            .setColor("#FEE75C")
             .setAuthor({name: "aespa Member Profile"})
             .setThumbnail("https://cdn.discordapp.com/attachments/869082781999833118/992467130048065566/unknown.png")
             .setTitle("⭐Winter(윈터)-aespa")
@@ -20,6 +20,6 @@ module.exports = {
             .addField("전투 능력", "Armamenter(무기 능력자)")
             .setFooter({text: "2000.01.01"})
             .setTimestamp()
-        message.reply(embed);
+        message.reply({embeds: [embed]});
     }
 }
