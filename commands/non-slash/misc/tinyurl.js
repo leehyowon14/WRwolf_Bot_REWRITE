@@ -11,6 +11,10 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         if (!args[0]) return message.channel.send("Please provide a link to shorten.");
+        if (args[0].toString().slice(0, 7) != "http://" || args[0].toString().slice(0, 8) != "https://") {
+            args[0] = "https://" + args[0];
+        };
+
         tinyurl.run(args[0]).then(async (url) => {
             if (url == args[0]) url = "웹사이트 주소 단축 실패."
             let embed = new MessageEmbed()
