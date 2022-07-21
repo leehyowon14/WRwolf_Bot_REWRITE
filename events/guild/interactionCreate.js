@@ -11,7 +11,5 @@ module.exports = async (bot, interaction) => {
         ephemeral: true
       });
     }
- } else if (interaction.isSelectMenu()) {
-    console.log(interaction.id)
  }
 }
