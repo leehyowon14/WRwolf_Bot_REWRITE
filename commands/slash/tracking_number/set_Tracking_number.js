@@ -8,6 +8,9 @@ module.exports = {
         .setDescription('송장 번호 설정')
         .addStringOption(option =>
             option.setName('택배사')
+                .setDescription(
+                    '택배사를 선택하여 주세요.'
+                )
                 .addChoice('CJ 대한통운', 'kr.cjlogistics')
 				.addChoice('롯데택배', 'kr.lotte')
 			    .addChoice('우체국 택배', 'kr.epost')
