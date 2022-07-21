@@ -33,14 +33,14 @@ module.exports = {
                 let embed = new MessageEmbed()
                     .setTitle("조회 성공")
                     .setColor(0x00AE86)
-                    .setAuthor({name:`송장: ${data.carrier.name} ${user.num}`})
-                    .setDescription(`단계: ${data.state.text}\n${data.from.name} -> ${data.to.name}\n\n마지막 활동: [${date}] ${progress.status.text} 상세정보:    ${progresses.description}`)
+                    .setAuthor({name:`송장: ${carrier_name} ${user.num}`})
+                    .setDescription(`단계: ${data.state.text}\n${data.from.name} -> ${data.to.name}\n\n마지막 활동: [${date}] ${progresses.status.text} 상세정보:    ${progresses.description}`)
                 
                 /*
                 단계: data.state.text
                 data.from.name -> data.to.name
 
-                마지막 활동: [date] progress.status.text
+                마지막 활동: [date] progresses.status.text
                 상세정보:    progresses.description
                 */
                 interaction.reply({ embeds: [embed], ephemeral: true });
