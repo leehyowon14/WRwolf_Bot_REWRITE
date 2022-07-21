@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('송장 번호 설정')
         .addStringOption(option =>
             option.setName('택배사')
-                .addChoices(
+                .addChoices([
 				    { name: 'CJ 대한통운', value: 'kr.cjlogistics' },
 				    { name: '롯데택배', value: 'kr.lotte' },
 				    { name: '우체국 택배', value: 'kr.epost' },
@@ -16,7 +16,7 @@ module.exports = {
                     { name: 'CU 편의점 택배', value: 'kr.cupost' },
                     { name: '한진택배', value: 'kr.hanjin' },
                     { name: '로젠 택배', value: 'kr.logen' },
-			    )            
+			    ])            
                 .setRequired(true)
         )
         .addNumberOption(option =>
