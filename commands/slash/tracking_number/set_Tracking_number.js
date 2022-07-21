@@ -9,21 +9,6 @@ const delivery_org = [
        "tel": "+8215880001"
     },
     {
-       "id": "jp.sagawa",
-       "name": "Sagawa",
-       "tel": "+810120189595"
-    },
-    {
-       "id": "jp.yamato",
-       "name": "Kuroneko Yamato",
-       "tel": "+810120189595"
-    },
-    {
-       "id": "jp.yuubin",
-       "name": "Japan Post",
-       "tel": "+810570046111"
-    },
-    {
        "id": "kr.chunilps",
        "name": "천일택배",
        "tel": "+8218776606"
@@ -117,26 +102,6 @@ const delivery_org = [
        "id": "kr.swgexp",
        "name": "성원글로벌카고",
        "tel": "+82327469984"
-    },
-    {
-       "id": "nl.tnt",
-       "name": "TNT"
-    },
-    {
-       "id": "un.upu.ems",
-       "name": "EMS"
-    },
-    {
-       "id": "us.fedex",
-       "name": "Fedex"
-    },
-    {
-       "id": "us.ups",
-       "name": "UPS"
-    },
-    {
-       "id": "us.usps",
-       "name": "USPS"
     }
  ]
 
