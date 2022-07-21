@@ -16,7 +16,7 @@ module.exports = {
         if (!result) return interaction.reply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
         let len = Object.keys(result).length
         if (len == 0) {
-            interaction.reply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
+            return interaction.reply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
         }
 
         let array = []
