@@ -28,7 +28,7 @@ module.exports = {
                 let date = progresses.time.slice(0, 16).split('T')
                 date = date[0].split('-').concat(date[1].split(':'))
                 data = date[0]+'년 '+date[1]+'월 '+date[2]+'일 '+date[3]+'시 '+date[4]+'분'
-
+                console.log(data)
                 let carrier_name = data.carrier.name
                 let embed = new MessageEmbed()
                     .setTitle("조회 성공")
