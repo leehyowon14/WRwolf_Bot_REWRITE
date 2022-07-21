@@ -34,7 +34,7 @@ module.exports = {
                     .setTitle("조회 성공")
                     .setColor(0x00AE86)
                     .setAuthor({name:`송장: ${carrier_name} ${user.num}`})
-                    .setDescription(`단계: ${data.state.text}\n\`${data.from.name}\` -> \`${data.to.name}\`\n\n마지막 활동: [${date}] ${progresses.status.text} \n상세정보:      ${progresses.location.name}: ${progresses.description}`)
+                    .setDescription(`단계: ${data.state.text}\n\`${data.from.name}\` -> \`${data.to.name}\`\n\n마지막 활동: [${date}] ${progresses.status.text} \n상세정보:      [${progresses.location.name}] ${progresses.description}`)
                 
                 /*
                 단계: data.state.text
