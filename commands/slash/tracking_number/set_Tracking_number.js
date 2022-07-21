@@ -18,7 +18,7 @@ module.exports = {
                 .setRequired(true)
         )
         .addIntegerOption(option =>
-            option.setName('송장 번호')
+            option.setName('송장번호')
               .setDescription(
                 '송장번호를 입력해주세요'
               )
