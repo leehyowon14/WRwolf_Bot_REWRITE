@@ -29,10 +29,10 @@ module.exports = {
         ),
 
     async execute(interaction) {
-        let user = await Tracking_number.findOne({user_id: interaction.member.id})
+        let user = await Tracking_number.findOne({user_id: interaction.user.id})
         if (!user) {
             user = new Tracking_number({
-                user_id: interaction.member.id,
+                user_id: interaction.user.id,
                 org: interaction.options.get('택배사').value,
                 num: interaction.options.get('송장 번호').value,
             })
@@ -43,7 +43,7 @@ module.exports = {
                 .setColor(0x00AE86)
             return interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
-            await Tracking_number.findOneAndUpdate({ user_id: interaction.member.id }, { org: interaction.option.get("택배사").value, num: interaction.option.get("송장번호").value});
+            await Tracking_number.findOneAndUpdate({ user_id: interaction.user.id }, { org: interaction.option.get("택배사").value, num: interaction.option.get("송장번호").value});
             let embed = new MessageEmbed()
                 .setTitle('송장 수정 완료!')
                 .setDescription('이제부터 "!송장"을 사용하여 새 송장을 조회할 수 있습니다.')
