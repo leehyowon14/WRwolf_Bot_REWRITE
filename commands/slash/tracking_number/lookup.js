@@ -25,7 +25,7 @@ module.exports = {
             if (!response.data.message) {
                 let data = response.data
                 let progresses = data.progresses[0]
-                let date = progresses.timedata.slice(0, 16).split('T')
+                let date = progresses.time.slice(0, 16).split('T')
                 date = date[0].split('-').concat(date[1].split(':'))
                 data = date[0]+'년 '+date[1]+'월 '+date[2]+'일 '+date[3]+'시 '+date[4]+'분'
 
