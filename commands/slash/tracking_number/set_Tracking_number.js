@@ -14,8 +14,7 @@ module.exports = {
                 .addChoice('GS Postbox 택배', 'kr.cvsnet')
                 .addChoice('CU 편의점 택배', 'kr.cupost')
                 .addChoice('한진택배', 'kr.hanjin')
-                .addChoice('로젠 택배', 'kr.logen')
-			                
+                .addChoice('로젠 택배', 'kr.logen')       
                 .setRequired(true)
         )
         .addNumberOption(option =>
