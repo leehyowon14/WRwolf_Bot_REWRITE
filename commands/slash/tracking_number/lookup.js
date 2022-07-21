@@ -24,7 +24,7 @@ module.exports = {
             if (response.status !== 200) return interaction.reply({content:"api 서버 오류", ephemeral: true});
             if (!response.data.message) {
                 let data = response.data
-                let progresses = data.progresses[0]
+                let progresses = data.progresses[-1]
                 let date = progresses.time.slice(0, 16).split('T')
                 date = date[0].split('-').concat(date[1].split(':'))
                 date = date[0]+'.'+date[1]+'.'+date[2]+'. '+date[3]+'시 '+date[4]+'분'
