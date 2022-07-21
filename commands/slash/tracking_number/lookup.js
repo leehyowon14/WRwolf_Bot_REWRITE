@@ -29,10 +29,11 @@ module.exports = {
                 date = date[0].split('-').concat(date[1].split(':'))
                 data = date[0]+'년 '+date[1]+'월 '+date[2]+'일 '+date[3]+'시 '+date[4]+'분'
 
+                let carrier_name = data.carrier.name
                 let embed = new MessageEmbed()
                     .setTitle("조회 성공")
                     .setColor(0x00AE86)
-                    .setAuthor({name:`송장: ${data.carrier.name} ${user.num}`})
+                    .setAuthor({name:`송장: ${carrier_name} ${user.num}`})
                     .setDescription(`단계: ${data.state.text}\n${data.from.name} -> ${data.to.name}\n\n마지막 활동: [${date}] ${progress.status.text} 상세정보:    ${progresses.description}`)
                 
                 /*
