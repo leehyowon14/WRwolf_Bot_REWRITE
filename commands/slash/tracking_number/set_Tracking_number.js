@@ -118,6 +118,7 @@ module.exports = {
                 
                 for (let i = 0; i<delivery_org.length; i++) {
                     option.addChoice(delivery_org[i].name, delivery_org[i].id);
+                    console.log(delivery_org[i].name)
                 }
             }
         )
