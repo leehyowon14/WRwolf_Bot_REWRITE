@@ -27,7 +27,7 @@ module.exports = {
                 let progresses = data.progresses[0]
                 let date = progresses.time.slice(0, 16).split('T')
                 date = date[0].split('-').concat(date[1].split(':'))
-                date = date[0]+'년 '+date[1]+'월 '+date[2]+'일 '+date[3]+'시 '+date[4]+'분'
+                date = date[0]+'.'+date[1]+'.'+date[2]+'. '+date[3]+'시 '+date[4]+'분'
 
                 let carrier_name = data.carrier.name
                 let embed = new MessageEmbed()
