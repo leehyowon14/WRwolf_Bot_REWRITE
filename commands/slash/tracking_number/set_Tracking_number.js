@@ -34,7 +34,7 @@ module.exports = {
             user = new Tracking_number({
                 user_id: interaction.user.id,
                 org: interaction.options.get('택배사').value,
-                num: interaction.options.get('송장 번호').value,
+                num: interaction.options.get('송장번호').value,
             })
             await user.save()
             let embed = new MessageEmbed()
