@@ -8,7 +8,8 @@ module.exports = {
         .setDescription('송장 번호 조회'),
 
     async execute(interaction) {
-        let user = await Tracking_number.findOne({user_id: interaction.user.id})
+        let id = interaction.user.id
+        let user = await Tracking_number.findOne({user_id: id})
         if (!user) {
             let embed = new MessageEmbed()
                 .setTitle('등록된 송장 없음!')
