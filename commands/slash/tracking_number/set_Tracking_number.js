@@ -20,7 +20,7 @@ module.exports = {
                 .addChoice('로젠 택배', 'kr.logen')       
                 .setRequired(true)
         )
-        .addIntegerOption(option =>
+        .addNumberOption(option =>
             option.setName('송장번호')
               .setDescription(
                 '송장번호를 입력해주세요'
