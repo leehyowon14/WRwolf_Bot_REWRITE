@@ -20,7 +20,7 @@ module.exports = {
                 .addChoice('로젠 택배', 'kr.logen')       
                 .setRequired(true)
         )
-        .addNumberOption(option =>
+        .addIntegerOption(option =>
             option.setName('송장번호')
               .setDescription(
                 '송장번호를 입력해주세요'
@@ -33,8 +33,8 @@ module.exports = {
         if (!user) {
             user = new Tracking_number({
                 user_id: interaction.user.id,
-                org: interaction.options.get('택배사').value,
-                num: interaction.options.get('송장번호').value,
+                org: interaction.options.getString('택배사').value,
+                num: interaction.options.getInteger('송장번호').value,
             })
             await user.save()
             let embed = new MessageEmbed()
