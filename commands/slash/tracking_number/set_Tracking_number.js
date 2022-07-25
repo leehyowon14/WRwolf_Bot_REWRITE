@@ -33,8 +33,8 @@ module.exports = {
         if (!user) {
             user = new Tracking_number({
                 user_id: interaction.user.id,
-                org: interaction.options.getString('택배사').value,
-                num: interaction.options.getInteger('송장번호').value,
+                org: interaction.options.getString('택배사'),
+                num: interaction.options.getInteger('송장번호'),
             })
             await user.save()
             let embed = new MessageEmbed()
@@ -43,7 +43,7 @@ module.exports = {
                 .setColor(0x00AE86)
             return interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
-            await Tracking_number.findOneAndUpdate({ user_id: interaction.user.id }, { org: interaction.option.getString("택배사").value, num: interaction.option.getInteger("송장번호").value});
+            await Tracking_number.findOneAndUpdate({ user_id: interaction.user.id }, { org: interaction.option.getString("택배사"), num: interaction.option.getInteger("송장번호")});
             let embed = new MessageEmbed()
                 .setTitle('송장 수정 완료!')
                 .setDescription('이제부터 "/송장"을 사용하여 새 송장을 조회할 수 있습니다.')
