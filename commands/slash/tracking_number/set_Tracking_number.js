@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder, SlashCommandBuilder } = require("discord.js");
 const Tracking_number = require('../../../db/tracking_number')
 
 module.exports = {
@@ -38,14 +37,14 @@ module.exports = {
             })
             await user.save()
             console.log(123)
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setTitle('송장 등록 완료!')
                 .setDescription('이제부터 "/송장"을 사용하여 송장을 조회할 수 있습니다.')
                 .setColor(0x00AE86)
             return interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
             await Tracking_number.findOneAndUpdate({ user_id: interaction.user.id }, { org: interaction.option.getString('택배사'), num: interaction.option.getInteger("송장번호")});
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setTitle('송장 수정 완료!')
                 .setDescription('이제부터 "/송장"을 사용하여 새 송장을 조회할 수 있습니다.')
                 .setColor(0x00AE86)

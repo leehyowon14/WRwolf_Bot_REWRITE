@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder, SlashCommandBuilder } = require("discord.js");
 const Tracking_number = require('../../../db/tracking_number')
 const axios = require('axios');
 
@@ -11,7 +10,7 @@ module.exports = {
     async execute(interaction) {
         let user = await Tracking_number.findOne({user_id: interaction.user.id})
         if (!user) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setTitle('등록된 송장 없음!')
                 .setDescription('"/송장번호등록"을 사용하여 송장을 등록한 후에 이용해 주세요')
                 .setColor(0x00AE86)
@@ -30,7 +29,7 @@ module.exports = {
                 date = date[0]+'.'+date[1]+'.'+date[2]+'. '+date[3]+'시 '+date[4]+'분'
 
                 let carrier_name = data.carrier.name
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setTitle("조회 성공")
                     .setColor(0x00AE86)
                     .setAuthor({name:`송장: ${carrier_name} ${user.num}`})
@@ -45,7 +44,7 @@ module.exports = {
                 */
                 interaction.reply({ embeds: [embed], ephemeral: true });
             } else {
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setTitle('조회 실패')
                     .setDescription(response.data.message + `\n(오류가 지속될 경우송장번호가 올바른지 확인하여 주세요)`)
                     .setColor(0x00AE86)
