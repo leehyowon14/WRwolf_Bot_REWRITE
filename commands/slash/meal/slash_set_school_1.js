@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discordjs');
 const { EmbedBuilder } = require("discord.js");
 const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 const set_school_2 = require('./module/set_school_2')
