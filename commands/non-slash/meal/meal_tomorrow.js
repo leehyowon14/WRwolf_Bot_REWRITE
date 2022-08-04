@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const meal = require('../../../db/meal.js');
 const School = require('school-kr');
 const school = new School();
@@ -82,14 +82,14 @@ module.exports = {
             let d = meal_.day + 1
             d = d.toString()
 
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setTitle(`${school_name}의 ${meal_.month}월 ${day}자 급식`)
                 .setDescription(meal_.d)
                 .setColor(0xFFFFFF)
                 .setTimestamp()
             return message.reply({ embeds: [embed], allowedMentions: {repliedUser: true} });
         } catch (e) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setTitle(`오류`)
                 .setDescription(e)
                 .setTimestamp()

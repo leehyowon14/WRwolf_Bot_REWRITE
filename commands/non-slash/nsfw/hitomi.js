@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const axios = require('axios');
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     run: async (bot, message, args) => {
         let number = args[0]
         if (!number) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setColor('#ED4245')
                 .setAuthor({name:'에러!'})
                 .setTitle('번호를 입력해주세요')
@@ -32,7 +32,7 @@ module.exports = {
         let title = data.title
             
         if (!title) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setColor('#ED4245')
                 .setAuthor({name:'에러!'})
                 .setTitle('없는작품입니다')
@@ -77,7 +77,7 @@ module.exports = {
         }
             
 
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#5865F2')
             .setTitle('HITOMI HELPER')
             .addField('제목', `${title}`)

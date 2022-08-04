@@ -1,4 +1,4 @@
-const {MessageEmbed} = require("discord.js")
+const {EmbedBuilder} = require("discord.js")
 
 //나중에 이걸로 실시간 퍼센테이지 만들거임.
 function progess(num) {
@@ -37,7 +37,7 @@ module.exports = {
             tempString += `**${temp}. ${args[i]}**\n`
         }
 
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             embed.setColor("#00ff00")
             embed.setTitle(`${args[0]}`)
             embed.setDescription(`${tempString}`)

@@ -1,6 +1,6 @@
 //https://docs.nekobot.xyz/#image-generation-trash
 const axios = require('axios');
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	config: {
@@ -21,7 +21,7 @@ module.exports = {
         });
 		if (response.status !== 200) return message.channel.send("api 서버 오류");
 		av = response.data.message
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#186de6')
             .setTitle(`왜 일본은 모든 것을 애니로 바꾸려 하는거야? (절레절레)`)
             .setImage(av)

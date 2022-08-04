@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = {
     config: {
         name: `invite`,
@@ -13,9 +13,9 @@ module.exports = {
         .get(message.channel.id)
         .createInvite({ maxAge: 0 })
           .then(invite => {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setColor('#186de6')
-                .addField(`초대링크`, invite.url)
+                .addFields({name: `초대링크`, value: invite.url})
                 .setTimestamp()
                 .setFooter({ text: 'Developed by sG.wolf#5732' })
         message.channel.send({ embeds: [embed] })

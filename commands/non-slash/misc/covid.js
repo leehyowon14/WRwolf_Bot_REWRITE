@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 
 
@@ -30,12 +30,14 @@ module.exports = {
 
 
         
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setTitle('코로나 확진자 현황')
             .setColor('#FEE75C')
             .setDescription(`어제 확진자수 업데이트시각:\n   ${updatetime}`)
-            .addField(`어제(` + year + date[0] + `) 확진자수`, list[0] + `명`)
-            .addField(`7일 평균`, list_av[0] + `명`, true)
+            .addFields(
+                {name: `어제(` + year + date[0] + `) 확진자수`, value: list[0] + `명`},
+                {name: `7일 평균`, value: list_av[0] + `명`, inline: true}
+            )
             .setTimestamp()
             .setFooter({text: 'Developed by sG.wolf'})
         message.channel.send({ embeds: [embed] })

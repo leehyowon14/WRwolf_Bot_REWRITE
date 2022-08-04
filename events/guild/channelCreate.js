@@ -1,8 +1,8 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = async (bot, channel) => {
     const sysch = channel.guild.systemChannel
     if (sysch) {
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setColor('#57F287')
         .setTitle('Channel Log')
         .addField('Log-Type', 'Channel Create')

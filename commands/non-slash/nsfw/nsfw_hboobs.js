@@ -24,7 +24,7 @@ module.exports = {
         if (response.status !== 200) return message.channel.send("api 서버 오류");
         av = response.data.message
 
-        let embed = new Discord.MessageEmbed()
+        let embed = new Discord.EmbedBuilder()
             .setTitle("hentai boobs")
             .setImage(av)
             .setColor(`#FF0000`)

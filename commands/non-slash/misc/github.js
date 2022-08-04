@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const moment = require("moment-timezone");
 moment.locale("ko-KR");
 
@@ -13,7 +13,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         if (!args[0]) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setColor('#f94343')
             .setAuthor({ name: '에러!' })
             .setTitle('검색할 유저이름을 입력하여 주세요')
@@ -26,7 +26,7 @@ module.exports = {
         const { login, avatar_url, location, created_at, followers, following, email, blog, html_url, bio, public_repos, public_gists } = await fetch(`https://api.github.com/users/${encodeURI(args.join(" "))}`).then(e => e.json());
 
         if (!login) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setColor('#f94343')
             .setAuthor({ name: '에러!' })
             .setTitle(`\`${args.join(" ")}\` (이)라는 유저를 찾을 수 없습니다.`)
@@ -36,7 +36,7 @@ module.exports = {
         return;
         }
 
-        let embed = new MessageEmbed().setTitle(`${login}님의 정보`).setColor(0x000000).setAuthor('Github', 'https://github.githubassets.com/favicons/favicon.png', 'https://github.com/').setFooter({ text: login, iconURL: avatar_url }).setDescription(`[들어가기](${html_url})`).setThumbnail(avatar_url)
+        let embed = new EmbedBuilder().setTitle(`${login}님의 정보`).setColor(0x000000).setAuthor('Github', 'https://github.githubassets.com/favicons/favicon.png', 'https://github.com/').setFooter({ text: login, iconURL: avatar_url }).setDescription(`[들어가기](${html_url})`).setThumbnail(avatar_url)
         .addFields([
             {name: "이름", value: `**${login}**`, inline: true},
             {name: "상태 메세지", value: `**${bio ? bio : "없음"}**`},

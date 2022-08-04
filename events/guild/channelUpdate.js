@@ -1,9 +1,9 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = async (bot, oldChannel, newChannel) => {
     const sysch = oldChannel.guild.systemChannel
     if (sysch) {
         if (oldChannel.name != newChannel.name) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setColor('#57F287')
                 .setTitle('Channel Log')
                 .addField('Log-Type', 'Channel Name Changed')
@@ -13,14 +13,14 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 .setTimestamp()
             sysch.send({ embeds: [embed] })
         }
-        if (oldChannel.isText()) {
+        if (oldChannel.type === ChannelType.GuildText) {
             if (oldChannel.topic != newChannel.topic) {
                 let oldTopic = oldChannel.topic;
                 let newTopic = newChannel.topic;
                 if (oldTopic == null) oldTopic = 'None';
                 if (newTopic == null) newTopic = 'None';
                 
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
                     .addField('Log-Type', 'Channel Topic Changed')
@@ -31,7 +31,7 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 sysch.send({ embeds: [embed] })
             }
             if (oldChannel.nsfw != newChannel.nsfw) {
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
                     .addField('Log-Type', 'Channel NSFW Changed')
@@ -41,9 +41,9 @@ module.exports = async (bot, oldChannel, newChannel) => {
                     .setTimestamp()
                 sysch.send({ embeds: [embed] })
             }
-        } else if (oldChannel.isVoice()) {
+        } else if (oldChannel.type === ChannelType.GuildVoice) {
             if (oldChannel.bitrate != newChannel.bitrate) {
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
                     .addField('Log-Type', 'Channel Bitrate Changed')
@@ -62,7 +62,7 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 if (newChannel.userLimit == 0) {
                     newuserLimit = 'Infinite'
                 }
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
                     .addField('Log-Type', 'Channel userLimit Changed')

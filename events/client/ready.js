@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = bot => {
     let activities = [
@@ -14,7 +14,7 @@ module.exports = bot => {
     log(`${redChalk(bot.user.username)} ${greenChalk('is online')}`);
 
     let time = getTime();
-    let embed = new MessageEmbed()
+    let embed = new EmbedBuilder()
         .setColor('#57F287')
         .setAuthor({ name :` ${bot.user.username} is now ONLINE!` })
         .setDescription(`${time}`)

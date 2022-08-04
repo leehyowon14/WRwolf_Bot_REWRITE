@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 
 module.exports = {
     config: {
@@ -24,14 +24,18 @@ module.exports = {
 
         message.channel.send({content:`**${kickMember.user.tag}** has been kicked`})
 
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setColor(bot.colours.redlight)
         .setAuthor({ name: `${message.guild.name} Modlogs`, iconURL: message.guild.iconURL })
-        .addField("Moderation:", "kick")
-        .addField("User:", kickMember.user.username)
-        .addField("Moderator:", message.author.username)
-        .addField("Reason:", reason)
-        .addField("Date:", message.createdAt.toLocaleString())
+        .addFields(
+            [
+                {name: "Moderation:", value: "kick"},
+                {name: "User:", value: kickMember.user.username},
+                {name: "Moderator:", value: message.author.username},
+                {name: "Reason:", value: reason},
+                {name: "Date:", value: message.createdAt.toLocaleString()},
+            ]
+        )
 
         try {
             sysch.send({ embeds: [embed] })

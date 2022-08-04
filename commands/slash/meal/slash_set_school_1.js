@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require("discord.js");
-const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { EmbedBuilder } = require("discord.js");
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 const set_school_2 = require('./module/set_school_2')
 const School = require('school-kr')
 const school = new School()
@@ -44,9 +44,9 @@ module.exports = {
         }
         
 
-        const row = (state) => [ new MessageActionRow()
+        const row = (state) => [ new ActionRowBuilder()
 			.addComponents(
-				new MessageSelectMenu()
+				new SelectMenuBuilder()
 					.setCustomId('select')
 					.setPlaceholder('지역을 선택하여주세요! (도)')
 					.addOptions([
@@ -123,7 +123,7 @@ module.exports = {
 					]),
 			),
         ]
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setTitle('학교 정보 입력')
             .setDescription('지역을 선택하여주세요! (도)')
             .setColor(0x00AE86)
@@ -173,7 +173,7 @@ module.exports = {
             });
 
             collector.on('end', () => {
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setTitle('학교 정보 입력')
                     .setDescription('지역 선택완료!')
                     .setColor(0x00AE86)

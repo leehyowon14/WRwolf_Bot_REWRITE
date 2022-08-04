@@ -1,6 +1,6 @@
 //https://docs.nekobot.xyz/#image-generation-clyde
 
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const axios = require('axios');
 module.exports = {
 	config: {
@@ -17,7 +17,7 @@ module.exports = {
         });
 		if (response.status !== 200) return message.channel.send("api 서버 오류");
 		av = response.data.message
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#186de6')
             .setImage(av)
             .setTimestamp()

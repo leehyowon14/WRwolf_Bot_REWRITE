@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	config: {
@@ -15,7 +15,7 @@ module.exports = {
         if (!av) {
             return message.channel.send("아바타를 구하지 못하였습니다.")
         }
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#186de6')
             .setTitle(`${member.user.username}님의 아바타`)
             .setImage(av)

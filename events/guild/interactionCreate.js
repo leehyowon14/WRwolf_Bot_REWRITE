@@ -1,5 +1,5 @@
 module.exports = async (bot, interaction) => {
-  if (interaction.isCommand()) {
+  if (interaction.type === InteractionType.ApplicationCommand) {
     try {
       await interaction.client.commands
         .get(interaction.commandName)
@@ -11,7 +11,5 @@ module.exports = async (bot, interaction) => {
         ephemeral: true
       });
     }
- } else if (interaction.isSelectMenu()) {
-    console.log(interaction.id)
  }
 }

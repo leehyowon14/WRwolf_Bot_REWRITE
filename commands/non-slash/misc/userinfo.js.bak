@@ -1,5 +1,5 @@
 const { Canvas } = require('canvas-constructor');
-const { MessageAttachment } = require('discord.js');
+const { AttachmentBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
 const imageUrlRegex = /\?size=2048$/g;
@@ -167,8 +167,8 @@ module.exports = {
 
 			const buffer = await profile(message, placeholder.get(key));
 			const filename = `profile-${message.author.id}.png`;
-			const attachment = new MessageAttachment(buffer, filename);
-			// const attachment = new MessageAttachment(svg, filename);
+			const attachment = new AttachmentBuilder(buffer, { name: filename });
+			// const attachment = new AttachmentBuilder(svg, { name: filename });
 			await message.channel.send({ files: [attachment] });
 
 		} catch (error) {

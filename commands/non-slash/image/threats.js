@@ -1,6 +1,6 @@
 //https://docs.nekobot.xyz/#image-generation-threats
 
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const axios = require('axios');
 module.exports = {
 	config: {
@@ -21,7 +21,7 @@ module.exports = {
         });
 		if (response.status !== 200) return message.channel.send("api 서버 오류");
 		av = response.data.message
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#186de6')
             .setTitle(`사회에 가장 큰 위협 3가지`)
             .setImage(av)

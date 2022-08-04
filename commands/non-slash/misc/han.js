@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = {
     config: {
         name: `river`,
@@ -16,18 +16,18 @@ module.exports = {
             .then(function (response) {
                 if (response.status == 200) {
                     let river = response.data
-                    let embed = new MessageEmbed()
+                    let embed = new EmbedBuilder()
                         .setColor('#4fe8a3')
                         .setTitle('한강 수온')
-                        .addField(':droplet: ' + river.temp, '측정 시각: ' + river.time, true)
+                        .addFields({name: ':droplet: ' + river.temp, value: '측정 시각: ' + river.time, inline: true})
                     return message.reply({ embeds: [embed] })
                 }
             })
             .catch(function (error) {
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setColor('#ED4245')
                     .setAuthor({ name :`에러!` })
-                    .addField("Error", error)
+                    .addFields({name: "Error", value: error})
                     .setTimestamp()
                     .setFooter({ text: 'Developed by sG.wolf' })
                 message.channel.send({ embeds: [embed] })

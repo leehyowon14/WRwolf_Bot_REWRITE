@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const fs = require('fs');
 
 async function fetchAllMessages(bot) {
@@ -47,7 +47,7 @@ module.exports = {
           });
         })
         
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
           .setTitle("aespa image update.")
           .setDescription(`winrina's image has been updated successfully`)
           .setColor('#57F287')

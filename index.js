@@ -1,22 +1,7 @@
-const { Client, Collection, Intents } = require("discord.js");
+const { Client, GatewayIntentBits, Partials } = require("discord.js");
 const config = require("./config/config.json");
 const bot = new Client({
-        intents: new Intents([
-            'GUILDS',
-            'GUILD_MEMBERS',
-            'GUILD_BANS',
-            'GUILD_EMOJIS_AND_STICKERS',
-            'GUILD_INTEGRATIONS',
-            'GUILD_WEBHOOKS',
-            'GUILD_INVITES',
-            'GUILD_VOICE_STATES',
-            'GUILD_PRESENCES',
-            'GUILD_MESSAGES',
-            'GUILD_MESSAGE_REACTIONS',
-            'GUILD_MESSAGE_TYPING',
-            'DIRECT_MESSAGES',
-            'DIRECT_MESSAGE_REACTIONS',
-            'DIRECT_MESSAGE_TYPING'])
+        intents: new IntentsBitField(32767)
     }
 );
 require('./util/misc.js')

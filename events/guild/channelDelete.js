@@ -1,8 +1,8 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = async (bot, channel) => {
     const sysch = channel.guild.systemChannel
     if (sysch) {
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setColor('#ED4245')
         .setTitle('Channel Log')
         .addField('Log-Type', 'Channel Deleted')

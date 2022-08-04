@@ -1,5 +1,5 @@
 const tinyurl = require("../../../modules/tinyurl");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     config: {
@@ -17,7 +17,7 @@ module.exports = {
 
         tinyurl.run(args[0]).then(async (url) => {
             if (url == args[0]) url = "웹사이트 주소 단축 실패."
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setColor("#57F287")
                 .setTitle("TinyURL")
                 .setDescription(`${url}`)

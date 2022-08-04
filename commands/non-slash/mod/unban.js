@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 
 module.exports = {
     config: {
@@ -30,14 +30,18 @@ module.exports = {
             console.log(e.message)
         }
 
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setColor(bot.colours.redlight)
         .setAuthor({ name: `${message.guild.name} Modlogs`, iconURL: message.guild.iconURL })
-        .addField("Moderation:", "unban")
-        .addField("Moderated on:", `${bannedMember.username} (${bannedMember.id})`)
-        .addField("Moderator:", message.author.username)
-        .addField("Reason:", reason)
-        .addField("Date:", message.createdAt.toLocaleString())
+        .addFields(
+            [
+                {name: "Moderation:", value:"unban"},
+                {name: "Moderated on:", value: `${bannedMember.username} (${bannedMember.id})`},
+                {name: "Moderator:", value: message.author.username},
+                {name: "Reason:", value: reason},
+                {name: "Date:", value: message.createdAt.toLocaleString()}
+            ]
+        )
 
         try {
             sysch.send({ embeds: [embed] })

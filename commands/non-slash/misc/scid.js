@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     run: async (bot, message, args) => {
         let search = args[0]
         if (!search) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setColor('#ED4245')
                 .setAuthor({ name: '에러!'})
                 .setTitle('검색할 유저의 닉네임을 입력하여주세요')
@@ -27,19 +27,19 @@ module.exports = {
             .then(function (response) {
                 data = response.data
                 if (!data) {
-                    let embed = new MessageEmbed()
+                    let embed = new EmbedBuilder()
                         .setColor('#ED4245')
                         .setAuthor({ name :`Search results for "${search}"` })
-                        .addField("Error", `System Error`)
+                        .addFields({name: "Error", value: `System Error`})
                         .setTimestamp()
                         .setFooter({ text: 'Developed by sG.wolf' })
                     message.channel.send({ embeds: [embed] })
                     return
                 }
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setAuthor({ name: `${search}'s SCID` })
-                    .addField("SCID", `${data}`)
+                    .addFields({name: "SCID", value: `${data}`})
                     .setThumbnail(`https://prod.cloud.rockstargames.com/members/sc/8501/${data}/publish/gta5/mpchars/0.png`)
                     .setTimestamp()
                     .setFooter({ text: 'Developed by sG.wolf' })
@@ -47,10 +47,10 @@ module.exports = {
             console.log(response);
             })
             .catch(function (error) {
-                let embed = new MessageEmbed()
+                let embed = new EmbedBuilder()
                     .setColor('#ED4245')
                     .setAuthor({ name :`Search results for "${search}"` })
-                    .addField("Error", `System Error`)
+                    .addFields({name: "Error", value: `System Error`})
                     .setTimestamp()
                     .setFooter({ text: 'Developed by sG.wolf' })
                 message.channel.send({ embeds: [embed] })

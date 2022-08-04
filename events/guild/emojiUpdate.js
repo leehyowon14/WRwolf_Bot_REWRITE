@@ -1,8 +1,8 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = async (bot, oldEmoji, newEmoji) => {
     const sysch = oldEmoji.guild.systemChannel
     if (sysch) {
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setColor('#57F287')
         .setTitle('Emoji Log')
         .addField('Log-Type', 'Emoji Name Changed')

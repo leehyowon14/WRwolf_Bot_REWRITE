@@ -1,5 +1,5 @@
 const protex = require('../../../db/protection.js')
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     config: {
@@ -33,17 +33,21 @@ module.exports = {
         let uid = user.user_id
         let embed
         if (user.is_Activated) {
-            embed = new MessageEmbed()
+            embed = new EmbedBuilder()
                 .setTitle("Protection")
                 .setDescription(`Userinfo(${uid})`)
-                .addField("Status", "Activated")
-                .addField("Activation Date", user.register_date)
+                .addFields(
+                    [
+                        {name: "Status", value: "Activated"},
+                        {name: "Activation Date", value: user.register_date}
+                    ]
+                )
                 .setColor('#57F287')
         } else {
-            embed = new MessageEmbed()
+            embed = new EmbedBuilder()
                 .setTitle("Protection")
                 .setDescription(`Userinfo(${uid})`)
-                .addField("Status", "Disactivated")
+                .addFields([{name: "Status", value: "Disactivated"}])
                 .setColor('#ED4245')
         }
         message.reply({ embeds:[embed] })

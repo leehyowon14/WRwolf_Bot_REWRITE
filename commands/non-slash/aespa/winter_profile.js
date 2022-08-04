@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     config: {
@@ -9,15 +9,17 @@ module.exports = {
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor("#FEE75C")
             .setAuthor({name: "aespa Member Profile"})
             .setThumbnail("https://cdn.discordapp.com/attachments/869082781999833118/992467130048065566/unknown.png")
             .setTitle("⭐ Winter(윈터)-aespa")
-            .addField("본명", "김민정", true)
-            .addField("국적", "🇰🇷 대한민국", true)
-            .addField("키 / 혈액형 / 발사이즈", "164cm / A / 225mm", true)
-            .addField("전투 능력", "Armamenter(무기 능력자)")
+            .addFields(
+                {name:"본명", value:"김민정", inline: true},
+                {name:"국적", value:"🇰🇷 대한민국", inline: true},
+                {name:"키 / 혈액형 / 발사이즈", value:"164cm / A / 225mm", inline: true},
+                {name:"전투 능력", value:"Armamenter(무기 능력자)"},
+            )
             .setFooter({text: "2000.01.01"})
             .setTimestamp()
         message.reply({embeds: [embed]});

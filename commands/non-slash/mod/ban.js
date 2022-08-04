@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 
 module.exports = {
     config: {
@@ -20,19 +20,23 @@ module.exports = {
         if(!message.guild.me.permissions.has(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send({ content: "오류: 봇이 이 명령어를 수행할 권한을 가지고 있지 않습니다." })
 
         banMember.send({ content: `안녕! 넌 \`\`${message.guild.name}\`\`에서 밴당했어!\n이유 -> \`\`${reason}\`\`` }).then(() => 
-        banMember.ban({ days: 0, reason: reason })).catch(err => console.log(err))
+        banMember.ban({ deleteMessageDays: 0, reason: reason })).catch(err => console.log(err))
         // message.guild.members.cache.ban(banMember, { days: 0, reason: reason})).catch(err => console.log(err))
 
         message.channel.send({content: `**${banMember.user.tag}** has been banned`})
 
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setColor(bot.colours.redlight)
         .setAuthor({ name: `${message.guild.name} Modlogs`, iconURL: message.guild.iconURL })
-        .addField("Moderation:", "ban")
-        .addField("User:", banMember.user.username)
-        .addField("Moderator:", message.author.username)
-        .addField("Reason:", reason)
-        .addField("Date:", message.createdAt.toLocaleString())
+        .addFields(
+            [
+                {name: "Moderation:", value: "ban"},
+                {name: "User:", value: banMember.user.username},
+                {name: "Moderator:", value: message.author.username},
+                {name: "Reason:", value: reason},
+                {name: "Date:", value: message.createdAt.toLocaleString()}
+            ]
+        )
 
         try {
             sysch.send({ embeds: [embed] })

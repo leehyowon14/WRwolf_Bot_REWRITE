@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     config: {
@@ -13,7 +13,7 @@ module.exports = {
             return;
         }
         let img = "https://media1.tenor.com/images/8e341309b7d312f35f1869b2ffcaa8e8/tenor.gif?itemid=20146933"
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#5865F2')
             .setTitle('울프봇(NSFW) 명령어')
             .setAuthor({ name: '울프봇(NSFW) 도움말', url: img })

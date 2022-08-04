@@ -1,4 +1,4 @@
-const { MessageEmbed, WebhookClient } = require("discord.js");
+const { EmbedBuilder, WebhookClient } = require("discord.js");
 const protex = require('../../db/protection.js')
 
 const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/946400164443197460/zQE06FdTCSAr9MWA1luGsapCZLGPPXaatvMvAkhYk2ec5iJzEv5q-sPZ0pUgsae2oOSo'})
@@ -19,7 +19,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
 
     if(oldMessage.content == newMessage.content) return;
     let img = oldMessage.author.avatar ? `https://cdn.discordapp.com/avatars/${oldMessage.author.id}/${oldMessage.author.avatar}.webp?size=256` : undefined;
-    let embed = new MessageEmbed()
+    let embed = new EmbedBuilder()
         .setTitle('Chatting Log')
         .setColor('#5865F2')
         .addField('Log-Type', 'Edited Message')

@@ -1,6 +1,6 @@
 //https://docs.nekobot.xyz/#image-generation-trumptweet
 const axios = require('axios');
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	config: {
@@ -18,7 +18,7 @@ module.exports = {
         });
 		if (response.status !== 200) return message.channel.send("api 서버 오류");
 		av = response.data.message
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor('#186de6')
 			.setTitle(`Donald Trump Tweeted:`)
             .setImage(av)

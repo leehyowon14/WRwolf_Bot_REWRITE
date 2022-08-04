@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = async (bot, member) => {
     const sysch = member.guild.systemChannel
     let user
@@ -8,7 +8,7 @@ module.exports = async (bot, member) => {
         } else {
             user = member.user.tag
         }
-    let embed = new MessageEmbed()
+    let embed = new EmbedBuilder()
     .setColor('#ED4245')
     .setTitle('User Log')
     .addField('Log-Type', 'User leaves')
@@ -20,9 +20,9 @@ module.exports = async (bot, member) => {
     if (!muterole) return;
     let isMuted = member._roles.find(x => x == muterole.id);
     if(isMuted) {
-        member.ban({ days: 0, reason: '뮤트상태에서 서버 퇴장' }).catch(err => console.log(err))
+        member.ban({ deleteMessageDays: 0, reason: '뮤트상태에서 서버 퇴장' }).catch(err => console.log(err))
         if(sysch) {
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
             .setColor('#ED4245')
             .setTitle('')
             .addField('Log-Type', 'banned user')

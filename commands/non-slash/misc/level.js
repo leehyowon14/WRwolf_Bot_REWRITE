@@ -1,5 +1,5 @@
 const GuildRank = require('../../../db/rank')
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 let xp_req
 function levels(xp) {
@@ -38,7 +38,7 @@ module.exports = {
         
         let xp = user.xp;
         let req_xp = levels(user.xp)
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setColor("#00ff00")
             .setTitle(`${mentioned_user.user.tag}'s Level`)
             .setDescription(`Level: ${user.level}\nXP: ${xp}/${req_xp}`)

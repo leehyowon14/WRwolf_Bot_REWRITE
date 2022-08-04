@@ -1,5 +1,5 @@
-const { MessageAttachment } = require('discord.js');
-const { MessageEmbed, WebhookClient } = require("discord.js");
+const { AttachmentBuilder } = require('discord.js');
+const { EmbedBuilder, WebhookClient } = require("discord.js");
 const dateFormat = require('dateformat')
 const protex = require('../../db/protection.js')
 
@@ -19,11 +19,10 @@ module.exports = async (bot, messages) => {
         return;
     }
 
-    let embed = new MessageEmbed()
+    let embed = new EmbedBuilder()
         .setTitle('Chatting Log')
         .setColor('#5865F2')
         .addField('Log-Type', 'Deleted Message(Bulk)')
-        //.addField('Message By:', message.author.tag)
         .addField('Channel:', messages.first().channel.name)
         //.setFooter(message.author.tag)
         .setTimestamp()
@@ -53,22 +52,22 @@ module.exports = async (bot, messages) => {
 
         if (isUserUseProtection) {
             if([...messages.values()].length > 10) {
-                const log_txt_file = new MessageAttachment(Buffer.from(Log, 'utf-8'), 'DeletedMessages.txt');
+                const log_txt_file = new AttachmentBuilder(Buffer.from(Log, 'utf-8'), 'DeletedMessages.txt');
                 webhookClient.send({ files : [log_txt_file] });
             } else {
                 Log += "\n```"
-                embed.addField("Messages", Log)
+                embed.addFields([{name:"Messages", value:Log}])
                 webhookClient.send({ embeds: [embed] })
             }
             return
         }
 
         if([...messages.values()].length > 10) {
-            const log_txt_file = new MessageAttachment(Buffer.from(Log, 'utf-8'), 'DeletedMessages.txt');
+            const log_txt_file = new AttachmentBuilder(Buffer.from(Log, 'utf-8'), 'DeletedMessages.txt');
             messages.first().guild.systemChannel.send({ files : [log_txt_file] });
         } else {
             Log += "\n```"
-            embed.addField("Messages", Log)
+            embed.addFields([{name:"Messages", value:Log}])
             messages.first().guild.systemChannel.send({ embeds: [embed] })
         }
 }

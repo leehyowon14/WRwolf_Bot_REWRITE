@@ -1,6 +1,4 @@
-const { MessageAttachment } = require('discord.js');
-const fetch = require('node-fetch');
-const { MessageEmbed, WebhookClient } = require("discord.js");
+const { EmbedBuilder, WebhookClient } = require("discord.js");
 const protex = require('../../db/protection.js')
 
 const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/946400164443197460/zQE06FdTCSAr9MWA1luGsapCZLGPPXaatvMvAkhYk2ec5iJzEv5q-sPZ0pUgsae2oOSo'})
@@ -30,7 +28,7 @@ module.exports = async (bot, message) => {
         try {
             if(message.content.length == 0) {
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
-                embed = new MessageEmbed()
+                embed = new EmbedBuilder()
                     .setTitle('Chatting Log')
                     .setColor('#5865F2')
                     .addField('Log-Type', 'Deleted Message')
@@ -48,7 +46,7 @@ module.exports = async (bot, message) => {
                     content = "message is too long!(over then 1000 letter)"
                 }
                 let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
-                embed = new MessageEmbed()
+                embed = new EmbedBuilder()
                     .setTitle('Chatting Log')
                     .setColor('#5865F2')
                     .addField('Log-Type', 'Deleted Message')
@@ -71,7 +69,7 @@ module.exports = async (bot, message) => {
             content = "message is too long!(over then 1000 letter)"
         }
         let img = message.author.avatar ? `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.webp?size=256` : undefined;
-        embed = new MessageEmbed()
+        embed = new EmbedBuilder()
             .setTitle('Chatting Log')
             .setColor('#5865F2')
             .addField('Log-Type', 'Deleted Message')

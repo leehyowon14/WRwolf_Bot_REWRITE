@@ -1,5 +1,5 @@
-const { MessageEmbed } = require("discord.js");
-const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { EmbedBuilder } = require("discord.js");
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 const meal = require('../../../../db/meal')
 
 async function result_to_array(result, object, array, len) {
@@ -29,16 +29,16 @@ module.exports = {
         await result_to_array(result, object, array, len)
         //console.log(array[0])
 
-        const row = (state) => [ new MessageActionRow()
+        const row = (state) => [ new ActionRowBuilder()
 			.addComponents(
-				new MessageSelectMenu()
+				new SelectMenuBuilder()
 					.setCustomId('select')
 					.setPlaceholder('학교를 선택하여주세요!')
 					.addOptions(array),
 			),
         ]
 
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setTitle('학교 선택')
             .setDescription('학교를 선택해주세요.')
             .setColor(0x00AE86)
@@ -71,14 +71,14 @@ module.exports = {
                 school_code: code
             })
             await user.save()
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setTitle('완료!')
                 .setDescription('학교가 선택되었습니다')
                 .setColor(0x00AE86)
             return interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
             await meal.findOneAndUpdate({ user_id: id }, { school_type: type, school_name: name, school_region: region, school_code: code });
-            let embed = new MessageEmbed()
+            let embed = new EmbedBuilder()
                 .setTitle('완료!')
                 .setDescription('학교가 선택되었습니다')
                 .setColor(0x00AE86)

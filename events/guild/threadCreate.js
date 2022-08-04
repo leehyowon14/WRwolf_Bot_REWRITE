@@ -1,9 +1,9 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 module.exports = async (bot, thread) => {
     thread.join()
     const sysch = thread.guild.systemChannel
     if (sysch) {
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
         .setColor('#FFFFFF')
         .setTitle('Thread Log')
         .addField('Log-Type', 'new Thread')

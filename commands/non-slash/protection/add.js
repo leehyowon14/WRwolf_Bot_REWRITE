@@ -1,5 +1,5 @@
 const protex = require('../../../db/protection.js')
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
     config: {
@@ -30,7 +30,7 @@ module.exports = {
         } else {
             await protex.findOneAndUpdate({ user_id: id }, { register_date: time, is_Activated: true });
         }
-        let embed = new MessageEmbed()
+        let embed = new EmbedBuilder()
             .setTitle('완료!')
             .setDescription('변경사항이 저장되었습니다.')
             .setColor(0x00AE86)
