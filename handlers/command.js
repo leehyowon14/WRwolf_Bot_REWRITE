@@ -35,7 +35,7 @@ module.exports = (bot, reload = false) => {
             commands.push(command.data.toJSON());
         };
     };
-    ["meal"].forEach(x => slash_load(x));
+    ["meal", "tracking_number"].forEach(x => slash_load(x));
 
     (async () => {
         try {

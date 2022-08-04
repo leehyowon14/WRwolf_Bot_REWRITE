@@ -13,10 +13,10 @@ async function result_to_array(result, object, array, len) {
 
 module.exports = {
     run:async (interaction, result, school_name, school_type, region) => {
-        if (!result) return interaction.reply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
+        if (!result) return interaction.editReply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
         let len = Object.keys(result).length
         if (len == 0) {
-            interaction.reply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
+            return interaction.editReply({ content: "에러: 학교 검색에 실패하였습니다.", ephemeral: true });
         }
 
         let array = []
