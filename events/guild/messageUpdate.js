@@ -22,11 +22,15 @@ module.exports = async (bot, oldMessage, newMessage) => {
     let embed = new EmbedBuilder()
         .setTitle('Chatting Log')
         .setColor('#5865F2')
-        .addField('Log-Type', 'Edited Message')
-        .addField('Message By:', oldMessage.author.tag)
-        .addField('Channel:', oldMessage.channel.name)
-        .addField('Old Message:', oldMessage.content)
-        .addField('New Message:', newMessage.content)
+        .addFields(
+            [
+                {name: 'Log-Type', value: 'Edited Message'},
+                {name: 'Message By:', value: oldMessage.author.tag},
+                {name: 'Channel:', value: oldMessage.channel.name},
+                {name: 'Old Message:', value: oldMessage.content},
+                {name: 'New Message:', value: newMessage.content}
+            ]
+        )
         .setFooter({ text:oldMessage.author.tag, iconURL: img })
         .setTimestamp()
     if (isUserUseProtection) {

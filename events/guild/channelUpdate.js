@@ -6,10 +6,14 @@ module.exports = async (bot, oldChannel, newChannel) => {
             let embed = new EmbedBuilder()
                 .setColor('#57F287')
                 .setTitle('Channel Log')
-                .addField('Log-Type', 'Channel Name Changed')
-                .addField('Old Channel Name:', oldChannel.name)
-                .addField('New Channel Name:', newChannel.name)
-                .addField('Channel Type:', newChannel.type.toString())
+                .addFields(
+                    [
+                        {name: 'Log-Type', value: 'Channel Name Changed'},
+                        {name: 'Old Channel Name:', value: oldChannel.name},
+                        {name: 'New Channel Name:', value: newChannel.name},
+                        {name: 'Channel Type:', value: newChannel.type.toString()},
+                    ]
+                )
                 .setTimestamp()
             sysch.send({ embeds: [embed] })
         }
@@ -23,10 +27,14 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
-                    .addField('Log-Type', 'Channel Topic Changed')
-                    .addField('Old Channel Topic:', oldTopic)
-                    .addField('New Channel Topic:', newTopic)
-                    .addField('Channel Type:', newChannel.type.toString())
+                    .addFields(
+                        [
+                            {name: 'Log-Type', value: 'Channel Topic Changed'},
+                            {name: 'Old Channel Topic:', value: oldTopic},
+                            {name: 'New Channel Topic:', value: newTopic},
+                            {name: 'Channel Type:', value: newChannel.type.toString()},
+                        ]
+                    )
                     .setTimestamp()
                 sysch.send({ embeds: [embed] })
             }
@@ -34,10 +42,14 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
-                    .addField('Log-Type', 'Channel NSFW Changed')
-                    .addField('Old Channel NSFW:', oldChannel.nsfw.toString())
-                    .addField('New Channel NSFW:', newChannel.nsfw.toString())
-                    .addField('Channel Type:', newChannel.type.toString())
+                    .addFields(
+                        [
+                            {name: 'Log-Type', value: 'Channel NSFW Changed'},
+                            {name: 'Old Channel NSFW:', value: oldChannel.nsfw.toString()},
+                            {name: 'New Channel NSFW:', value: newChannel.nsfw.toString()},
+                            {name: 'Channel Type:', value: newChannel.type.toString()},
+                        ]
+                    )
                     .setTimestamp()
                 sysch.send({ embeds: [embed] })
             }
@@ -46,10 +58,14 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
-                    .addField('Log-Type', 'Channel Bitrate Changed')
-                    .addField('Old Channel Bitrate:', oldChannel.bitrate.toString())
-                    .addField('New Channel Bitrate:', newChannel.bitrate.toString())
-                    .addField('Channel Type:', newChannel.type.toString())
+                    .addFields(
+                        [
+                            {name: 'Log-Type', value: 'Channel Bitrate Changed'},
+                            {name: 'Old Channel Bitrate:', value: oldChannel.bitrate.toString()},
+                            {name: 'New Channel Bitrate:', value: newChannel.bitrate.toString()},
+                            {name: 'Channel Type:', value: newChannel.type.toString()},
+                        ]
+                    )
                     .setTimestamp()
                 sysch.send({ embeds: [embed] })
             }
@@ -65,10 +81,14 @@ module.exports = async (bot, oldChannel, newChannel) => {
                 let embed = new EmbedBuilder()
                     .setColor('#57F287')
                     .setTitle('Channel Log')
-                    .addField('Log-Type', 'Channel userLimit Changed')
-                    .addField('Old Channel UserLimit:', olduserLimit)
-                    .addField('New Channel UserLimit:', newuserLimit)
-                    .addField('Channel Type:', newChannel.type.toString())
+                    .addFields(
+                        [
+                            {name: 'Log-Type', value: 'Channel userLimit Changed'},
+                            {name: 'Old Channel userLimit:', value: olduserLimit},
+                            {name: 'New Channel userLimit:', value: newuserLimit},
+                            {name: 'Channel Type:', value: newChannel.type.toString()},
+                        ]
+                    )
                     .setTimestamp()
                 sysch.send({ embeds: [embed] })
             }

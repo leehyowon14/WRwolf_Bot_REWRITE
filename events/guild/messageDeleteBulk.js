@@ -22,8 +22,12 @@ module.exports = async (bot, messages) => {
     let embed = new EmbedBuilder()
         .setTitle('Chatting Log')
         .setColor('#5865F2')
-        .addField('Log-Type', 'Deleted Message(Bulk)')
-        .addField('Channel:', messages.first().channel.name)
+        .addFields(
+            [
+                {name: 'Log-Type', value: 'Deleted Message(Bulk)'},
+                {name: 'Channel:', value: messages.first().channel.name}
+            ]
+        )
         //.setFooter(message.author.tag)
         .setTimestamp()
         if([...messages.values()].length > 10) {

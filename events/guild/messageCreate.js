@@ -61,6 +61,51 @@ const GuildRank = require('../../db/rank');
 //     return false;
 // }
 
+// function checkContinuousChatting(bot, message) {
+//     let log_channel
+//     if (message.guild.id == "1006930039876636672") {
+//         log_channel = bot.channels.cache.get("1006930041164267580");
+//     }
+//     let onmute_leave_channel_msg = '뮤트먹은 상태로 나가면 밴 됩니다.';
+
+
+//     // 관리자는 도배 걸리지 않음.
+//     if(message.member.permissions.has('ADMINISTRATOR')) return;
+
+//     // 시간, 뮤트 롤
+//     let messageTime = moment().tz('Asia/Seoul').locale('ko').valueOf()
+//     let forbiddenWordTime = bot.authors.get(message.author.id) || messageTime;
+//     let muterole = message.channel.guild.roles.cache.find(r => r.name == "Muted")
+
+//     // 욕설 체크
+//     let msgs = [
+//         message.content.replace('\n', ''),
+//         message.content.replace('\n', '').replace(/[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''),
+//         message.content.replace('\n', '').replace(/[^a-z|A-Z]/g, ''),
+//     ]
+//     for(fw of forbiddenWord) {
+//         for(msg of msgs) {
+//             if(msg.indexOf(fw) != -1) {
+//                 message.guild.members.cache.find(x => x.id == message.author.id).roles.add(muterole.id)
+//                 if(messageTime == forbiddenWordTime) {
+//                     log_channel.send({ content: `${message.content} by ${message.author.tag}(Mute)\nWord: ${fw}` })
+//                     message.channel.bulkDelete(1, true);
+//                     message.reply({ content: `Muted: 금지어 (첫 채팅부터...)\n${onmute_leave_channel_msg}`, allowedMentions: {repliedUser: true} });
+//                 } else {
+//                     log_channel.send({ content: `${message.content} by ${message.author.tag}(Mute)\nWord: ${fw}` })
+//                     message.channel.bulkDelete(1, true);
+//                     message.reply({ content : `Muted: 금지어\n${onmute_leave_channel_msg}`, allowedMentions: {repliedUser: true} });
+//                 }
+//                 bot.authors.set(message.author.id, messageTime);
+//                 return true;
+//             }
+//         }
+//     }
+
+//     bot.authors.set(message.author.id, messageTime);
+//     return false;
+// }
+
 
 
 const adminUserId = 745859722720051234;
@@ -111,9 +156,9 @@ module.exports = async (bot, message) => {
 
         return;
     }
-    //if(message.guild.id == process.env.guild_id) {
-    //    if(checkContinuousChatting(bot, message)) return;
-    //}
+    // if(message.guild.id == "1006930039876636672") {
+    //     if(checkContinuousChatting(bot, message)) return;
+    // }
 
     //mongo db discord level
     let user

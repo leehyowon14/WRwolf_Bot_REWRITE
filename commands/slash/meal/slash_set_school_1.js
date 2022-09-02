@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('discordjs');
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, SlashCommandBuilder } = require("discord.js");
 const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 const set_school_2 = require('./module/set_school_2')
 const School = require('school-kr')
@@ -18,10 +17,12 @@ module.exports = {
           .addStringOption(option =>
             option.setName('학교타입')
               .setDescription("병설유치원, 초등학교, 중학교, 고등학교 중 선택해주세요.")
-              .addChoice('병설유치원', '병설유치원')
-              .addChoice('초등학교', '초등학교')
-              .addChoice('중학교', '중학교')
-              .addChoice('고등학교', '고등학교')
+              .addChoices(
+                {name: '병설유치원', value: '병설유치원'},
+                {name: '초등학교', value: '초등학교'},
+                {name: '중학교', value: '중학교'},
+                {name: '고등학교', value: '고등학교'}
+              )
               .setRequired(true)
           ),
 

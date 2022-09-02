@@ -8,10 +8,14 @@ module.exports = async (bot, emoji) => {
         let embed = new EmbedBuilder()
         .setColor('#ED4245')
         .setTitle('Emoji Log')
-        .addField('Log-Type', 'Emoji Deleted')
-        .addField('Emoji Name:', emoji.name)
-        .addField('Emoji Type:', gif)
-        .addField('Emoji:', emoji.url)
+        .addFields(
+            [
+                {name: 'Log-Type', value: 'Emoji Deleted'},
+                {name: 'Emoji Name:', value: emoji.name},
+                {name: 'Emoji Type:', value: gif},
+                {name: 'Emoji:', value: emoji.url}
+            ]
+        )
         .setTimestamp()
         sysch.send({ embeds: [embed] })
     }

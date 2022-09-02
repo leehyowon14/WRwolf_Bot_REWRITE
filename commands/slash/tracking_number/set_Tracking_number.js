@@ -10,13 +10,15 @@ module.exports = {
                 .setDescription(
                     '택배사를 선택하여 주세요.'
                 )
-                .addChoice('CJ 대한통운', 'kr.cjlogistics')
-				.addChoice('롯데택배', 'kr.lotte')
-			    .addChoice('우체국 택배', 'kr.epost')
-                .addChoice('GS Postbox 택배', 'kr.cvsnet')
-                .addChoice('CU 편의점 택배', 'kr.cupost')
-                .addChoice('한진택배', 'kr.hanjin')
-                .addChoice('로젠 택배', 'kr.logen')       
+                .addChoices(
+                    {name:'CJ 대한통운', value: 'kr.cjlogistics'},
+    				{name:'롯데택배', value: 'kr.lotte'},
+	    		    {name:'우체국 택배', value: 'kr.epost'},
+                    {name:'GS Postbox 택배', value: 'kr.cvsnet'},
+                    {name:'CU 편의점 택배', value: 'kr.cupost'},
+                    {name:'한진택배', value: 'kr.hanjin'},
+                    {name: '로젠 택배', value: 'kr.logen'}
+                )
                 .setRequired(true)
         )
         .addIntegerOption(option =>

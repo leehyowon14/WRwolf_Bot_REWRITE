@@ -1,12 +1,12 @@
-const { Client, GatewayIntentBits, Partials } = require("discord.js");
+const { Client, Collection } = require("discord.js");
 const config = require("./config/config.json");
 const bot = new Client({
-        intents: new IntentsBitField(32767)
+        intents: 32767
     }
 );
 require('./util/misc.js')
 bot.config = require("./config/config.json")
-let token = 'OTQ2NjMwMzIwNzM4OTUxMjQ4.YhhgMA.e6g-qavPWVhEnfTG_2j6fuNNd8M'
+let token = 'OTQ2NzU3MTEwNTIyMzQ3NTgx.G4by_8.Q4ye3UKS_YxqLrn4x2p3RgUPVxhpDOV-ehRzGQ' // test bot token
 global.token = token
 let prefix = '!';
 global.prefix = prefix;

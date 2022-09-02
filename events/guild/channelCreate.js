@@ -5,9 +5,14 @@ module.exports = async (bot, channel) => {
         let embed = new EmbedBuilder()
         .setColor('#57F287')
         .setTitle('Channel Log')
-        .addField('Log-Type', 'Channel Create')
-        .addField('Channel Name:', channel.name)
-        .addField('Channel Type:', channel.type.toString())
+        .addFields(
+            [
+                {name: 'Log-Type', value: 'Channel Create'},
+                {name: 'Channel Name', value: channel.name},
+                {name: 'Channel Type', value: channel.type.toString()}
+
+            ]
+        )
         .setTimestamp()
         sysch.send({ embeds: [embed] })
     }

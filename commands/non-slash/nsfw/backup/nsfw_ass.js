@@ -3,14 +3,14 @@ const axios = require('axios');
 
 module.exports = {
     config: {
-        name: `boobs`,
-        aliases: [`${prefix}boobs`],
+        name: `ass`,
+        aliases: [`${prefix}ass`],
         description: "",
         usage: "",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-    //Checks channel for nsfw
+  //Checks channel for nsfw
    
         if (!message.channel.nsfw) {
             message.react('💢');
@@ -19,15 +19,15 @@ module.exports = {
         }
         let response = await axios({
             method: 'get',
-            url: `https://nekobot.xyz/api/image?type=boobs`,
+            url: `https://www.reddit.com/r/ass/random.json?limit=1`,
         });
         if (response.status !== 200) return message.channel.send("api 서버 오류");
-        av = response.data.message
+        av = response.data.val.body[0].data.children[0].data.url
 
-        let embed = new Discord.MessageEmbed()
-            .setTitle("boobs")
+          let embed = new Discord.EmbedBuilder()
+            .setTitle("ass")
             .setImage(av)
             .setColor(`#FF0000`)
         message.channel.send({ embeds: [embed] });
     }
-};
+}

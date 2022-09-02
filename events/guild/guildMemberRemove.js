@@ -11,8 +11,12 @@ module.exports = async (bot, member) => {
     let embed = new EmbedBuilder()
     .setColor('#ED4245')
     .setTitle('User Log')
-    .addField('Log-Type', 'User leaves')
-    .addField('user:', user)
+    .addFields(
+        [
+            {name: 'Log-Type', value: 'User leaves'},
+            {name: 'user:', value: user}
+        ]
+    )
     .setTimestamp()
     sysch.send({ embeds: [embed] })
     }
@@ -24,10 +28,13 @@ module.exports = async (bot, member) => {
         if(sysch) {
             let embed = new EmbedBuilder()
             .setColor('#ED4245')
-            .setTitle('')
-            .addField('Log-Type', 'banned user')
-            .addField('user:', member.user.tag)
-            .addField('reason:', '뮤트상태에서 서버 퇴장')
+            .addFields(
+                [
+                    {name: 'Log-Type', value: 'banned user'},
+                    {name: 'user:', value: member.user.tag},
+                    {name: 'reason:', value: '뮤트상태에서 서버 퇴장'}
+                ]
+            )
             .setTimestamp()
             sysch.send({ embeds: [embed] })
         }

@@ -7,9 +7,13 @@ module.exports = async (bot, ban) => {
         let embed = new EmbedBuilder()
         .setColor('#57F287')
         .setTitle('User Unban Log')
-        .addField('Log-Type', 'User Unbanned')
-        .addField('User:', ban.user.tag)
-        .addField('Reason:', banReason)
+        .addFields(
+            [
+                {name: 'Log-Type', value: 'User Unbanned'},
+                {name: 'User:', value: ban.user.tag},
+                {name: 'Reason:', value: banReason}
+            ]
+        )
         .setTimestamp()
         sysch.send({ embeds: [embed] })
     }

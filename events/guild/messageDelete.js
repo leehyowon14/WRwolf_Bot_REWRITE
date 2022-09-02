@@ -18,9 +18,9 @@ module.exports = async (bot, message) => {
         isUserUseProtection = user.is_Activated 
     }
 
-    await message.guild.fetchAuditLogs().then(audit => {
-        del_u = audit.entries.first().executor.tag
-    })
+    // await message.guild.fetchAuditLogs().then(audit => {
+    //     del_u = audit.entries.first().executor.tag
+    // })
 
     let embed
 
@@ -31,10 +31,14 @@ module.exports = async (bot, message) => {
                 embed = new EmbedBuilder()
                     .setTitle('Chatting Log')
                     .setColor('#5865F2')
-                    .addField('Log-Type', 'Deleted Message')
-                    .addField('Message By:', message.author.tag)
-                    .addField('Deleated By:', del_u)
-                    .addField('Channel:', message.channel.name)
+                    .addFields(
+                        [
+                            {name: 'Log-Type', value: 'Deleted Message'},
+                            {name: 'Message By:', value: message.author.tag},
+                            //{name: 'Deleated By:', value: del_u}
+                            {name: 'Channel:', value: message.channel.name}
+                        ]
+                    )
                     .setFooter({ text: message.author.tag, iconURL: img })
                     .setTimestamp()
 
@@ -49,11 +53,15 @@ module.exports = async (bot, message) => {
                 embed = new EmbedBuilder()
                     .setTitle('Chatting Log')
                     .setColor('#5865F2')
-                    .addField('Log-Type', 'Deleted Message')
-                    .addField('Message By:', message.author.tag)
-                    .addField('Deleated By:', del_u)
-                    .addField('Channel:', message.channel.name)
-                    .addField('Message:', content)
+                    .addFields(
+                        [
+                            {name: 'Log-Type', value: 'Deleted Message'},
+                            {name: 'Message By:', value: message.author.tag},
+                            //{name: 'Deleated By:', value: del_u}
+                            {name: 'Channel:', value: message.channel.name},
+                            {name: 'Message:', value: content}
+                        ]
+                    )
                     .setFooter({ text: message.author.tag, iconURL: img })
                     .setTimestamp()
             }
@@ -72,11 +80,15 @@ module.exports = async (bot, message) => {
         embed = new EmbedBuilder()
             .setTitle('Chatting Log')
             .setColor('#5865F2')
-            .addField('Log-Type', 'Deleted Message')
-            .addField('Message By:', message.author.tag)
-            .addField('Deleated By:', del_u)
-            .addField('Channel:', message.channel.name)
-            .addField('Message:', content)
+            .addFields(
+                [
+                    {name: 'Log-Type', value: 'Deleted Message'},
+                    {name: 'Message By:', value: message.author.tag},
+                    //{name: 'Deleated By:', value: del_u}
+                    {name: 'Channel:', value: message.channel.name},
+                    {name: 'Message:', value: content}
+                ]
+            )
             .setFooter({ text: message.author.tag, iconURL: img })
             .setTimestamp()
     }

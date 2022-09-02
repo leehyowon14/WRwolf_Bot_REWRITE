@@ -5,9 +5,13 @@ module.exports = async (bot, thread) => {
         let embed = new EmbedBuilder()
         .setColor('#FFFFFF')
         .setTitle('Thread Log')
-        .addField('Log-Type', 'Thread Deleted')
-        .addField('name:', thread.name)
-        .addField('creater:', bot.users.cache.get(thread.ownerId).tag)
+        .addFields(
+            [
+                { name:'Log-Type', value: 'Thread Deleted'},
+                { name: 'name:', value: thread.name},
+                { name: 'creater:', value: bot.users.cache.get(thread.ownerId).tag},
+            ]
+        )
         .setTimestamp()
         sysch.send({ embeds: [embed] })
     }

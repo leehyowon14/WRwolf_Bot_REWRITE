@@ -80,12 +80,16 @@ module.exports = {
         let embed = new EmbedBuilder()
             .setColor('#5865F2')
             .setTitle('HITOMI HELPER')
-            .addField('제목', `${title}`)
-            .addField('언어', `${languages}`)
-            .addField('아티스트', `${artists}`)
-            .addField('히토미 링크', `https://hitomi.la/galleries/${number}.html`)
-            .addField('태그', `${tags}`)
-            .addField('\u200B', '\u200B')
+            .addFields(
+                [
+                    {name:'제목', value: `${title}`},
+                    {name:'언어', value: `${languages}`},
+                    {name:'아티스트', value: `${artists}`},
+                    {name:'히토미 링크', value: `https://hitomi.la/galleries/${number}.html`},
+                    {name:'태그', value: `${tags}`},
+                    {name:'\u200B', value: '\u200B'}
+                ]
+            )
             .setTimestamp()
             .setFooter({text:'Developed by sG.wolf#5732'})
 

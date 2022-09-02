@@ -5,8 +5,12 @@ module.exports = async (bot, member) => {
         let embed = new EmbedBuilder()
         .setColor('#57F287')
         .setTitle('User Log')
-        .addField('Log-Type', 'new User')
-        .addField('user:', member.user.toString())
+        .addFields(
+            [
+                {name: 'Log-Type', value: 'new User'},
+                {name: 'user:', value: member.user.toString()}
+            ]
+        )
         .setTimestamp()
         sysch.send({ embeds: [embed] })
     }
