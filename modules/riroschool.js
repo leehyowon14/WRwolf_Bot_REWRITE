@@ -3,7 +3,7 @@
 
 //Use https://company.rirosoft.com/school_search.php?keyword=(학교명)
 
-const axios = request("axios");
+const axios = require("axios");
 
 module.exports = {
     search: async (SchoolName) => {

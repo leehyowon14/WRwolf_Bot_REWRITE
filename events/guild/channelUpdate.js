@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, ChannelType } = require("discord.js");
 module.exports = async (bot, oldChannel, newChannel) => {
     const sysch = oldChannel.guild.systemChannel
     if (sysch) {

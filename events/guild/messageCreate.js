@@ -1,5 +1,5 @@
-const moment = require('moment-timezone');
-const forbiddenWord = require('../../util/forbiddenWord.json');
+// const moment = require('moment-timezone');
+// const forbiddenWord = require('../../util/forbiddenWord.json');
 const GuildRank = require('../../db/rank');
 
 // function checkContinuousChatting(bot, message) {
@@ -186,6 +186,5 @@ module.exports = async (bot, message) => {
     if (commandfile) {
         commandfile.run(bot, message, args)
     }
-
 }
 
