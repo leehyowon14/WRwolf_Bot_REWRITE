@@ -24,23 +24,38 @@ module.exports = {
                 data = data.body
 
                 let array = []
+                let obj = {
+                    id: 0,
+                    alt: '',
+                    url: '',
+                    createDate: ''
+                }
 
                 data.illustManga.data.forEach((object) => {
                     let date_split = object.createDate.split("T")
-                    object.createDate = date_split[0] + " " + date_split[1].split("+")[0]
-                    array.push(object)
+                    obj.id = object.id
+                    obj.alt = object.alt
+                    obj.url = object.url
+                    obj.createDate = date_split[0] + " " + date_split[1].split("+")[0]
+                    array.push(obj)
                 })
 
                 data.popular.recent.forEach((object) => {
                     let date_split = object.createDate.split("T")
-                    object.createDate = date_split[0] + " " + date_split[1].split("+")[0]
-                    array.push(object)
+                    obj.id = object.id
+                    obj.alt = object.alt
+                    obj.url = object.url
+                    obj.createDate = date_split[0] + " " + date_split[1].split("+")[0]
+                    array.push(obj)
                 })
 
                 data.popular.permanent.forEach((object) => {
                     let date_split = object.createDate.split("T")
-                    object.createDate = date_split[0] + " " + date_split[1].split("+")[0]
-                    array.push(object)
+                    obj.id = object.id
+                    obj.alt = object.alt
+                    obj.url = object.url
+                    obj.createDate = date_split[0] + " " + date_split[1].split("+")[0]
+                    array.push(obj)
                 })
                 return array
             })
