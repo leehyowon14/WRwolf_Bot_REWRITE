@@ -20,7 +20,7 @@ module.exports = {
                 {name:"키 / 혈액형 / 발사이즈", value:"164cm / A / 225mm", inline: true},
                 {name:"전투 능력", value:"Armamenter(무기 능력자)"},
             )
-            .setFooter({text: "2000.01.01"})
+            .setFooter({text: "2001.01.01"})
             .setTimestamp()
         message.reply({embeds: [embed]});
     }
