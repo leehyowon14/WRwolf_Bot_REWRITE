@@ -43,7 +43,7 @@ module.exports = {
             let file = new AttachmentBuilder(response.data, {name: `FILE.${ext}`})
 
             let embed = new EmbedBuilder()
-                .setAuthor({ name: obj.alt, iconUrl: obj.profileImageUrl })
+                .setAuthor({ name: obj.alt })
                 .setTitle("Kurokawa Aakane's image")
                 .setDescription(`pixiv id: ${obj.id}`)
                 .setImage(`attachment://FILE.${ext}`)
