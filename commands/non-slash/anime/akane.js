@@ -39,7 +39,7 @@ module.exports = {
             let embed = new EmbedBuilder()
                 .setAuthor({ name: obj.alt })
                 .setTitle("Kurokawa Aakane's image")
-                .setDescription(`pixiv id: ${obj.id}`)
+                .setDescription(`pixiv id: [${obj.id}](https://www.pixiv.net/artworks/${obj.id})`)
                 .setImage(`attachment://FILE.${ext}`)
                 .setColor(`#2C278F`)
                 .setTimestamp()
