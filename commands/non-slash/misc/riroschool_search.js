@@ -1,21 +1,20 @@
 const riro = require("../../../modules/riroschool.js")
-const EmbedBuilder = require("discord.js")
+const { EmbedBuilder } = require("discord.js")
 
 module.exports = {
     config: {
-        name: "qeqe",
-        aliases: [`ㅂㄷㅂㄷ`],
+        name: "리로스쿨검색",
+        aliases: [`riroschool`],
         description: "ㅂㄷㅂㄷ",
         usage: "ㅂㄷㅂㄷ",
         accessableby: "Members",
     },
     run: async (bot, message, args) => {
-        if (args[0]) {
-            return;
-        }
 
         //[{name: 이름, adress: 주소, link: 링크}, {name: 이름2, adress: 주소2, link: 링크2}, ...]
         await riro.search(args.join(' ')).then(x => result = x)
+
+        console.log(result)
 
         let embed = new EmbedBuilder()
             .setTitle("검색결과")
