@@ -39,18 +39,18 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "너는 이 명령을 수행할 권한이 없어." })
-        fetchAllMessages(bot).then(msgs => {
-          let obj = {"messages" : msgs}
-          let json = JSON.stringify(obj);
-          fs.writeFile('./commands/non-slash/aespa/json/aespa.json', json, 'utf-8', function(error) {
-            console.log('write end!');
-          });
-        })
+        let msgs = await fetchAllMessages(bot)
         
+        let obj = { "messages": msgs }
+        let json = JSON.stringify(obj);
+        await fs.writeFile('./commands/non-slash/aespa/json/aespa.json', json, 'utf-8', function(error) {
+          console.log('write end!');
+        });
+      
         let embed = new EmbedBuilder()
-          .setTitle("aespa image update.")
-          .setDescription(`aespa's image has been updated successfully`)
-          .setColor('#57F287')
+            .setTitle("aespa image update.")
+            .setDescription(`aespa's image has been updated successfully`)
+            .setColor('#57F287')
         message.reply({ embeds: [embed] })
     }
 }

@@ -2,7 +2,7 @@ const fs = require('fs');
 
 module.exports = {
     config: {
-        name: `${prefix}지젤`,
+        name: `지젤`,
         aliases: [`${prefix}지구젤리`, `젤아`, '지젤이'],
         description: "윈터 & 카리나 짤",
         usage: "윈리나",

@@ -8,6 +8,5 @@ module.exports = {
         });
 
         return res.data;
-
     }
 }
