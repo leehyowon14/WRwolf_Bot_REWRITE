@@ -148,14 +148,14 @@ async function changeXP(message, XP, old_xp, user_level) {
 
 module.exports = async (bot, message) => {
     if(message.author.bot) return;
-    // if(message.channel.type == "dm") {
-    //     if(message.author.id == adminUserId) return;
+    if(message.channel.type == "dm") {
+        if(message.author.id == adminUserId) return;
 
-    //     let msg = `${message.author}이(가) 메세지를 보냈습니다.\n${message.content}`;
-    //     bot.users.cache.find(x => x.id == adminUserId).send(msg)
+        let msg = `${message.author}이(가) 메세지를 보냈습니다.\n${message.content}`;
+        bot.users.cache.find(x => x.id == adminUserId).send(msg)
 
-    //     return;
-    // }
+        return;
+    }
     // if(message.guild.id == "1006930039876636672") {
     //     if(checkContinuousChatting(bot, message)) return;
     // }
