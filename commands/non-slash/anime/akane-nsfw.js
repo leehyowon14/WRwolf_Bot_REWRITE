@@ -13,7 +13,7 @@ module.exports = {
     run: async (bot, message, args) => {
         if (args[0]) {
             return;
-        } else if (message.channel.topic != "-짤방" && message.channel.type != "dm") {
+        } else if (message.channel.topic != "-짤방") {
             return;
         }
 
