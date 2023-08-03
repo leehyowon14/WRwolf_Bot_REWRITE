@@ -15,9 +15,6 @@ module.exports = {
         obj.sfw = await search(["黒川あかね"], false)
         obj.nsfw = await search(["黒川あかね"], true)
 
-        console.log(obj.sfw)
-        console.log(obj.nsfw)
-
         if (!obj.sfw || !obj.nsfw) return message.reply({ content: '에러! 다시 시도해주세요' })
 
         fs.writeFile('./commands/non-slash/anime/json/akane.json', JSON.stringify(obj), 'utf-8', function(error) {
