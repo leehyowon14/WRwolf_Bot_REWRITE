@@ -7,7 +7,7 @@ const axios = require("axios");
 
 module.exports = {
     search: async (SchoolName) => {
-        axios.get("https://company.rirosoft.com/school_search.php?keyword=" + SchoolName)
+        let res = await axios.get("https://company.rirosoft.com/school_search.php?keyword=" + SchoolName)
             .then(function (response) {
                 let json = response.data.data
                 
@@ -43,5 +43,7 @@ module.exports = {
                 console.log(error);
                 return false;
             });
+        
+        return res
     }
 }
