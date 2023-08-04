@@ -13,7 +13,7 @@ module.exports = {
         if (!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send({ content: "너는 이 명령을 수행할 권한이 없어." })
         let obj = {"sfw" : [], "nsfw" : []}
         obj.sfw = await search(["黒川あかね"], false)
-        obj.nsfw = await search(["黒川あかね"], true)
+        obj.nsfw = await search(["黒川あかね"], true, "ふたなり")
 
         if (!obj.sfw || !obj.nsfw) return message.reply({ content: '에러! 다시 시도해주세요' })
 
