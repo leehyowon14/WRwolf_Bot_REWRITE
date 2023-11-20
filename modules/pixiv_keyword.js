@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-module.exports = { //ふたなり
+module.exports = {
     search: async (keywords = [], nsfw=false, forbidden_tags=[]) => { //keywords: 검색할 키워드 (string || array), nsfw: nsfw 여부 (boolean), forbidden_tags: 금지 태그 (string || array)
         //https://www.pixiv.net/ajax/search/artworks/키워드?word=키워드&order=popular_d&mode=검색모드&p=1&s_mode=s_tag_full&type=all&lang=ko 검색모드: all/safe/r18
         if (keywords.length == 0) return false;
