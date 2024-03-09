@@ -24,11 +24,26 @@ module.exports = {
         let mentioned_user = message.mentions.members.first() || message.member;
         let user
 
-        user = await GuildRank.findOne({ user_id: mentioned_user.id, guild_id: message.guild.id })
+        if (message.member && args[0]) {
+            mentioned_user = parseInt(args[0])
+        } else {
+            mentioned_user = mentioned_user.id
+        }
+
+        try {
+            const memberExists = message.guild.members.cache.has(mentioned_user);
+            if (!memberExists || memberExists == NaN) {
+                return message.reply("해당 ID를 가진 멤버는 이 서버에 존재하지 않습니다.");
+            }
+        } catch (e) {
+            return message.reply("해당 ID를 가진 멤버는 이 서버에 존재하지 않습니다.");
+        }
+
+        user = await GuildRank.findOne({ user_id: mentioned_user || parseInt(args[0]), guild_id: message.guild.id })
     
         if(!user) {
             user = new GuildRank({
-                user_id: mentioned_user.id,
+                user_id: mentioned_user,
                 guild_id: message.guild.id,
                 level: 1,
                 xp: 0
