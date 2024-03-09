@@ -1,5 +1,6 @@
 const { EmbedBuilder, WebhookClient } = require("discord.js");
 const protex = require('../../db/protection.js')
+const protex_channel = require('../../db/protection_channel.js')
 
 const webhookClient = new WebhookClient({ url: 'https://discord.com/api/webhooks/946400164443197460/zQE06FdTCSAr9MWA1luGsapCZLGPPXaatvMvAkhYk2ec5iJzEv5q-sPZ0pUgsae2oOSo'})
 
@@ -10,12 +11,19 @@ module.exports = async (bot, message) => {
         return;
     }
 
-    let isUserUseProtection
+    let isUserUseProtection, isChannelUseProtection
     let user = await protex.findOne({user_id: message.author.id})
     if (!user) {
         isUserUseProtection = false
     } else {
         isUserUseProtection = user.is_Activated 
+    }
+
+    let channel = await protex_channel.findOne({channel_id: message.channel_id})
+    if (!channel) {
+        isChannelUseProtection = false
+    } else {
+        isChannelUseProtection = channel.is_Activated
     }
 
     // await message.guild.fetchAuditLogs().then(audit => {
@@ -103,6 +111,11 @@ module.exports = async (bot, message) => {
         }
         return;
     }
+
+    if (isChannelUseProtection) {
+        return
+    }
+
     message.guild.systemChannel.send({ embeds: [embed] })
  
     if([...message.attachments.values()].length > 0) {
