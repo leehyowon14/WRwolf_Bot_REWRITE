@@ -2,7 +2,7 @@ const mongoose = require('mongoose') //Schema setting
 
 const schema = mongoose.Schema;
 
-const Protection = new schema({
+const Protection_channel = new schema({
 
     channel_id: {
         type: Number, 
@@ -19,4 +19,4 @@ const Protection = new schema({
     }
 })
 
-module.exports = mongoose.model('Protection',Protection);
+module.exports = mongoose.model('Protection_channel',Protection_channel);
