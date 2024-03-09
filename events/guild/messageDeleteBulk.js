@@ -16,7 +16,7 @@ module.exports = async (bot, messages) => {
         isUserUseProtection = user.is_Activated 
     }
 
-    let channel = await protex_channel.findOne({channel_id: messages.first().channel_id})
+    let channel = await protex_channel.findOne({channel_id: messages.first().channelId})
     if (!channel) {
         isChannelUseProtection = false
     } else {

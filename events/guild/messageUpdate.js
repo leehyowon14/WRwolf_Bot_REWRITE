@@ -18,7 +18,7 @@ module.exports = async (bot, oldMessage, newMessage) => {
         isUserUseProtection = user.is_Activated 
     }
 
-    let channel = await protex_channel.findOne({channel_id: newMessage.channel_id})
+    let channel = await protex_channel.findOne({channel_id: newMessage.channelId})
     if (!channel) {
         isChannelUseProtection = false
     } else {
@@ -50,6 +50,6 @@ module.exports = async (bot, oldMessage, newMessage) => {
     if (isChannelUseProtection) {
         return
     }
-    
+
     newMessage.guild.systemChannel.send({ embeds: [embed] })
 }
