@@ -26,7 +26,7 @@ module.exports = {
             .setTitle(`사회에 가장 큰 위협 3가지`)
             .setImage(av)
             .setTimestamp()
-            .setFooter({ text: 'Developed by sG.wolf#5732' })
+            .setFooter({ text: 'Developed by Wonny._.lee#5732' })
         message.channel.send({ embeds: [embed] })
 
 	},

@@ -18,7 +18,7 @@ module.exports = {
                 .setAuthor({ name: '에러!'})
                 .setTitle('검색할 유저의 닉네임을 입력하여주세요')
                 .setTimestamp()
-                .setFooter({text: 'Developed by sG.wolf#5732'})
+                .setFooter({text: 'Developed by Wonny._.lee#5732'})
             message.channel.send({ embeds: [embed] })
             return;
         }
@@ -32,7 +32,7 @@ module.exports = {
                         .setAuthor({ name :`Search results for "${search}"` })
                         .addFields({name: "Error", value: `System Error`})
                         .setTimestamp()
-                        .setFooter({ text: 'Developed by sG.wolf' })
+                        .setFooter({ text: 'Developed by Wonny._.lee' })
                     message.channel.send({ embeds: [embed] })
                     return
                 }
@@ -42,7 +42,7 @@ module.exports = {
                     .addFields({name: "SCID", value: `${data}`})
                     .setThumbnail(`https://prod.cloud.rockstargames.com/members/sc/8501/${data}/publish/gta5/mpchars/0.png`)
                     .setTimestamp()
-                    .setFooter({ text: 'Developed by sG.wolf' })
+                    .setFooter({ text: 'Developed by Wonny._.lee' })
                 message.channel.send({ embeds: [embed] })
             console.log(response);
             })
@@ -52,7 +52,7 @@ module.exports = {
                     .setAuthor({ name :`Search results for "${search}"` })
                     .addFields({name: "Error", value: `System Error`})
                     .setTimestamp()
-                    .setFooter({ text: 'Developed by sG.wolf' })
+                    .setFooter({ text: 'Developed by Wonny._.lee' })
                 message.channel.send({ embeds: [embed] })
                 console.log(error);
             })

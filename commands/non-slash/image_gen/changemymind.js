@@ -22,7 +22,7 @@ module.exports = {
 			.setTitle(`어디 한번 내 마음을 바꿔봐`)
             .setImage(av)
             .setTimestamp()
-            .setFooter({ text: 'Developed by sG.wolf#5732' })
+            .setFooter({ text: 'Developed by Wonny._.lee#5732' })
         message.channel.send({ embeds: [embed] })
 
 	},

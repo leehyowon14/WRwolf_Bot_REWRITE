@@ -43,7 +43,7 @@ module.exports = {
                 {name: `로그`, value:`짤방기능 사용을 위해서 채팅방의 주제를 "-짤방"으로 설정하여 주세요`},
             )
             .setTimestamp()
-            .setFooter({ text: 'Developed by sG.wolf#5732', iconURL: img })
+            .setFooter({ text: 'Developed by Wonny._.lee#5732', iconURL: img })
 
         message.channel.send({ embeds: [embed] })
     }

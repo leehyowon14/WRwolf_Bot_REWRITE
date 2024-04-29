@@ -27,7 +27,7 @@ module.exports = {
                 {name: `${prefix}trumptweet/${prefix}트럼프트윗 [영어]`, value: `어디 한번 바꿔보시지`, inline: true}
             )
             .setTimestamp()
-            .setFooter({ text: `Developed by sG.wolf#5732`, iconURL: img })
+            .setFooter({ text: `Developed by Wonny._.lee#5732`, iconURL: img })
 
         message.channel.send({ embeds: [embed] })
     }

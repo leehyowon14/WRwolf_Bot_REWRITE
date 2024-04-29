@@ -26,7 +26,7 @@ module.exports = {
             .setTitle(`왜 일본은 모든 것을 애니로 바꾸려 하는거야? (절레절레)`)
             .setImage(av)
             .setTimestamp()
-            .setFooter({ text: 'Developed by sG.wolf#5732' })
+            .setFooter({ text: 'Developed by Wonny._.lee#5732' })
         message.channel.send({ embeds: [embed] })
 
 	},

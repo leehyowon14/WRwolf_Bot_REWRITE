@@ -27,7 +27,7 @@ module.exports = {
             .setUrl('https://namu.wiki/w/Get%20stick%20bugged%20lol')
             .setImage(av)
             .setTimestamp()
-            .setFooter({ text: 'Developed by sG.wolf#5732' })
+            .setFooter({ text: 'Developed by Wonny._.lee#5732' })
         message.channel.send({ embeds: [embed] })
 
 	},

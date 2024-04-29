@@ -28,7 +28,7 @@ module.exports = {
                 {name: '\u200B', value: '\u200B'}
             )
             .setTimestamp()
-            .setFooter({ text:'Developed by sG.wolf#5732', iconURL: img })
+            .setFooter({ text:'Developed by Wonny._.lee#5732', iconURL: img })
 
         message.channel.send({ embeds: [embed] })
     }

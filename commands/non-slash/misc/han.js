@@ -24,7 +24,7 @@ module.exports = {
                             .setAuthor({ name :`에러!` })
                             .addFields({name: "Error", value: error})
                             .setTimestamp()
-                            .setFooter({ text: 'Developed by sG.wolf' })
+                            .setFooter({ text: 'Developed by Wonny._.lee' })
                         return message.channel.send({ embeds: [embed] })
                     }
                     let embed = new EmbedBuilder()
@@ -41,7 +41,7 @@ module.exports = {
                     .setAuthor({ name :`에러!` })
                     .addFields({name: "Error", value: error})
                     .setTimestamp()
-                    .setFooter({ text: 'Developed by sG.wolf' })
+                    .setFooter({ text: 'Developed by Wonny._.lee' })
                 message.channel.send({ embeds: [embed] })
                 console.log(error);
             });
