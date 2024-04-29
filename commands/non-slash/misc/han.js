@@ -30,6 +30,7 @@ module.exports = {
                     let embed = new EmbedBuilder()
                         .setColor('#4fe8a3')
                         .setTitle('한강 수온')
+                        .setDescription(`측정 위치: 노량진, pH 농도: ${river.PH}`)
                         .addFields({name: ':droplet: ' + river.TEMP, value: '측정 시각: ' + river.LAST_UPDATE, inline: true})
                     return message.reply({ embeds: [embed] })
                 }
