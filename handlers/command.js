@@ -21,7 +21,7 @@ module.exports = (bot, reload = false) => {
             }
         };
     };
-    ["misc", "nsfw", "mod", "meal", "protection", "aespa", "image", "anime"].forEach(x => non_slash_load(x));
+    ["misc", "nsfw", "mod", "meal", "protection", "aespa", "image", "anime", "gomoku"].forEach(x => non_slash_load(x));
 
     const commands = [];
     const slash_load = dirs => {
@@ -41,7 +41,7 @@ module.exports = (bot, reload = false) => {
         try {
             console.log('Started refreshing application (/) commands.');
         
-            await rest.put(Routes.applicationCommands("946630320738951248"), {
+            await rest.put(Routes.applicationCommands("946757110522347581"), {
               body: commands
             });
         
