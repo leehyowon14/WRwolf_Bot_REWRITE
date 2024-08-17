@@ -1,15 +1,20 @@
+const { EmbedBuilder } = require('discord.js');
+
 module.exports = async (bot, interaction) => {
-  if (interaction.type === InteractionType.ApplicationCommand) {
+    if (!interaction.isChatInputCommand()) return;
+
+    const command = bot.commands.get(interaction.commandName);
+
+    if (!command) return;
+
     try {
-      await interaction.client.commands
-        .get(interaction.commandName)
-        .execute(interaction);
+        await command.execute(interaction);
     } catch (error) {
-      console.error(error);
-      return interaction.reply({
-        content: 'There was an error while executing this command!',
-        ephemeral: true
-      });
+        console.error(error);
+        const errorEmbed = new EmbedBuilder()
+            .setColor('Red')
+            .setTitle('에러가 발생했습니다!')
+            .setDescription(`${error.message}`);
+        await interaction.reply({ embeds: [errorEmbed], ephemeral: true });
     }
- }
 }
